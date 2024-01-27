@@ -27,7 +27,7 @@ Formatter.config = function()
 		format_on_save = format_on_save_config,
 	})
 
-	vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+	vim.keymap.set("n", "<leader>p", function()
 		conform.format(format_on_save_config)
 	end)
 end
