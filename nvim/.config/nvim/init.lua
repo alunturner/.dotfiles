@@ -19,8 +19,5 @@ vim.g.mapleader = leader
 vim.g.maplocalleader = leader
 vim.keymap.set({"n","v"}, leader, "<nop>")
 
--- Use a protected call so we don't error out on first use
-local ok, lazy = pcall(require, "lazy")
-if not ok then
-    return
-end
+-- STEP 1 - INSTALL EXTERNAL DEPENDENCIES
+require("lazy").setup("plugins")
