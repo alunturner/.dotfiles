@@ -4,6 +4,7 @@ local Lsp = {
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
 }
 
@@ -11,6 +12,7 @@ Lsp.config = function()
 	local lspconfig = require("lspconfig")
 	local mason = require("mason")
 	local mason_lspconfig = require("mason-lspconfig")
+	local mason_tool_installer = require("mason-tool-installer")
 
 	-- https://github.com/williamboman/mason.nvim/tree/dcd0ea30ccfc7d47e879878d1270d6847a519181?tab=readme-ov-file#configuration
 	mason.setup({
@@ -30,6 +32,15 @@ Lsp.config = function()
 			"lua_ls",
 		},
 		automatic_installation = true,
+	})
+
+	-- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim?tab=readme-ov-file#configuration
+	mason_tool_installer.setup({
+		ensure_installed = {
+			"prettierd",
+			"stylua",
+			"eslint_d",
+		},
 	})
 
 	-- after setting up mason and mason lsp-config, we can configure lsp
