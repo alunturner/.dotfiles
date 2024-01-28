@@ -4,6 +4,7 @@ local Treesitter = {
 	build = ":TSUpdate",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
+		"nvim-treesitter/nvim-treesitter-context",
 	},
 }
 
@@ -48,6 +49,12 @@ Treesitter.config = function()
 				},
 			},
 		},
+	})
+
+	require("treesitter-context").setup({
+		max_lines = 1,
+		trim_scope = "inner",
+		mode = "topline",
 	})
 end
 
