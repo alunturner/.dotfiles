@@ -1,6 +1,6 @@
 local Autocomplete = {
 	"echasnovski/mini.completion",
-	version = false,
+	version = "*",
 }
 
 Autocomplete.config = function()
