@@ -1,4 +1,5 @@
 {
+  "carbon.nvim": { "branch": "master", "commit": "9670efb032c4a43c5aa32a0a7ae56afdbf3c275c" },
   "conform.nvim": { "branch": "master", "commit": "d99b75b4aedf0e912f41c5740a7267de739cddac" },
   "lazy.nvim": { "branch": "main", "commit": "aedcd79811d491b60d0a6577a9c1701063c2a609" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "b9084b1f42f790d6230dc66dbcb6bcc35b148552" },
