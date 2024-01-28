@@ -25,4 +25,5 @@ Finder.config = function()
 	vim.keymap.set("n", "gt", builtin.lsp_type_definitions)
 	vim.keymap.set("n", "gi", builtin.lsp_implementations)
 end
+
 return { Finder }
