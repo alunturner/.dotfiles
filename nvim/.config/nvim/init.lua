@@ -43,7 +43,7 @@ map("n", "<Down>", "<C-w>j")
 map("n", "<Up>", "<C-w>k")
 map("n", "<Right>", "<C-w>l")
 
--- When pasting over a selection, maintain the original past register
+-- When pasting over a selection, maintain the original paste register
 map("v", "p", '"_dP')
 
 -- Make Y act like C and D
