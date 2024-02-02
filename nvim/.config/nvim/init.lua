@@ -50,3 +50,37 @@ map("v", "p", '"_dP')
 map("n", "Y", "y$")
 
 -- STEP 4 - SETTINGS
+local o = vim.opt
+
+-- Tabs/spaces
+o.expandtab = true
+o.shiftwidth = 4
+o.tabstop = 4
+o.softtabstop = 4
+o.smartindent = true
+-- Clipboard
+o.clipboard = "unnamedplus"
+-- Search
+o.ignorecase = true
+o.smartcase = true
+o.showmatch = true
+-- New windows
+o.splitbelow = true
+o.splitright = true
+-- Text display
+o.breakindent = true
+o.scrolloff = 5
+o.sidescrolloff = 5
+o.colorcolumn = "80"
+o.cursorline = true
+o.signcolumn = "yes"
+o.number = true
+-- Other
+o.termguicolors = true
+o.undofile = true
+o.updatetime = 500
+o.timeoutlen = 500
+o.jumpoptions = "stack"
+-- Lines
+o.laststatus = 0
+o.winbar = "%=%m %f"
