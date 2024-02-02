@@ -26,7 +26,7 @@ local function map(mode, lhs, rhs)
 	vim.keymap.set(mode, lhs, rhs, { silent = true })
 end
 
--- VSCode style shifting around of lines in visual mod3
+-- VSCode style shifting around of lines in visual mode
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
 
