@@ -21,3 +21,8 @@ vim.keymap.set({ "n", "v" }, leader, "<nop>")
 
 -- STEP 1 - INSTALL EXTERNAL DEPENDENCIES
 require("lazy").setup("plugins")
+
+-- STEP 2 - KEY REMAPS
+local function map(mode, lhs, rhs)
+	vim.keymap.set(mode, lhs, rhs, { silent = true })
+end
