@@ -36,6 +36,8 @@ Treesitter.config = function()
 					["ip"] = "@parameter.inner",
 					["af"] = "@function.outer",
 					["if"] = "@function.inner",
+					["at"] = "@tag.outer",
+					["it"] = "@tag.inner",
 				},
 			},
 			move = {
