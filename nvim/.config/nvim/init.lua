@@ -48,3 +48,5 @@ map("v", "p", '"_dP')
 
 -- Make Y act like C and D
 map("n", "Y", "y$")
+
+-- STEP 4 - SETTINGS
