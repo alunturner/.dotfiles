@@ -1,4 +1,3 @@
--- STEP 0 - INSTALL PACKAGE MANAGER AND SET LEADER KEY (SPACE)
 -- Install lazy if not installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -26,3 +25,26 @@ require("lazy").setup("plugins")
 local function map(mode, lhs, rhs)
 	vim.keymap.set(mode, lhs, rhs, { silent = true })
 end
+
+-- VSCode style shifting around of lines in visual mod3
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Quick way to remove highlighting
+map("n", "<Esc>", "<cmd>nohl<cr>")
+
+-- Keep cursor centred when moving the screen
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+
+-- Window navigation
+map("n", "<Left>", "<C-w>h")
+map("n", "<Down>", "<C-w>j")
+map("n", "<Up>", "<C-w>k")
+map("n", "<Right>", "<C-w>l")
+
+-- When pasting over a selection, maintain the original past register
+map("v", "p", '"_dP')
+
+-- Make Y act like C and D
+map("n", "Y", "y$")
