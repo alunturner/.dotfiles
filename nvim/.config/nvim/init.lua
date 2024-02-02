@@ -49,6 +49,15 @@ map("v", "p", '"_dP')
 -- Make Y act like C and D
 map("n", "Y", "y$")
 
+-- Don't move the cursor when using J
+map("n", "J", "mzJ`z")
+
+-- Quickfix and loclist
+map("n", "<leader>qk", "<cmd>cnext<CR>zz")
+map("n", "<leader>qj", "<cmd>cprev<CR>zz")
+map("n", "<leader>lk", "<cmd>lnext<CR>zz")
+map("n", "<leader>lj", "<cmd>lprev<CR>zz")
+
 -- STEP 4 - SETTINGS
 local o = vim.opt
 
@@ -78,6 +87,7 @@ o.number = true
 -- Other
 o.termguicolors = true
 o.undofile = true
+o.swapfile = false
 o.updatetime = 500
 o.timeoutlen = 500
 o.jumpoptions = "stack"
