@@ -40,6 +40,8 @@ map("v", "p", '"_dP')
 map("n", "Y", "y$")
 -- Don't move the cursor when using J
 map("n", "J", "mzJ`z")
+-- File Browser
+map("n", "<leader>e", "<cmd>Ex<cr>")
 
 -- STEP 4 - SETTINGS
 local o = vim.opt
