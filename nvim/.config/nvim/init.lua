@@ -78,3 +78,6 @@ o.jumpoptions = "stack"
 -- Lines
 o.laststatus = 0
 o.winbar = "%=%m %f"
+
+-- STEP 5 - COLORSCHEME
+vim.cmd("colorscheme habamax")
