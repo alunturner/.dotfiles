@@ -1,29 +1,43 @@
 local Finder = {
-	"nvim-telescope/telescope.nvim",
-	tag = "0.1.5",
-	dependencies = { "nvim-lua/plenary.nvim" },
+    "ibhagwan/fzf-lua",
 }
 
+local function fzf_set(bind, picker)
+    -- see https://github.com/ibhagwan/fzf-lua?tab=readme-ov-file#commands
+    local prefix = "<cmd>lua require('fzf-lua')."
+    local suffix = "()<cr>"
+
+    vim.keymap.set("n", bind, prefix .. picker .. suffix);
+end
+
 Finder.config = function()
-	require("telescope").setup()
-	local builtin = require("telescope.builtin")
+    require("fzf-lua").setup({})
 
-	-- File Pickers
-	vim.keymap.set("n", "<leader>ff", builtin.find_files)
-	vim.keymap.set("n", "<leader>fs", builtin.live_grep)
-	vim.keymap.set("n", "<leader>fc", builtin.grep_string)
+    -- Buffers and Files
+    fzf_set("<leader>ff", "files")
+    fzf_set("<leader>fb", "buffers")
+    fzf_set("<leader>fc", "quickfix")
+    fzf_set("<leader>fl", "loclist")
 
-	-- Vim Pickers
-	vim.keymap.set("n", "<leader>fh", builtin.help_tags)
+    -- Search
+    fzf_set("<leader>fs", "grep_project")
+    fzf_set("<leader>fw", "grep_cword")
+    fzf_set("<leader>fW", "grep_cWORD")
 
-	-- LSP Pickers
-	vim.keymap.set("n", "<leader>d", builtin.diagnostics)
-	vim.keymap.set("n", "<leader>fo", builtin.lsp_document_symbols)
-	vim.keymap.set("n", "<leader>fO", builtin.lsp_dynamic_workspace_symbols)
-	vim.keymap.set("n", "gr", builtin.lsp_references)
-	vim.keymap.set("n", "gd", builtin.lsp_definitions)
-	vim.keymap.set("n", "gt", builtin.lsp_type_definitions)
-	vim.keymap.set("n", "gi", builtin.lsp_implementations)
+    -- LSP/Diagnostics
+    fzf_set("<leader>fd", "lsp_document_diagnostics")
+    fzf_set("<leader>fD", "lsp_workspace_diagnostics")
+    fzf_set("<leader>fo", "lsp_document_symbols")
+    fzf_set("<leader>fO", "lsp_workspace_symbols")
+    fzf_set("<leader>gr", "lsp_references")
+    fzf_set("<leader>gd", "lsp_definitions")
+    fzf_set("<leader>gD", "lsp_declarations")
+    fzf_set("<leader>gt", "lsp_typedefs")
+    fzf_set("<leader>gd", "lsp_definitions")
+
+    -- Misc
+    fzf_set("<leader>fh", "help_tags")
+    fzf_set("<leader>fco", "highlights")
 end
 
 return { Finder }

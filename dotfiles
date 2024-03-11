@@ -1,0 +1,13 @@
+tmux has-session -t dotfiles
+
+if [ $? != 0 ]; then 
+# create the session in the .dotfiles folder
+    tmux new-session -s dotfiles -n git -c ~/.dotfiles -d "lazygit"
+
+# add a window for the nvim instances and open them up
+    tmux new-window -n editor "cd tmux && nvim ."
+    tmux split-window -h "cd nvim/.config/nvim && nvim ."
+
+fi
+
+tmux attach -t dotfiles:editor
