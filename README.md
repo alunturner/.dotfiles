@@ -22,6 +22,13 @@
 - try to use single leader where possible, or consistent leader/modifiers if not possible, eg:
   - \_f => finder stuff, \_q => quickfix stuff etc.
   - \_<something>t => toggle <something>
+- look at netrw settings for default behavior
+  - let g:netrw_banner=0
+  - let g:netrw_browse_split=4
+  - let g:netrw_altv=0
+  - let g:netrw_liststyle=0
+- look at stay_centered (always keeps the cursor in the centre of the screen, like a typewriter!)
+- look at centerpad.nvim and no-neck-pain and then create an ultra basic centring plugin
 
 # Tmux TODO
 
