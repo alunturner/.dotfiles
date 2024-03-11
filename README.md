@@ -6,6 +6,10 @@
 
 # Nvim TODO
 
+- create a pax colour scheme using lush
+- remove vscode theme
+- use pax theme (when created)
+- remove treesitter context
 - look at nvim reactive to make mode be reflected by number/currentline
   - may then be able to remove the command line completely/move it somewhere more central on the view
   - this idea of moving cmd line may involve looking at dressing.nvim, or noice.nvim, or nui.nvim if doing custom job
@@ -17,7 +21,6 @@
 - look at arrow.nvim (navigation type thing)
 - look at corn.nvim (diagnostic display in a corner)
 - look at nvim-coverage (displays lcov data in the colour column)
-- look at eyelinr.nvim (highlights uniqe letters per line for improved f/t movement)
 - use leader remaps as the main nvim indicator
 - try to use single leader where possible, or consistent leader/modifiers if not possible, eg:
   - \_f => finder stuff, \_q => quickfix stuff etc.
@@ -25,5 +28,5 @@
 
 # Tmux TODO
 
-- ...setup tmux
 - could make a command to spawn a window running the jest tests on the current file
+- make a script that starts tmux for the dotfiles repo (probably lazygit, tmux and nvim configs opened with nvim)
