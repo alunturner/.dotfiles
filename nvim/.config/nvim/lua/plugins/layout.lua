@@ -3,13 +3,7 @@ local Layout = {
 }
 
 Layout.config = function()
-    require("no-neck-pain").setup({
-        buffers = {
-            wo = {
-                fillchars = "eob: "
-            }
-        }
-    })
+    require("no-neck-pain").setup({})
 end
 
 return { Layout }
