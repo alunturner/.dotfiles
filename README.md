@@ -17,7 +17,6 @@
 - remove mason/mason-lsp
 - checkout deathbeam's config (including autocomplete.nvim, potentially a good starting point for custom complete)
 - look at arrow.nvim (navigation type thing)
-- look at corn.nvim (diagnostic display in a corner)
 - look at nvim-coverage (displays lcov data in the colour column)
 - use leader remaps as the main nvim indicator
 - try to use single leader where possible, or consistent leader/modifiers if not possible, eg:
@@ -26,6 +25,7 @@
 
 # Tmux TODO
 
+- add the pax theme to tmux too
 - could make a command to spawn a window running the jest tests on the current file
 - add TPM (https://github.com/tmux-plugins/tpm)
 - add a pomodoro timer plugin
