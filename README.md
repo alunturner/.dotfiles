@@ -7,7 +7,6 @@
 # Nvim TODO
 
 - create a pax colour scheme using lush
-- remove vscode theme
 - use pax theme (when created)
 - remove treesitter context
 - look at nvim reactive to make mode be reflected by number/currentline
