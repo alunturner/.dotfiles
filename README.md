@@ -27,3 +27,6 @@
 # Tmux TODO
 
 - could make a command to spawn a window running the jest tests on the current file
+- add TPM (https://github.com/tmux-plugins/tpm)
+- add a pomodoro timer plugin
+- add a git branch display plugin
