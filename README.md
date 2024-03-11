@@ -8,7 +8,6 @@
 
 - create a pax colour scheme using lush
 - use pax theme (when created)
-- remove treesitter context
 - look at nvim reactive to make mode be reflected by number/currentline
   - may then be able to remove the command line completely/move it somewhere more central on the view
   - this idea of moving cmd line may involve looking at dressing.nvim, or noice.nvim, or nui.nvim if doing custom job
