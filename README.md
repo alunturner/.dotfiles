@@ -12,8 +12,6 @@
   - may then be able to remove the command line completely/move it somewhere more central on the view
   - this idea of moving cmd line may involve looking at dressing.nvim, or noice.nvim, or nui.nvim if doing custom job
   - (example of how to build using nui)[https://muniftanjim.dev/blog/neovim-build-ui-using-nui-nvim/]
-- switch from telescope to fzf-lua
-- switch from mini.complete to nvim-cmp (and use ghost text completion)
 - remove mason/mason-lsp
 - checkout deathbeam's config (including autocomplete.nvim, potentially a good starting point for custom complete)
 - look at arrow.nvim (navigation type thing)
