@@ -42,6 +42,9 @@ map("n", "Y", "y$")
 map("n", "J", "mzJ`z")
 -- File Browser
 map("n", "<leader>e", "<cmd>Ex<cr>")
+-- Completion - see :h ins-completion
+map("i", "<C-o>", "<C-x><C-o>")
+map("i", "<C-f>", "<C-x><C-f>")
 
 -- STEP 4 - SETTINGS
 local o = vim.opt
@@ -79,6 +82,8 @@ o.jumpoptions = "stack"
 o.laststatus = 0
 o.winbar = "%=%m %f"
 o.fillchars = "eob: "
+-- Completion
+o.completeopt = "menu"
 
 -- STEP 5 - COLORSCHEME AND CUSTOMISATION
 vim.cmd("colorscheme habamax")
