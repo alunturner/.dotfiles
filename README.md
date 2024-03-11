@@ -29,4 +29,3 @@
 # Tmux TODO
 
 - could make a command to spawn a window running the jest tests on the current file
-- make a script that starts tmux for the dotfiles repo (probably lazygit, tmux and nvim configs opened with nvim)
