@@ -69,6 +69,7 @@ o.scrolloff = 5
 o.sidescrolloff = 5
 o.colorcolumn = "80"
 o.cursorline = true
+o.cursorcolumn = true
 o.signcolumn = "yes"
 o.number = true
 -- Other
