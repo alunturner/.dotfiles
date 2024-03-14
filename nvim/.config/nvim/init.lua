@@ -87,4 +87,4 @@ o.fillchars = "eob: "
 o.completeopt = "menu"
 
 -- STEP 5 - COLORSCHEME AND CUSTOMISATION
-vim.cmd("colorscheme habamax")
+vim.cmd("colorscheme pax")
