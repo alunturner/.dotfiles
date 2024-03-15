@@ -28,7 +28,7 @@ Finder.config = function()
 	fzf_set("<leader>fd", "lsp_document_diagnostics")
 	fzf_set("<leader>fD", "lsp_workspace_diagnostics")
 	fzf_set("<leader>fo", "lsp_document_symbols")
-	fzf_set("<leader>fO", "lsp_workspace_symbols") -- think this needs to be live
+	fzf_set("<leader>fO", "lsp_live_workspace_symbols")
 	fzf_set("gr", "lsp_references")
 	fzf_set("gd", "lsp_definitions")
 	fzf_set("gD", "lsp_declarations")
