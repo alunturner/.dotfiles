@@ -88,6 +88,8 @@ o.completeopt = "menu"
 
 -- STEP 5 - COLORSCHEME AND CUSTOMISATION
 vim.cmd("colorscheme pax")
+map("n", "<leader>i", "<cmd>Inspect<cr>")
+vim.diagnostic.config({ virtual_text = false })
 
 -- STEP 6 - ABBREVIATIONS
 vim.cmd("iab tbitd toBeInTheDocument()")
