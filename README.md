@@ -2,6 +2,11 @@
 
 1. Installs: 
   - Stow: `brew install stow`
+  - Neovim: `brew install neovim`
+  - Lang servers:
+    - TS: `npm install -g typescript typescript-language-server`
+    - ESLint: `npm i -g vscode-langservers-extracted`
+    - Lua: `brew install lua-language-server`
   - Tmux: `brew install tmux`
   - Gitmux: `brew tap arl/arl && brew install gitmux`
 1. Clone .dotfiles at the top level `~/.dotfiles`
