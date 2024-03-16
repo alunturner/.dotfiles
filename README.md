@@ -36,7 +36,6 @@
   - build a custom rename
   - build a custom diagnostics thing (can then remove the diagnostic line indicators)
 - fzf
-  - stack panes vertically to allow paths to be seen
   - add full path to top of preview window
   - find how to export all to quickfix list
   - apply theme colours
