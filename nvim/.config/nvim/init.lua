@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Set the leader key before loading plugins
 local function set(mode, lhs, rhs)
+	-- TODO make it so that this util can combine options into the 4th arg
 	vim.keymap.set(mode, lhs, rhs, { silent = true })
 end
 
@@ -26,14 +27,17 @@ vim.keymap.set({ "n", "v" }, leader, "<nop>")
 require("lazy").setup("plugins")
 
 -- STEP 2 - KEY REMAPS
--- VSCode style shifting around of lines in visual mode
-set("v", "J", ":m '>+1<CR>gv=gv")
-set("v", "K", ":m '<-2<CR>gv=gv")
 -- Quick way to remove highlighting
 set("n", "<Esc>", "<cmd>nohl<cr>")
--- Keep cursor centred when moving the screen
+-- Keep cursor centred when moving the screen and searching
 set("n", "<C-d>", "<C-d>zz")
 set("n", "<C-u>", "<C-u>zz")
+set("n", "n", "nzz")
+set("n", "N", "Nzz")
+vim.keymap.set("c", "<cr>", function()
+	local is_search = vim.fn.getcmdtype() == "/" or "?"
+	return is_search and "<cr>zz" or "cr"
+end, { expr = true })
 -- When pasting over a selection, maintain the original paste register
 set("v", "p", '"_dP')
 -- Make Y act like C and D
@@ -65,8 +69,6 @@ o.splitbelow = true
 o.splitright = true
 -- Text display
 o.breakindent = true
-o.scrolloff = 5
-o.sidescrolloff = 5
 o.colorcolumn = "80"
 o.cursorline = true
 o.cursorcolumn = true
