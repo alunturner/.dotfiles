@@ -1,4 +1,4 @@
-# Tooling configuration code - add steps as we go
+# Tooling configuration steps
 
 1. Installs: 
   - Stow: `brew install stow`
@@ -26,11 +26,6 @@
 
 ## Neovim
 
-- look at netrw settings for default behavior
-  - let g:netrw_banner=0
-  - let g:netrw_browse_split=4
-  - let g:netrw_altv=0
-  - let g:netrw_liststyle=0
 - make `Esc` close netrw
 - move across to eslint_d and prettierd
 - when using zsh everywhere, investigate zsh style `completeopt`

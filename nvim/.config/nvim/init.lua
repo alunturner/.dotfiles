@@ -113,6 +113,8 @@ o.winbar = "%=%m %f"
 o.fillchars = "eob: "
 -- Completion
 o.completeopt = "menu"
+-- Netrw
+vim.g.netrw_banner = 0
 
 -- STEP 5 - COLORSCHEME AND CUSTOMISATION
 vim.cmd("colorscheme pax")
