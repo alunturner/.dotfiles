@@ -29,15 +29,23 @@ require("lazy").setup("plugins")
 -- STEP 2 - KEY REMAPS
 -- Quick way to remove highlighting
 set("n", "<Esc>", "<cmd>nohl<cr>")
--- Keep cursor centred when moving the screen and searching
+-- Centre cursor on screen scroll (always)
 set("n", "<C-d>", "<C-d>zz")
 set("n", "<C-u>", "<C-u>zz")
+-- Centre cursor on search (always)
 set("n", "n", "nzz")
 set("n", "N", "Nzz")
 vim.keymap.set("c", "<cr>", function()
-	local is_search = vim.fn.getcmdtype() == "/" or "?"
-	return is_search and "<cr>zz" or "cr"
+	local cmd = vim.fn.getcmdtype()
+	local is_search = cmd == "/" or cmd == "?"
+	return is_search and "<cr>zz" or "<cr>"
 end, { expr = true })
+-- Centre cursor on entering insert mode (optional)
+set("n", "<leader>i", "zzi")
+set("n", "<leader>I", "zzI")
+set("n", "<leader>a", "zza")
+set("n", "<leader>A", "zzA")
+-- Centre cursor on line jump (nb :LineNr still only moves cursor)
 set("n", "gg", "ggzz")
 -- When pasting over a selection, maintain the original paste register
 set("v", "p", '"_dP')
@@ -91,7 +99,7 @@ o.completeopt = "menu"
 
 -- STEP 5 - COLORSCHEME AND CUSTOMISATION
 vim.cmd("colorscheme pax")
-set("n", "<leader>i", "<cmd>Inspect<cr>")
+set("n", "<leader>j", "<cmd>Inspect<cr>")
 vim.diagnostic.config({ virtual_text = false })
 
 -- STEP 6 - ABBREVIATIONS
