@@ -42,7 +42,6 @@
 - helpers
   - create a react component folder
   - populate args list with component files (ie component, tests and css)
-  - add [] bindings for qf, args, buffers (]a => next arg ]A => last arg etc)
 
 # Pax TODO
 
