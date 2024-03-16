@@ -28,7 +28,6 @@
 
 ## Plugins
 
-- remove mason and mason-lsp
 - remove no-neck-pain
 - nui
   - build a custom rename
