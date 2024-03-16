@@ -71,6 +71,10 @@ set("n", "[c", "<cmd>cprev<cr>")
 set("n", "]c", "<cmd>cnext<cr>")
 set("n", "[C", "<cmd>cfirst<cr>")
 set("n", "]C", "<cmd>clast<cr>")
+set("n", "[b", "<cmd>bprev<cr>")
+set("n", "]b", "<cmd>bnext<cr>")
+set("n", "[B", "<cmd>bfirst<cr>")
+set("n", "]B", "<cmd>blast<cr>")
 
 -- STEP 4 - SETTINGS
 local o = vim.opt
