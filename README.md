@@ -31,7 +31,6 @@
 
 ## Plugins
 
-- remove no-neck-pain
 - nui
   - build a custom rename
   - build a custom diagnostics thing (can then remove the diagnostic line indicators)
@@ -52,10 +51,8 @@
 
 # Tmux TODO
 
+- figure out a good shortcut that works with vim for `tmux kill-pane -a`
 - setup gitmux
-- figure out copy mode behaviour a bit better
-- add a no-neck-pain type pane management replacement
-- make the split bindings like neovim
 - add pax theme (could be manually done for now)
 - add TPM (https://github.com/tmux-plugins/tpm)
 - add a pomodoro timer plugin (pomodoro plus)
