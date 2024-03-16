@@ -54,11 +54,11 @@
 
 # Tmux TODO
 
+- setup gitmux
 - figure out copy mode behaviour a bit better
 - add a no-neck-pain type pane management replacement
 - make the split bindings like neovim
 - add pax theme (could be manually done for now)
 - add TPM (https://github.com/tmux-plugins/tpm)
 - add a pomodoro timer plugin (pomodoro plus)
-- add a git branch display plugin (gitmux)
 - make command to spawn a window running the jest tests on the current file
