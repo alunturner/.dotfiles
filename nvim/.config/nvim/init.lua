@@ -14,14 +14,12 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Set the leader key before loading plugins
 local function set(mode, lhs, rhs)
-	-- TODO make it so that this util can combine options into the 4th arg
 	vim.keymap.set(mode, lhs, rhs, { silent = true })
 end
 
-local leader = " "
-vim.g.mapleader = leader
-vim.g.maplocalleader = leader
-vim.keymap.set({ "n", "v" }, leader, "<nop>")
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+vim.keymap.set({ "n", "v" }, " ", "<nop>")
 
 -- STEP 1 - INSTALL EXTERNAL DEPENDENCIES
 require("lazy").setup("plugins")
