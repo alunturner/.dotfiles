@@ -45,6 +45,8 @@ set("n", "<leader>i", "zzi")
 set("n", "<leader>I", "zzI")
 set("n", "<leader>a", "zza")
 set("n", "<leader>A", "zzA")
+set("n", "<leader>o", "zzo")
+set("n", "<leader>O", "zzO")
 -- Centre cursor on line jump (nb :LineNr still only moves cursor)
 set("n", "gg", "ggzz")
 -- When pasting over a selection, maintain the original paste register
