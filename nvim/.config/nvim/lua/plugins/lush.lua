@@ -1,6 +1,7 @@
 local Lush = {
 	"rktjmp/lush.nvim",
-	{ dir = "/Users/alunturner/code/pax", lazy = true },
+	-- "alunturner/pax", -- read only
+	{ dir = "/Users/alunturner/code/pax", lazy = true }, -- local dev
 }
 
 return { Lush }
