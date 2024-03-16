@@ -1,4 +1,4 @@
--- Install lazy if not installed
+-- STEP 0 - Install plugin manager (lazy)
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -13,6 +13,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Set the leader key before loading plugins
+local function set(mode, lhs, rhs)
+	vim.keymap.set(mode, lhs, rhs, { silent = true })
+end
+
 local leader = " "
 vim.g.mapleader = leader
 vim.g.maplocalleader = leader
@@ -22,29 +26,26 @@ vim.keymap.set({ "n", "v" }, leader, "<nop>")
 require("lazy").setup("plugins")
 
 -- STEP 2 - KEY REMAPS
-local function map(mode, lhs, rhs)
-	vim.keymap.set(mode, lhs, rhs, { silent = true })
-end
 
 -- VSCode style shifting around of lines in visual mode
-map("v", "J", ":m '>+1<CR>gv=gv")
-map("v", "K", ":m '<-2<CR>gv=gv")
+set("v", "J", ":m '>+1<CR>gv=gv")
+set("v", "K", ":m '<-2<CR>gv=gv")
 -- Quick way to remove highlighting
-map("n", "<Esc>", "<cmd>nohl<cr>")
+set("n", "<Esc>", "<cmd>nohl<cr>")
 -- Keep cursor centred when moving the screen
-map("n", "<C-d>", "<C-d>zz")
-map("n", "<C-u>", "<C-u>zz")
+set("n", "<C-d>", "<C-d>zz")
+set("n", "<C-u>", "<C-u>zz")
 -- When pasting over a selection, maintain the original paste register
-map("v", "p", '"_dP')
+set("v", "p", '"_dP')
 -- Make Y act like C and D
-map("n", "Y", "y$")
+set("n", "Y", "y$")
 -- Don't move the cursor when using J
-map("n", "J", "mzJ`z")
+set("n", "J", "mzJ`z")
 -- File Browser
-map("n", "<leader>e", "<cmd>Ex<cr>")
+set("n", "<leader>e", "<cmd>Ex<cr>")
 -- Completion - see :h ins-completion
-map("i", "<C-o>", "<C-x><C-o>")
-map("i", "<C-f>", "<C-x><C-f>")
+set("i", "<C-o>", "<C-x><C-o>")
+set("i", "<C-f>", "<C-x><C-f>")
 
 -- STEP 4 - SETTINGS
 local o = vim.opt
@@ -88,7 +89,7 @@ o.completeopt = "menu"
 
 -- STEP 5 - COLORSCHEME AND CUSTOMISATION
 vim.cmd("colorscheme pax")
-map("n", "<leader>i", "<cmd>Inspect<cr>")
+set("n", "<leader>i", "<cmd>Inspect<cr>")
 vim.diagnostic.config({ virtual_text = false })
 
 -- STEP 6 - ABBREVIATIONS
