@@ -51,6 +51,7 @@
 
 # Tmux TODO
 
+- figure out a good shortcut that works with vim for `tmux kill-pane -a`
 - setup gitmux
 - add pax theme (could be manually done for now)
 - add TPM (https://github.com/tmux-plugins/tpm)
