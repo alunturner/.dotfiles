@@ -26,7 +26,6 @@ vim.keymap.set({ "n", "v" }, leader, "<nop>")
 require("lazy").setup("plugins")
 
 -- STEP 2 - KEY REMAPS
-
 -- VSCode style shifting around of lines in visual mode
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
