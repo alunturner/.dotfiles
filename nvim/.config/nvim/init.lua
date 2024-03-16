@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Set the leader key before loading plugins
 local function set(mode, lhs, rhs)
+	-- TODO make it so that this util can combine options into the 4th arg
 	vim.keymap.set(mode, lhs, rhs, { silent = true })
 end
 
@@ -26,14 +27,28 @@ vim.keymap.set({ "n", "v" }, leader, "<nop>")
 require("lazy").setup("plugins")
 
 -- STEP 2 - KEY REMAPS
--- VSCode style shifting around of lines in visual mode
-set("v", "J", ":m '>+1<CR>gv=gv")
-set("v", "K", ":m '<-2<CR>gv=gv")
 -- Quick way to remove highlighting
 set("n", "<Esc>", "<cmd>nohl<cr>")
--- Keep cursor centred when moving the screen
+-- Centre cursor on screen scroll (always)
 set("n", "<C-d>", "<C-d>zz")
 set("n", "<C-u>", "<C-u>zz")
+-- Centre cursor on search (always)
+set("n", "n", "nzz")
+set("n", "N", "Nzz")
+vim.keymap.set("c", "<cr>", function()
+	local cmd = vim.fn.getcmdtype()
+	local is_search = cmd == "/" or cmd == "?"
+	return is_search and "<cr>zz" or "<cr>"
+end, { expr = true })
+-- Centre cursor on entering insert mode (optional)
+set("n", "<leader>i", "zzi")
+set("n", "<leader>I", "zzI")
+set("n", "<leader>a", "zza")
+set("n", "<leader>A", "zzA")
+set("n", "<leader>o", "zzo")
+set("n", "<leader>O", "zzO")
+-- Centre cursor on line jump (nb :LineNr still only moves cursor)
+set("n", "gg", "ggzz")
 -- When pasting over a selection, maintain the original paste register
 set("v", "p", '"_dP')
 -- Make Y act like C and D
@@ -65,8 +80,6 @@ o.splitbelow = true
 o.splitright = true
 -- Text display
 o.breakindent = true
-o.scrolloff = 5
-o.sidescrolloff = 5
 o.colorcolumn = "80"
 o.cursorline = true
 o.cursorcolumn = true
@@ -88,7 +101,7 @@ o.completeopt = "menu"
 
 -- STEP 5 - COLORSCHEME AND CUSTOMISATION
 vim.cmd("colorscheme pax")
-set("n", "<leader>i", "<cmd>Inspect<cr>")
+set("n", "<leader>j", "<cmd>Inspect<cr>")
 vim.diagnostic.config({ virtual_text = false })
 
 -- STEP 6 - ABBREVIATIONS
