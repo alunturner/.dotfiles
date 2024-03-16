@@ -1,8 +1,12 @@
 # Tooling configuration code - add steps as we go
 
-1. Install Stow: `brew install stow` OR `sudo apt install stow`
-1. put the .dotfiles directory at the top level, ie ~/.dotfiles on mac
-1. Stow the config folder: `cd ~/.dotfiles && stow nvim` (will be same for tmux when that config is written)
+1. Installs: 
+  - Stow: `brew install stow`
+  - Tmux: `brew install tmux`
+  - Gitmux: `brew tap arl/arl && brew install gitmux`
+1. Clone .dotfiles at the top level `~/.dotfiles`
+1. Stow the config folders:
+  - `cd ~/.dotfiles && stow nvim tmux`
 
 # Tooling TODO
 
