@@ -1,48 +1,23 @@
 local Lsp = {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
-	dependencies = {
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-	},
 }
 
 Lsp.config = function()
 	local lspconfig = require("lspconfig")
-	local mason = require("mason")
-	local mason_lspconfig = require("mason-lspconfig")
 
-	-- https://github.com/williamboman/mason.nvim/tree/dcd0ea30ccfc7d47e879878d1270d6847a519181?tab=readme-ov-file#configuration
-	mason.setup({
-		ui = {
-			icons = {
-				package_installed = "✓",
-				package_pending = "➜",
-				package_uninstalled = "✗",
-			},
-		},
-	})
-
-	-- https://github.com/williamboman/mason.nvim/tree/dcd0ea30ccfc7d47e879878d1270d6847a519181?tab=readme-ov-file#configuration
-	mason_lspconfig.setup({
-		ensure_installed = {
-			"tsserver",
-			"eslint",
-			"lua_ls",
-		},
-	})
-
-	-- after setting up mason and mason lsp-config, we can configure lsp
-	-- https://github.com/williamboman/mason.nvim/tree/dcd0ea30ccfc7d47e879878d1270d6847a519181?tab=readme-ov-file#configuration
+	-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
 	lspconfig.tsserver.setup({})
+	-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#eslint
 	lspconfig.eslint.setup({
-		on_attach = function(_client, bufnr)
+		on_attach = function(_, bufnr)
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				buffer = bufnr,
 				command = "EslintFixAll",
 			})
 		end,
 	})
+	-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
 	lspconfig.lua_ls.setup({
 		-- stop the lua lsp complaining about calling `vim`
 		settings = {
