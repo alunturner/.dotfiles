@@ -38,6 +38,7 @@ vim.keymap.set("c", "<cr>", function()
 	local is_search = vim.fn.getcmdtype() == "/" or "?"
 	return is_search and "<cr>zz" or "cr"
 end, { expr = true })
+set("n", "gg", "ggzz")
 -- When pasting over a selection, maintain the original paste register
 set("v", "p", '"_dP')
 -- Make Y act like C and D
