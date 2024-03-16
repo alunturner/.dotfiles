@@ -26,7 +26,6 @@
 
 ## Neovim
 
-- make `Esc` close netrw
 - move across to eslint_d and prettierd
 - when using zsh everywhere, investigate zsh style `completeopt`
 

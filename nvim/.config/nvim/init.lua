@@ -115,6 +115,19 @@ o.fillchars = "eob: "
 o.completeopt = "menu"
 -- Netrw
 vim.g.netrw_banner = 0
+vim.api.nvim_create_autocmd("filetype", {
+	pattern = "netrw",
+	desc = "Netrw specific mappins",
+	callback = function()
+		local netrw_set = function(lhs, rhs)
+			vim.keymap.set("n", lhs, rhs, { remap = true, buffer = true })
+		end
+
+		netrw_set("<esc>", "<cmd>Rex<cr>")
+		netrw_set("h", "-")
+		netrw_set("l", "<cr>")
+	end,
+})
 
 -- STEP 5 - COLORSCHEME AND CUSTOMISATION
 vim.cmd("colorscheme pax")
