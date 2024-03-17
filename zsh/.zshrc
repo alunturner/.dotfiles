@@ -5,9 +5,6 @@ export NVM_DIR="$HOME/.nvm"
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
-# Greeting
-echo "Hello $USER, welcome to the terminal." 
-
 # Find and set branch name var if in git repository.
 function git_branch_name()
 {
@@ -27,7 +24,7 @@ setopt prompt_subst
 # Grey location followed by green git branch (if available).
 # Prompt is $ for regular or # for elevated privilege.
 NEWLINE=$'\n'
-PROMPT='%F{240}IN %~%f %F{green}$(git_branch_name)%f$NEWLINE%(!.#.$) '
+PROMPT='%F{#a3c2c2}IN %~%f %F{#00ff00}$(git_branch_name)%f$NEWLINE%(!.#.$) '
 
 if [ -f ~/.zsh_functions ]; then
     . ~/.zsh_functions
