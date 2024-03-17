@@ -1,6 +1,8 @@
 # Tooling configuration steps
 
 1. Installs: 
+  - Zsh: `brew install zsh`
+    - change shell to zsh `chsh -s $(which zsh)`
   - Stow: `brew install stow`
   - Neovim: `brew install neovim`
   - Lang servers:
