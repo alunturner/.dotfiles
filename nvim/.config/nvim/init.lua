@@ -107,7 +107,7 @@ o.timeoutlen = 500
 o.jumpoptions = "stack"
 -- Lines
 o.laststatus = 0
-o.fillchars = "eob: "
+o.fillchars = "eob: " -- check fillchars as can alter vsplits and hsplits
 o.rulerformat = "%20(%=%m %t%)"
 -- Completion
 o.completeopt = "menu"
