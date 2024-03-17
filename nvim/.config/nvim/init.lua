@@ -19,7 +19,7 @@ end
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.keymap.set({ "n", "v" }, " ", "<nop>")
+set({ "n", "v" }, " ", "<nop>")
 
 -- STEP 1 - INSTALL EXTERNAL DEPENDENCIES
 require("lazy").setup("plugins")
