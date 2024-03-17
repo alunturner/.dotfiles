@@ -11,7 +11,7 @@
   - Gitmux: `brew tap arl/arl && brew install gitmux`
 1. Clone .dotfiles at the top level `~/.dotfiles`
 1. Stow the config folders:
-  - `cd ~/.dotfiles && stow nvim tmux`
+  - `cd ~/.dotfiles && stow nvim tmux lazygit`
 1. Set terminal colour to
   - bg = #19191f (dark)
   - fg = #e9e7dd (bright)
@@ -21,10 +21,6 @@
 
 - start with ansible and create ansible config
 - use zsh across systems and create zsh config
-
-# LazyGit TODO
-
-- add pax theme (could be manually done for now)
 
 # Neovim TODO
 
@@ -43,22 +39,19 @@
   - add full path to top of preview window
   - find how to export all to quickfix list
   - apply theme colours
-  - automatically go to a single result with gd
+  - automatically go to a single result with gd (this may be a check where the lsp function is called directly at first and if there is only one result, it uses it, otherwise it will open fzf)
 - helpers
   - create a react component folder
   - populate args list with component files (ie component, tests and css)
 
 # Pax TODO
 
-- add a green colour for git status (will need for gitmux and lazygit)
 - figure out how to compile/build the theme
-- figure out where the repo should live (should it be in dotfiles?)
 - when diagnostic line indicators removed, want to colour the code to show what is generating errors vs warnings
 
 # Tmux TODO
 
 - figure out a good shortcut that works with vim for `tmux kill-pane -a`
 - transition to read theme colours when theme is compiled and built
-- add TPM (https://github.com/tmux-plugins/tpm)
-- add a pomodoro timer plugin (pomodoro plus)
+- add a pomodoro timer plugin (pomodoro plus) from scratch
 - make command to spawn a window running the jest tests on the current file
