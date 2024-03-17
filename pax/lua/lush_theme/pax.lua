@@ -63,6 +63,7 @@ local theme = lush(function(injected_functions)
 	-- errors and warnings
 	local red = hsl(0, 100, 50)
 	local orange = hsl(34, 100, 50)
+	local green = hsl(120, 100, 50)
 	-- background and contrast
 	local midnight = hsl(240, 11, 11)
 	local cream = hsl(50, 20, 89)
