@@ -28,6 +28,7 @@
 
 - move across to eslint_d and prettierd
 - when using zsh everywhere, investigate zsh style `completeopt`
+- figure out how to omit netrw from the jumps list
 
 ## Plugins
 
@@ -45,6 +46,7 @@
 
 # Pax TODO
 
+- add a green colour for git status (will need for gitmux and lazygit)
 - figure out how to compile/build the theme
 - figure out where the repo should live (should it be in dotfiles?)
 - when diagnostic line indicators removed, want to colour the code to show what is generating errors vs warnings
@@ -52,8 +54,7 @@
 # Tmux TODO
 
 - figure out a good shortcut that works with vim for `tmux kill-pane -a`
-- setup gitmux
-- add pax theme (could be manually done for now)
+- transition to read theme colours when theme is compiled and built
 - add TPM (https://github.com/tmux-plugins/tpm)
 - add a pomodoro timer plugin (pomodoro plus)
 - make command to spawn a window running the jest tests on the current file

@@ -109,6 +109,7 @@ o.jumpoptions = "stack"
 o.laststatus = 0
 o.winbar = "%=%m %f"
 o.fillchars = "eob: "
+o.ruler = false
 -- Completion
 o.completeopt = "menu"
 -- Netrw
