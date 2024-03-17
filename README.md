@@ -52,8 +52,7 @@
 # Tmux TODO
 
 - figure out a good shortcut that works with vim for `tmux kill-pane -a`
-- setup gitmux
-- add pax theme (could be manually done for now)
+- transition to read theme colours when theme is compiled and built
 - add TPM (https://github.com/tmux-plugins/tpm)
 - add a pomodoro timer plugin (pomodoro plus)
 - make command to spawn a window running the jest tests on the current file
