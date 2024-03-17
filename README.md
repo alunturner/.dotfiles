@@ -28,6 +28,7 @@
 
 - move across to eslint_d and prettierd
 - when using zsh everywhere, investigate zsh style `completeopt`
+- figure out how to omit netrw from the jumps list
 
 ## Plugins
 
