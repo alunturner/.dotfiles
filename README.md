@@ -15,8 +15,8 @@
 1. Set terminal colour to
   - bg = #19191f (dark)
   - fg = #e9e7dd (bright)
-  - cursor = #ff007b (hotpink)
-
+  - cursor bg = #ff007b (hotpink)
+  - cursor fg = #e9e7dd (bright) 
 # Tooling TODO
 
 - start with ansible and create ansible config
