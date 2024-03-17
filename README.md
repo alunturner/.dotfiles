@@ -22,7 +22,6 @@
 # Tooling TODO
 
 - start with ansible and create ansible config
-- use zsh across systems and create zsh config
 
 # Neovim TODO
 
@@ -38,7 +37,6 @@
   - build a custom rename
   - build a custom diagnostics thing (can then remove the diagnostic line indicators)
 - fzf
-  - add full path to top of preview window
   - find how to export all to quickfix list
   - apply theme colours
   - automatically go to a single result with gd (this may be a check where the lsp function is called directly at first and if there is only one result, it uses it, otherwise it will open fzf)
