@@ -46,6 +46,7 @@
 
 # Pax TODO
 
+- add a green colour for git status (will need for gitmux and lazygit)
 - figure out how to compile/build the theme
 - figure out where the repo should live (should it be in dotfiles?)
 - when diagnostic line indicators removed, want to colour the code to show what is generating errors vs warnings
