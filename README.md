@@ -12,6 +12,10 @@
 1. Clone .dotfiles at the top level `~/.dotfiles`
 1. Stow the config folders:
   - `cd ~/.dotfiles && stow nvim tmux`
+1. Set terminal colour to
+  - bg = #19191f (dark)
+  - fg = #e9e7dd (bright)
+  - cursor = #ff007b (hotpink)
 
 # Tooling TODO
 
