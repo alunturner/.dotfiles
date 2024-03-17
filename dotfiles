@@ -5,8 +5,9 @@ if [ $? != 0 ]; then
     tmux new-session -s dotfiles -n git -c ~/.dotfiles -d "lazygit"
 
 # add windows for the nvim instances and open them up
-    tmux new-window -n tmux "cd tmux && nvim ."
-    tmux new-window -n neovim "cd nvim/.config/nvim && nvim ."
+    tmux new-window -n tmux "nvim ./tmux/.tmux.conf"
+    tmux new-window -n neovim "nvim ./nvim/.config/nvim/init.lua"
+    tmux new-window -n theme "nvim ./pax/lua/lush_theme/pax.lua"
 fi
 
 tmux attach -t dotfiles:neovim
