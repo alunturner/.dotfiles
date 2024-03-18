@@ -107,12 +107,13 @@ o.timeoutlen = 500
 o.jumpoptions = "stack"
 -- Lines
 o.laststatus = 0
-o.fillchars = "eob: " -- check fillchars as can alter vsplits and hsplits
-o.rulerformat = "%20(%=%m %t%)"
+o.fillchars = "eob: "
+o.rulerformat = "%40(%=%m %t%)"
 -- Completion
 o.completeopt = "menu"
 -- Netrw
 vim.g.netrw_banner = 0
+vim.g.netrw_keepj = "keepj"
 vim.api.nvim_create_autocmd("filetype", {
 	pattern = "netrw",
 	desc = "Netrw specific mappings",

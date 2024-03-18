@@ -325,7 +325,7 @@ local theme = lush(function(injected_functions)
 
 		-- Treesitter Language specific - nb although these look the same,
 		-- combining them causes funny highlighting in TSX delimiters.
-		-- JS(X)
+		-- JSX
 		sym("@boolean.javascript")({ Type }), -- true/false
 		sym("@constant.builtin.javascript")({ Type }), -- null/undefined
 		sym("@constructor.javascript")({ Function }), -- treat constructor as a method
@@ -333,7 +333,11 @@ local theme = lush(function(injected_functions)
 		sym("@tag.javascript")({ Type }), -- custom components
 		sym("@none.javascript")({ Constant }), -- text inside tags
 
-		-- TS(X)
+		-- TS
+		sym("@boolean.typescript")({ Type }), -- true/false
+		sym("@constant.builtin.typescript")({ Type }), -- null/undefined
+
+		-- TSX
 		sym("@boolean.tsx")({ Type }), -- true/false
 		sym("@constant.builtin.tsx")({ Type }), -- null/undefined
 		sym("@constant.builtin.tsx")({ Constant }), -- null/undefined

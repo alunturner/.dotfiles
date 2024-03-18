@@ -12,6 +12,10 @@
   - Lua: `brew install lua-language-server`
 - Tmux: `brew install tmux`
 - Gitmux: `brew tap arl/arl && brew install gitmux`
+- JS daemons
+  - nodemon: `npm i -g nodemon`
+  - prettierd: `npm i -g fsouza/prettierd`
+  - eslint_d: `npm i -g eslint_d`
 
 1. Clone .dotfiles at the top level `~/.dotfiles`
 1. Stow the config folders:
