@@ -113,6 +113,7 @@ o.rulerformat = "%40(%=%m %t%)"
 o.completeopt = "menu"
 -- Netrw
 vim.g.netrw_banner = 0
+vim.g.netrw_keepj = "keepj"
 vim.api.nvim_create_autocmd("filetype", {
 	pattern = "netrw",
 	desc = "Netrw specific mappings",
