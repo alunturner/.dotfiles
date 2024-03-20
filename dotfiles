@@ -7,7 +7,6 @@ if [ $? != 0 ]; then
 # add windows for the nvim instances and open them up
     tmux new-window -n tmux "nvim ./tmux/.config/tmux/tmux.conf"
     tmux new-window -n neovim "nvim ./nvim/.config/nvim/init.lua"
-    tmux new-window -n theme "nvim ./pax/lua/lush_theme/pax.lua"
     tmux new-window -n README "nvim ./README.md"
 fi
 
