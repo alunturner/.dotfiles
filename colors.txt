@@ -1,0 +1,9 @@
+// Pax colours
+dark: #19191F;
+rose: #D98C8C;
+wheat: #D1C794;
+sky: #8CB2D9;
+wasabi: #A3C2C2;
+lavender: #AD85AD;
+bright: #E9E7DD;
+hibiscus: #FF007B;
