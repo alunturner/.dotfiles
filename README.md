@@ -50,6 +50,7 @@
 - helpers
   - create a react component folder
   - populate args list with component files (ie component, tests and css)
+  - make a centering plugin, don't like the current tmux solution
 
 # Pax TODO
 
