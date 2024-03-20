@@ -38,6 +38,7 @@
 ## Neovim
 
 - when using zsh everywhere, investigate zsh style `completeopt`
+- move the theme colours out into a separate core folder
 
 ## Plugins
 
@@ -52,8 +53,7 @@
 
 # Pax TODO
 
-- figure out how to compile/build the theme
-- figure out how to manage colours cross service - perhaps they go in the .zshrc
+- make a common colours file that lists the used colours, not sure if these can be read into the other schemes
 - when diagnostic line indicators removed, want to colour the code to show what is generating errors vs warnings
 
 # Tmux TODO
