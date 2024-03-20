@@ -4,8 +4,11 @@
 
 - Zsh: `brew install zsh`
   - change shell to zsh `chsh -s $(which zsh)`
+- Ripgrep: `brew install ripgrep`
+- Fzf: `brew install fzf`
 - Stow: `brew install stow`
 - Neovim: `brew install neovim`
+- Stylua: `brew install stylua`
 - Lang servers:
   - TS: `npm install -g typescript typescript-language-server`
   - ESLint: `npm i -g vscode-langservers-extracted`
