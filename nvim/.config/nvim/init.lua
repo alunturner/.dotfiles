@@ -121,10 +121,7 @@ vim.api.nvim_create_autocmd("filetype", {
 })
 
 -- STEP 5 - COLORSCHEME AND CUSTOMISATION
--- colors/colorscheme.lua
 local colors = {
-	-- content here will not be touched
-	-- PATCH_OPEN
 	Normal = { fg = "#E9E7DD", bg = "#19191F" },
 	Error = { link = "Normal" },
 	FloatBorder = { link = "Normal" },
@@ -234,20 +231,16 @@ local colors = {
 	VisualNOS = { link = "Visual" },
 	WarningMsg = { fg = "#FF9100" },
 	WinBar = { fg = "#FF007B", bg = "#19191F" },
-	-- PATCH_CLOSE
-	-- content here will not be touched
 }
 
 -- colorschemes generally want to do this
 vim.cmd("highlight clear")
-vim.cmd("set t_Co=256")
-vim.cmd("let g:colors_name='my_theme'")
+vim.cmd("let g:colors_name='pax'")
 
 -- apply highlight groups
 for group, attrs in pairs(colors) do
 	vim.api.nvim_set_hl(0, group, attrs)
 end
-vim.cmd("colorscheme pax")
 set("n", "<leader>j", "<cmd>Inspect<cr>")
 vim.diagnostic.config({ virtual_text = false })
 
