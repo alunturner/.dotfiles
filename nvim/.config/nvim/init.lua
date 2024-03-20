@@ -45,10 +45,8 @@ set("n", "<leader>a", "zza")
 set("n", "<leader>A", "zzA")
 set("n", "<leader>o", "zzo")
 set("n", "<leader>O", "zzO")
--- Centre cursor on line jump (nb :LineNr still only moves cursor)
+-- Centre cursor on line jump (nb :LineNr or #G still only moves cursor)
 set("n", "gg", "ggzz")
--- When pasting over a selection, maintain the original paste register
-set("v", "p", '"_dP')
 -- Make Y act like C and D
 set("n", "Y", "y$")
 -- Don't move the cursor when using J
@@ -56,7 +54,7 @@ set("n", "J", "mzJ`z")
 -- File Browser
 set("n", "<leader>e", "<cmd>Ex<cr>")
 -- Completion - see :h ins-completion
-set("i", "<C-o>", "<C-x><C-o>")
+set("i", "<C-o>", "<C-x><C-o>") -- TODO move to avoid clash with i_C-o
 set("i", "<C-f>", "<C-x><C-f>")
 -- Prev/next movements
 set("n", "[d", vim.diagnostic.goto_prev)
@@ -69,10 +67,6 @@ set("n", "[c", "<cmd>cprev<cr>")
 set("n", "]c", "<cmd>cnext<cr>")
 set("n", "[C", "<cmd>cfirst<cr>")
 set("n", "]C", "<cmd>clast<cr>")
-set("n", "[b", "<cmd>bprev<cr>")
-set("n", "]b", "<cmd>bnext<cr>")
-set("n", "[B", "<cmd>bfirst<cr>")
-set("n", "]B", "<cmd>blast<cr>")
 
 -- STEP 4 - SETTINGS
 local o = vim.opt
