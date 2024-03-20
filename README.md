@@ -45,8 +45,6 @@
   - build a custom diagnostics thing (can then remove the diagnostic line indicators)
 - fzf
   - find how to export all to quickfix list
-  - apply theme colours
-  - automatically go to a single result with gd (this may be a check where the lsp function is called directly at first and if there is only one result, it uses it, otherwise it will open fzf)
 - helpers
   - create a react component folder
   - populate args list with component files (ie component, tests and css)
