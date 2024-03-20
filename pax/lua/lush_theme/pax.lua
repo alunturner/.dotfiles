@@ -100,7 +100,7 @@ local theme = lush(function(injected_functions)
 		Normal({ fg = bright, bg = dark }), -- Normal text
 		ColorColumn({ bg = greyDarkest }), -- Columns set with 'colorcolumn'
 		Conceal(hidden), -- Placeholder characters substituted for concealed text (see 'conceallevel')
-		Cursor({ Normal }), -- Character under the cursor
+		Cursor({ fg = bright, bg = hotPink }), -- Character under the cursor
 		CurSearch({ bg = hotPink, fg = dark }), -- Highlighting a search pattern under the cursor (see 'hlsearch')
 		lCursor({ Cursor }), -- Character under the cursor when |language-mapping| is used (see 'guicursor')
 		CursorIM({ Cursor }), -- Like Cursor, but used when in IME mode |CursorIM|
@@ -348,8 +348,6 @@ local theme = lush(function(injected_functions)
 
 		-- Lua
 		sym("@boolean.lua")({ Type }), -- true/false
-
-		-- fzf-lua
 	}
 end)
 
