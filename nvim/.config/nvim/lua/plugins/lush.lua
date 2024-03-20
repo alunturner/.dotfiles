@@ -1,6 +1,8 @@
 local Lush = {
 	"rktjmp/lush.nvim",
-	{ dir = "~/.dotfiles/pax", lazy = true }, -- local dev
+	"rktjmp/shipwright.nvim",
+	"alunturner/pax",
+	--	{ dir = "~/.dotfiles/pax", lazy = true }, -- local dev
 }
 
 return { Lush }
