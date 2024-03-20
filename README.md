@@ -38,6 +38,7 @@
 ## Neovim
 
 - when using zsh everywhere, investigate zsh style `completeopt`
+- move the theme colours out into a separate core folder
 
 ## Plugins
 
@@ -45,16 +46,14 @@
   - build a custom diagnostics thing (can then remove the diagnostic line indicators)
 - fzf
   - find how to export all to quickfix list
-  - apply theme colours
-  - automatically go to a single result with gd (this may be a check where the lsp function is called directly at first and if there is only one result, it uses it, otherwise it will open fzf)
 - helpers
   - create a react component folder
   - populate args list with component files (ie component, tests and css)
+  - make a centering plugin, don't like the current tmux solution
 
 # Pax TODO
 
-- figure out how to compile/build the theme
-- figure out how to manage colours cross service - perhaps they go in the .zshrc
+- make a common colours file that lists the used colours, not sure if these can be read into the other schemes
 - when diagnostic line indicators removed, want to colour the code to show what is generating errors vs warnings
 
 # Tmux TODO
