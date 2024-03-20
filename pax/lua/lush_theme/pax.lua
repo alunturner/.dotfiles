@@ -348,6 +348,8 @@ local theme = lush(function(injected_functions)
 
 		-- Lua
 		sym("@boolean.lua")({ Type }), -- true/false
+
+		-- fzf-lua
 	}
 end)
 
