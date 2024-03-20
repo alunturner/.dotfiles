@@ -38,12 +38,10 @@
 ## Neovim
 
 - when using zsh everywhere, investigate zsh style `completeopt`
-- figure out how to omit netrw from the jumps list
 
 ## Plugins
 
 - nui
-  - build a custom rename
   - build a custom diagnostics thing (can then remove the diagnostic line indicators)
 - fzf
   - find how to export all to quickfix list
