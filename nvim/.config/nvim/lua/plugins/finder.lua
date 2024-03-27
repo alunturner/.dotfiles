@@ -14,29 +14,20 @@ Finder.config = function()
 	require("fzf-lua").setup({})
 
 	-- Buffers and Files
-	fzf_set("<leader>ff", "files")
-	fzf_set("<leader>fb", "buffers")
-	fzf_set("<leader>fc", "quickfix")
-	fzf_set("<leader>fl", "loclist")
+	fzf_set("<leader>f", "files")
+	fzf_set("<leader>b", "buffers")
+	fzf_set("<leader>q", "quickfix")
 
 	-- Search
-	fzf_set("<leader>fs", "grep_project")
-	fzf_set("<leader>fw", "grep_cword")
-	fzf_set("<leader>fW", "grep_cWORD")
+	fzf_set("<leader>s", "grep_project")
 
 	-- LSP/Diagnostics
-	fzf_set("<leader>fd", "lsp_document_diagnostics")
-	fzf_set("<leader>fD", "lsp_workspace_diagnostics")
-	fzf_set("<leader>fo", "lsp_document_symbols")
-	fzf_set("<leader>fO", "lsp_live_workspace_symbols")
+	fzf_set("<leader>d", "lsp_document_diagnostics")
+	fzf_set("<leader>D", "lsp_workspace_diagnostics")
+	fzf_set("<leader>o", "lsp_document_symbols")
+	fzf_set("<leader>O", "lsp_live_workspace_symbols")
 	fzf_set("gr", "lsp_references")
 	fzf_set("gd", "lsp_definitions")
-	fzf_set("gD", "lsp_declarations")
-	fzf_set("gt", "lsp_typedefs")
-
-	-- Misc
-	fzf_set("<leader>fhe", "help_tags")
-	fzf_set("<leader>fhi", "highlights")
 end
 
 return { Finder }
