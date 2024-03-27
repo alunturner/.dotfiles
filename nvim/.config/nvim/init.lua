@@ -87,7 +87,7 @@ o.jumpoptions = "stack"
 -- Lines
 o.laststatus = 0
 o.fillchars = "eob: "
-o.rulerformat = "%100(%=%m %f%)"
+o.rulerformat = "%80(%=%m %f%)"
 -- Completion
 o.completeopt = "menu"
 -- Netrw
@@ -226,7 +226,6 @@ vim.cmd("let g:colors_name='pax'")
 for group, attrs in pairs(colors) do
 	vim.api.nvim_set_hl(0, group, attrs)
 end
-set("n", "<leader>j", "<cmd>Inspect<cr>")
 vim.diagnostic.config({ virtual_text = false })
 
 -- STEP 6 - ABBREVIATIONS
