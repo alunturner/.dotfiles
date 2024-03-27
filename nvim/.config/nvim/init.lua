@@ -87,6 +87,7 @@ o.jumpoptions = "stack"
 -- Lines
 o.laststatus = 0
 o.fillchars = "eob: "
+o.showcmd = false
 o.rulerformat = "%80(%=%m %f%)"
 -- Completion
 o.completeopt = "menu"
