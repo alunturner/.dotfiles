@@ -38,13 +38,6 @@ vim.keymap.set("c", "<cr>", function()
 	local is_search = cmd == "/" or cmd == "?"
 	return is_search and "<cr>zz" or "<cr>"
 end, { expr = true })
--- Centre cursor on entering insert mode (optional)
-set("n", "<leader>i", "zzi")
-set("n", "<leader>I", "zzI")
-set("n", "<leader>a", "zza")
-set("n", "<leader>A", "zzA")
-set("n", "<leader>o", "zzo")
-set("n", "<leader>O", "zzO")
 -- Centre cursor on line jump (nb :LineNr or #G still only moves cursor)
 set("n", "gg", "ggzz")
 -- Make Y act like C and D
@@ -54,19 +47,11 @@ set("n", "J", "mzJ`z")
 -- File Browser
 set("n", "<leader>e", "<cmd>Ex<cr>")
 -- Completion - see :h ins-completion
-set("i", "<C-o>", "<C-x><C-o>") -- TODO move to avoid clash with i_C-o
+set("i", "<C-i>", "<C-x><C-o>")
 set("i", "<C-f>", "<C-x><C-f>")
 -- Prev/next movements
 set("n", "[d", vim.diagnostic.goto_prev)
 set("n", "]d", vim.diagnostic.goto_next)
-set("n", "[a", "<cmd>prev<cr>")
-set("n", "]a", "<cmd>next<cr>")
-set("n", "[A", "<cmd>first<cr>")
-set("n", "]A", "<cmd>last<cr>")
-set("n", "[c", "<cmd>cprev<cr>")
-set("n", "]c", "<cmd>cnext<cr>")
-set("n", "[C", "<cmd>cfirst<cr>")
-set("n", "]C", "<cmd>clast<cr>")
 
 -- STEP 4 - SETTINGS
 local o = vim.opt
@@ -102,7 +87,7 @@ o.jumpoptions = "stack"
 -- Lines
 o.laststatus = 0
 o.fillchars = "eob: "
-o.rulerformat = "%40(%=%m %t%)"
+o.rulerformat = "%100(%=%m %f%)"
 -- Completion
 o.completeopt = "menu"
 -- Netrw
