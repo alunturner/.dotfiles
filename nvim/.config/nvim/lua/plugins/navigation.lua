@@ -1,4 +1,4 @@
-local TmuxNavigator = {
+local Navigation = {
 	"christoomey/vim-tmux-navigator",
 	cmd = {
 		"TmuxNavigateLeft",
@@ -15,4 +15,4 @@ local TmuxNavigator = {
 	},
 }
 
-return { TmuxNavigator }
+return { Navigation }
