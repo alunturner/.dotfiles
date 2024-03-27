@@ -47,7 +47,7 @@ set("n", "J", "mzJ`z")
 -- File Browser
 set("n", "<leader>e", "<cmd>Ex<cr>")
 -- Completion - see :h ins-completion
-set("i", "<C-i>", "<C-x><C-o>")
+set("i", "<C-j>", "<C-x><C-o>")
 set("i", "<C-f>", "<C-x><C-f>")
 -- Prev/next movements
 set("n", "[d", vim.diagnostic.goto_prev)
