@@ -85,7 +85,8 @@ o.updatetime = 500
 o.timeoutlen = 500
 o.jumpoptions = "stack"
 -- Lines
-o.laststatus = 0
+o.laststatus = 3
+o.cmdheight = 0
 o.fillchars = "eob: "
 o.showcmd = false
 function ErrorIndicator()
@@ -97,7 +98,7 @@ function ErrorIndicator()
 		return "  "
 	end
 end
-o.rulerformat = "%=%m %t%{%v:lua.ErrorIndicator()%}"
+o.statusline = "./%f | %=%m %{%v:lua.ErrorIndicator()%}"
 -- Completion
 o.completeopt = "menu"
 -- Netrw
