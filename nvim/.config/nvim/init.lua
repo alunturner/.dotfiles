@@ -89,16 +89,36 @@ o.laststatus = 3
 o.cmdheight = 0
 o.fillchars = "eob: "
 o.showcmd = false
+function ModifiedIndicator()
+	local buf = vim.api.nvim_get_current_buf()
+	local buf_modified = vim.api.nvim_buf_get_option(buf, "modified")
+
+	if buf_modified then
+		return " %#CustomStatusInverse#%#CustomStatus#%m%#CustomStatusInverse#%#StatusLine#"
+	else
+		return ""
+	end
+end
+function WarningIndicator()
+	local err_count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
+
+	if err_count > 0 then
+		return " %#CustomStatusWarning# 󰈿 %#StatusLine#"
+	else
+		return "   "
+	end
+end
 function ErrorIndicator()
 	local err_count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
 
 	if err_count > 0 then
-		return " %#DiagnosticError#󰈿"
+		return " %#CustomStatusError# 󰈿 %#StatusLine#"
 	else
-		return "  "
+		return "   "
 	end
 end
-o.statusline = "./%f | %=%m %{%v:lua.ErrorIndicator()%}"
+o.statusline =
+	" %#CustomStatus#./%f%#CustomStatusInverse#%#StatusLine#%{%v:lua.ModifiedIndicator()%}%#StatusLine#%=%{%v:lua.WarningIndicator()%}%{%v:lua.ErrorIndicator()%} "
 -- Completion
 o.completeopt = "menu"
 -- Netrw
@@ -227,6 +247,11 @@ local colors = {
 	VisualNOS = { link = "Visual" },
 	WarningMsg = { fg = "#FF9100" },
 	WinBar = { fg = "#FF007B", bg = "#19191F" },
+	-- CUSTOM THINGS
+	CustomStatus = { fg = "#19191F", bg = "#A3C2C2" },
+	CustomStatusInverse = { fg = "#A3C2C2", bg = "#19191F" },
+	CustomStatusWarning = { fg = "#19191F", bg = "#FF9100" },
+	CustomStatusError = { fg = "#19191F", bg = "#FF0000" },
 }
 
 -- colorschemes generally want to do this
