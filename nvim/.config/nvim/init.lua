@@ -88,7 +88,16 @@ o.jumpoptions = "stack"
 o.laststatus = 0
 o.fillchars = "eob: "
 o.showcmd = false
-o.rulerformat = "%=%m %t"
+function ErrorIndicator()
+	local err_count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+
+	if err_count > 0 then
+		return " %#DiagnosticError#󰈿"
+	else
+		return "  "
+	end
+end
+o.rulerformat = "%=%m %t%{%v:lua.ErrorIndicator()%}"
 -- Completion
 o.completeopt = "menu"
 -- Netrw
