@@ -1,3 +1,18 @@
+function test()
+	local buf_nr = 0
+	local line_nr = vim.api.nvim_win_get_cursor(buf_nr)[1]
+	local namespace = vim.api.nvim_create_namespace("test")
+
+	print(buf_nr, line_nr, namespace)
+	vim.api.nvim_buf_set_extmark(
+		buf_nr,
+		namespace,
+		0,
+		0,
+		{ virt_text = { { "hello I am virtual text", {} } }, virt_text_pos = "right_align" }
+	)
+end
+
 -- STEP 0 - Install plugin manager (lazy)
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
