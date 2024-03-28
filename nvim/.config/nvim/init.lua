@@ -2,12 +2,18 @@ function test()
 	local buf_nr = 0
 	local line_nr = vim.api.nvim_win_get_cursor(buf_nr)[1]
 	local namespace = vim.api.nvim_create_namespace("test")
+	-- this gives us the ability to access the top line nr, but we knock one
+	-- off to allow us to go at the very top
+	local win_info = vim.fn.getwininfo(vim.fn.win_getid())[1]
 
-	print(buf_nr, line_nr, namespace)
+	-- clear out anything that is already there
+	vim.api.nvim_buf_clear_namespace(buf_nr, namespace, 0, -1)
+
+	print(buf_nr, line_nr, namespace, win_info.topline)
 	vim.api.nvim_buf_set_extmark(
 		buf_nr,
 		namespace,
-		0,
+		win_info.topline - 1,
 		0,
 		{ virt_text = { { "hello I am virtual text", {} } }, virt_text_pos = "right_align" }
 	)
