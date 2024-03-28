@@ -99,26 +99,17 @@ function ModifiedIndicator()
 		return ""
 	end
 end
-function WarningIndicator()
-	local err_count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
-
-	if err_count > 0 then
-		return " %#CustomStatusWarning# 󰈿 %#StatusLine#"
-	else
-		return "   "
-	end
-end
 function ErrorIndicator()
 	local err_count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
 
 	if err_count > 0 then
-		return " %#CustomStatusError# 󰈿 %#StatusLine#"
+		return " %#CustomStatusErrorInverse#%#CustomStatusError# 󰈿 "
 	else
 		return "   "
 	end
 end
 o.statusline =
-	" %#CustomStatus#./%f%#CustomStatusInverse#%#StatusLine#%{%v:lua.ModifiedIndicator()%}%#StatusLine#%=%{%v:lua.WarningIndicator()%}%{%v:lua.ErrorIndicator()%} "
+	"%#CustomStatus# ./%f%#CustomStatusInverse#%#StatusLine#%{%v:lua.ModifiedIndicator()%}%=%{%v:lua.ErrorIndicator()%}"
 -- Completion
 o.completeopt = "menu"
 -- Netrw
@@ -252,6 +243,7 @@ local colors = {
 	CustomStatusInverse = { fg = "#A3C2C2", bg = "#19191F" },
 	CustomStatusWarning = { fg = "#19191F", bg = "#FF9100" },
 	CustomStatusError = { fg = "#19191F", bg = "#FF0000" },
+	CustomStatusErrorInverse = { fg = "#FF0000", bg = "#19191F" },
 }
 
 -- colorschemes generally want to do this
