@@ -88,7 +88,7 @@ o.jumpoptions = "stack"
 o.laststatus = 0
 o.fillchars = "eob: "
 o.showcmd = false
-o.rulerformat = "%80(%=%m %f%)"
+o.rulerformat = "%=%m %t"
 -- Completion
 o.completeopt = "menu"
 -- Netrw
