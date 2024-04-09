@@ -85,31 +85,32 @@ o.updatetime = 500
 o.timeoutlen = 500
 o.jumpoptions = "stack"
 -- Lines
-o.laststatus = 3
-o.cmdheight = 0
+o.laststatus = 0
 o.fillchars = "eob: "
 o.showcmd = false
-function ModifiedIndicator()
-	local buf = vim.api.nvim_get_current_buf()
-	local buf_modified = vim.api.nvim_buf_get_option(buf, "modified")
 
-	if buf_modified then
-		return " %#CustomStatusInverse#%#CustomStatus#%m%#CustomStatusInverse#%#StatusLine#"
+function GetErrorIndicator()
+	local err_count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+
+	if err_count > 0 then
+		return "%#CustomRulerError# "
 	else
 		return ""
 	end
 end
-function ErrorIndicator()
-	local err_count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
 
-	if err_count > 0 then
-		return " %#CustomStatusErrorInverse#%#CustomStatusError# 󰈿 "
-	else
-		return "   "
+function GetRulerIcon()
+	local modified = vim.bo.modified
+	local icon = ""
+
+	if modified then
+		icon = ""
 	end
+
+	return "%#CustomRulerSeparator#%#CustomRulerIcon#" .. icon .. " "
 end
-o.statusline =
-	"%#CustomStatus# ./%f%#CustomStatusInverse#%#StatusLine#%{%v:lua.ModifiedIndicator()%}%=%{%v:lua.ErrorIndicator()%}"
+
+o.rulerformat = "%30(%=%{%v:lua.GetErrorIndicator()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
 -- Completion
 o.completeopt = "menu"
 -- Netrw
@@ -141,9 +142,9 @@ local colors = {
 	LspReferenceRead = { link = "Normal" },
 	LspReferenceText = { link = "Normal" },
 	LspReferenceWrite = { link = "Normal" },
-	ModeMsg = { link = "Normal" },
-	MoreMsg = { link = "Normal" },
-	MsgArea = { link = "Normal" },
+	ModeMsg = { fg = "#E9E7DD", bg = "#262626" },
+	MoreMsg = { link = "ModeMsg" },
+	MsgArea = { link = "ModeMsg" },
 	MsgSeparator = { link = "Normal" },
 	NonText = { link = "Normal" },
 	NormalNC = { link = "Normal" },
@@ -155,7 +156,7 @@ local colors = {
 	SpellCap = { link = "Normal" },
 	SpellLocal = { link = "Normal" },
 	SpellRare = { link = "Normal" },
-	StatusLine = { link = "Normal" },
+	StatusLine = { link = "ColorColumn" },
 	TabLine = { link = "Normal" },
 	TabLineFill = { link = "Normal" },
 	TabLineSel = { link = "Normal" },
@@ -229,8 +230,11 @@ local colors = {
 	["@constant.builtin.javascript"] = { link = "Type" },
 	["@constant.builtin.tsx"] = { link = "Type" },
 	["@constant.builtin.typescript"] = { link = "Type" },
+	["@constructor.lua"] = { link = "Delimiter" },
+	["@tag.attribute.tsx"] = { link = "Delimiter" },
 	["@tag.builtin.javascript"] = { link = "Type" },
 	["@tag.builtin.tsx"] = { link = "Type" },
+	["@tag.delimiter.tsx"] = { link = "Delimiter" },
 	["@tag.javascript"] = { link = "Type" },
 	["@tag.tsx"] = { link = "Type" },
 	Underlined = { fg = "#E9E7DD", bg = "#19191F", underline = true },
@@ -239,11 +243,10 @@ local colors = {
 	WarningMsg = { fg = "#FF9100" },
 	WinBar = { fg = "#FF007B", bg = "#19191F" },
 	-- CUSTOM THINGS
-	CustomStatus = { fg = "#19191F", bg = "#A3C2C2" },
-	CustomStatusInverse = { fg = "#A3C2C2", bg = "#19191F" },
-	CustomStatusWarning = { fg = "#19191F", bg = "#FF9100" },
-	CustomStatusError = { fg = "#19191F", bg = "#FF0000" },
-	CustomStatusErrorInverse = { fg = "#FF0000", bg = "#19191F" },
+	CustomRulerSeparator = { fg = "#521452", bg = "#262626" },
+	CustomRulerIcon = { fg = "#E9E7DD", bg = "#521452" },
+	CustomRulerFile = { fg = "#E9E7DD", bg = "#262626" },
+	CustomRulerError = { fg = "#FF0000", bg = "#262626" },
 }
 
 -- colorschemes generally want to do this
@@ -258,3 +261,50 @@ vim.diagnostic.config({ virtual_text = false })
 
 -- STEP 6 - ABBREVIATIONS
 vim.cmd("iab tbitd toBeInTheDocument()")
+
+-- STEP 7 - EXPERIMENTAL
+-- Example error message from tsc
+-- src/features/app/components/AppHeader/AppHeader.tsx(11,19): error TS2552: Cannot find name useAccount. Did you mean account?
+local augroup = vim.api.nvim_create_augroup("makers", { clear = true })
+-- TODO use the errorformat (see :h errorformat) to try and tidy the qflist
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "typescript,typescriptreact",
+	group = augroup,
+	command = "compiler tsc | setlocal makeprg=tsc",
+})
+
+-- Add import on completion (not working)
+-- _G.lsp_import_on_completion = function()
+-- print("running import on completion")
+-- local completed_item = vim.v.completed_item
+-- if
+-- not (
+-- completed_item
+-- and completed_item.user_data
+-- and completed_item.user_data.nvim
+-- and completed_item.user_data.nvim.lsp
+-- and completed_item.user_data.nvim.lsp.completion_item
+-- )
+-- then
+-- return
+-- end
+--
+-- local item = completed_item.user_data.nvim.lsp.completion_item
+-- local bufnr = vim.api.nvim_get_current_buf()
+-- vim.lsp.buf_request(bufnr, "completionItem/resolve", item, function(_, _, result)
+-- if result and result.additionalTextEdits then
+-- vim.lsp.util.apply_text_edits(result.additionalTextEdits, bufnr)
+-- end
+-- end)
+-- end
+--
+-- -- define autocmd to listen for CompleteDone
+-- vim.api.nvim_exec(
+-- [[
+-- augroup LSPImportOnCompletion
+-- autocmd!
+-- autocmd CompleteDone * lua lsp_import_on_completion()
+-- augroup END
+-- ]],
+-- false
+-- )
