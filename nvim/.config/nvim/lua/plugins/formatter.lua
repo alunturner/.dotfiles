@@ -7,7 +7,7 @@ Formatter.config = function()
 	local conform = require("conform")
 	local format_on_save_config = {
 		lsp_fallback = true,
-		async = false,
+		async = true,
 		timeout_ms = 500,
 	}
 

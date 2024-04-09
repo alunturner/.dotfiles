@@ -23,9 +23,7 @@ Finder.config = function()
 
 	-- LSP/Diagnostics
 	fzf_set("<leader>d", "lsp_document_diagnostics")
-	fzf_set("<leader>D", "lsp_workspace_diagnostics")
 	fzf_set("<leader>o", "lsp_document_symbols")
-	fzf_set("<leader>O", "lsp_live_workspace_symbols")
 	fzf_set("gr", "lsp_references")
 	fzf_set("gd", "lsp_definitions")
 end

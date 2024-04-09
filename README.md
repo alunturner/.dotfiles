@@ -2,7 +2,10 @@
 
 1. Installs:
 
-- Zsh: `brew install zsh`
+- Wezterm:
+  - on mac: `brew install --cask wezterm`
+  - on wsl: `brew tap wez/wezterm-linuxbrew && brew install wezterm`
+- Zsh: on mac: `brew install zsh`, on wsl: `sudo apt install zsh`
   - change shell to zsh `chsh -s $(which zsh)`
 - Ripgrep: `brew install ripgrep`
 - Fzf: `brew install fzf`
@@ -13,11 +16,13 @@
   - TS: `npm install -g typescript typescript-language-server`
   - ESLint: `npm i -g vscode-langservers-extracted`
   - Lua: `brew install lua-language-server`
+  - CSS variables: `npm i -g css-variables-language-server`
+  - CSS modules: `npm install -g cssmodules-language-server`
 - Tmux: `brew install tmux`
 - Gitmux: `brew tap arl/arl && brew install gitmux`
 - JS daemons
   - nodemon: `npm i -g nodemon`
-  - prettierd: `npm i -g fsouza/prettierd`
+  - prettierd: `npm i -g fsouza/prettierd` or `brew install prettierd`
   - eslint_d: `npm i -g eslint_d`
 
 1. Clone .dotfiles at the top level `~/.dotfiles`
