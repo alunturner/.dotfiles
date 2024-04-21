@@ -2,9 +2,6 @@
 
 1. Installs:
 
-- Wezterm:
-  - on mac: `brew install --cask wezterm`
-  - on wsl: `brew tap wez/wezterm-linuxbrew && brew install wezterm`
 - Zsh: on mac: `brew install zsh`, on wsl: `sudo apt install zsh`
   - change shell to zsh `chsh -s $(which zsh)`
 - Ripgrep: `brew install ripgrep`
@@ -50,8 +47,6 @@
 
 ## Plugins
 
-- nui
-  - build a custom diagnostics thing (can then remove the diagnostic line indicators)
 - fzf
   - find how to export all to quickfix list
 - helpers
@@ -68,5 +63,4 @@
 
 - figure out a good shortcut that works with vim for `tmux kill-pane -a`
 - transition to read theme colours when theme is compiled and built
-- add a pomodoro timer plugin (pomodoro plus) from scratch
 - make command to spawn a window running the jest tests on the current file
