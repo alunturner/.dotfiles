@@ -28,8 +28,6 @@ Treesitter.config = function()
 				lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
 				keymaps = {
 					-- You can use the capture groups defined in textobjects.scm
-					["a="] = "@assignment.outer",
-					["i="] = "@assignment.inner",
 					["ax"] = "@attribute.outer",
 					["ix"] = "@attribute.inner",
 					["ac"] = "@call.outer",
@@ -80,11 +78,9 @@ Treesitter.config = function()
 
 	-- Make moves repeatable
 	local repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
-
 	-- vim way: ; goes to the direction you were moving.
 	vim.keymap.set({ "n", "x", "o" }, ";", repeat_move.repeat_last_move)
 	vim.keymap.set({ "n", "x", "o" }, ",", repeat_move.repeat_last_move_opposite)
-
 	-- Optionally, make builtin f, F, t, T also repeatable with ; and ,
 	vim.keymap.set({ "n", "x", "o" }, "f", repeat_move.builtin_f)
 	vim.keymap.set({ "n", "x", "o" }, "F", repeat_move.builtin_F)
