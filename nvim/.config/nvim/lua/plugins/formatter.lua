@@ -10,7 +10,6 @@ Formatter.config = function()
 		async = true,
 		timeout_ms = 500,
 	}
-
 	conform.setup({
 		formatters_by_ft = {
 			javascript = { "prettierd" },
@@ -26,7 +25,6 @@ Formatter.config = function()
 		},
 		format_on_save = format_on_save_config,
 	})
-
 	vim.keymap.set("n", "<leader>p", function()
 		conform.format(format_on_save_config)
 	end)

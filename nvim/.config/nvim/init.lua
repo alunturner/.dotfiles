@@ -27,19 +27,6 @@ require("lazy").setup("plugins")
 -- STEP 2 - KEY REMAPS
 -- Quick way to remove highlighting
 set("n", "<Esc>", "<cmd>nohl<cr>")
--- Centre cursor on screen scroll (always)
-set("n", "<C-d>", "<C-d>zz")
-set("n", "<C-u>", "<C-u>zz")
--- Centre cursor on search (always)
-set("n", "n", "nzz")
-set("n", "N", "Nzz")
-vim.keymap.set("c", "<cr>", function()
-	local cmd = vim.fn.getcmdtype()
-	local is_search = cmd == "/" or cmd == "?"
-	return is_search and "<cr>zz" or "<cr>"
-end, { expr = true })
--- Centre cursor on line jump (nb :LineNr or #G still only moves cursor)
-set("n", "gg", "ggzz")
 -- Make Y act like C and D
 set("n", "Y", "y$")
 -- Don't move the cursor when using J
@@ -109,7 +96,6 @@ function GetRulerIcon()
 
 	return "%#CustomRulerSeparator#%#CustomRulerIcon#" .. icon .. " "
 end
-
 o.rulerformat = "%30(%=%{%v:lua.GetErrorIndicator()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
 -- Completion
 o.completeopt = "menu"
@@ -272,39 +258,3 @@ vim.api.nvim_create_autocmd("FileType", {
 	group = augroup,
 	command = "compiler tsc | setlocal makeprg=tsc",
 })
-
--- Add import on completion (not working)
--- _G.lsp_import_on_completion = function()
--- print("running import on completion")
--- local completed_item = vim.v.completed_item
--- if
--- not (
--- completed_item
--- and completed_item.user_data
--- and completed_item.user_data.nvim
--- and completed_item.user_data.nvim.lsp
--- and completed_item.user_data.nvim.lsp.completion_item
--- )
--- then
--- return
--- end
---
--- local item = completed_item.user_data.nvim.lsp.completion_item
--- local bufnr = vim.api.nvim_get_current_buf()
--- vim.lsp.buf_request(bufnr, "completionItem/resolve", item, function(_, _, result)
--- if result and result.additionalTextEdits then
--- vim.lsp.util.apply_text_edits(result.additionalTextEdits, bufnr)
--- end
--- end)
--- end
---
--- -- define autocmd to listen for CompleteDone
--- vim.api.nvim_exec(
--- [[
--- augroup LSPImportOnCompletion
--- autocmd!
--- autocmd CompleteDone * lua lsp_import_on_completion()
--- augroup END
--- ]],
--- false
--- )

@@ -5,7 +5,6 @@ local Lsp = {
 
 Lsp.config = function()
 	local lspconfig = require("lspconfig")
-
 	-- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#configurations
 	lspconfig.tsserver.setup({})
 	lspconfig.eslint.setup({
@@ -29,7 +28,6 @@ Lsp.config = function()
 	lspconfig.css_variables.setup({})
 	lspconfig.cssls.setup({})
 	lspconfig.cssmodules_ls.setup({})
-
 	-- Use LspAttach autocommand to only map the following keys
 	-- after the language server attaches to the current buffer
 	vim.api.nvim_create_autocmd("LspAttach", {
@@ -37,12 +35,10 @@ Lsp.config = function()
 		callback = function(ev)
 			-- Enable completion triggered by <c-x><c-o>
 			vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-
 			-- Buffer local mappings.
 			-- See `:help vim.lsp.*` for documentation on any of the below functions
 			local opts = { buffer = ev.buf }
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-			vim.keymap.set("n", "<C-K>", vim.lsp.buf.signature_help, opts)
 			vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
 			vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action, opts)
 		end,
