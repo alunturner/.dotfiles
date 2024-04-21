@@ -245,6 +245,16 @@ for group, attrs in pairs(colors) do
 end
 vim.diagnostic.config({ virtual_text = false })
 
+-- add borders around floats, makes them a lot easier to distinguish
+local _border = "double"
+vim.diagnostic.config({ float = { border = _border }, virtual_text = false })
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+	border = _border,
+})
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+	border = _border,
+})
+
 -- STEP 6 - ABBREVIATIONS
 vim.cmd("iab tbitd toBeInTheDocument()")
 
@@ -258,3 +268,4 @@ vim.api.nvim_create_autocmd("FileType", {
 	group = augroup,
 	command = "compiler tsc | setlocal makeprg=tsc",
 })
+
