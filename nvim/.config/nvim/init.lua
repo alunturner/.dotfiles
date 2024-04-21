@@ -115,9 +115,10 @@ vim.api.nvim_create_autocmd("filetype", {
 })
 
 -- STEP 5 - COLORSCHEME AND CUSTOMISATION
+local _border = "double"
 vim.cmd("colorscheme habamax")
 set("n", "<leader>i", "<cmd>Inspect<cr>")
-vim.diagnostic.config({ virtual_text = false })
+vim.diagnostic.config({ float = { border = _border }, virtual_text = false })
 
 -- STEP 6 - ABBREVIATIONS
 vim.cmd("iab tbitd toBeInTheDocument()")
@@ -132,4 +133,3 @@ vim.api.nvim_create_autocmd("FileType", {
 	group = augroup,
 	command = "compiler tsc | setlocal makeprg=tsc",
 })
-
