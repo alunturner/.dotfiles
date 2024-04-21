@@ -22,6 +22,8 @@ Finder.config = function()
 	fzf_set("<leader>o", "lsp_document_symbols")
 	fzf_set("gr", "lsp_references")
 	fzf_set("gd", "lsp_definitions")
+	-- TO DELETE
+	fzf_set("<leader>h", "highlights")
 end
 
 return { Finder }
