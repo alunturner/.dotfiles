@@ -119,7 +119,13 @@ local _border = "double"
 vim.cmd("colorscheme habamax")
 set("n", "<leader>i", "<cmd>Inspect<cr>")
 vim.diagnostic.config({ float = { border = _border }, virtual_text = false })
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+	border = _border,
+})
 
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+	border = _border,
+})
 -- STEP 6 - ABBREVIATIONS
 vim.cmd("iab tbitd toBeInTheDocument()")
 
