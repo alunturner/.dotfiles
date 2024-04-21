@@ -115,12 +115,8 @@ vim.api.nvim_create_autocmd("filetype", {
 })
 
 -- STEP 5 - COLORSCHEME AND CUSTOMISATION
-vim.cmd("colorscheme pax-mono")
+vim.cmd("colorscheme habamax")
 set("n", "<leader>i", "<cmd>Inspect<cr>")
-
--- colorschemes generally want to do this
-vim.cmd("highlight clear")
-vim.cmd("let g:colors_name='pax'")
 vim.diagnostic.config({ virtual_text = false })
 
 -- STEP 6 - ABBREVIATIONS
