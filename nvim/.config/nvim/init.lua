@@ -71,6 +71,7 @@ o.swapfile = false
 o.updatetime = 500
 o.timeoutlen = 500
 o.jumpoptions = "stack"
+o.sidescrolloff = 7
 -- Lines
 o.laststatus = 0
 o.fillchars = "eob: "
@@ -115,7 +116,7 @@ vim.api.nvim_create_autocmd("filetype", {
 })
 
 -- STEP 5 - COLORSCHEME AND CUSTOMISATION
-local _border = "double"
+local _border = "rounded"
 vim.cmd("colorscheme habamax")
 set("n", "<leader>i", "<cmd>Inspect<cr>")
 vim.diagnostic.config({ float = { border = _border }, virtual_text = false })
