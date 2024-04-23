@@ -10,7 +10,9 @@ local function fzf_set(bind, picker)
 end
 
 Finder.config = function()
-	require("fzf-lua").setup({})
+	require("fzf-lua").setup({
+		fzf_colors = { ["gutter"] = "-1"} },
+	})
 	-- Buffers and Files
 	fzf_set("<leader>f", "files")
 	fzf_set("<leader>b", "buffers")
