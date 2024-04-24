@@ -11,6 +11,9 @@ end
 
 Finder.config = function()
 	require("fzf-lua").setup({
+		defaults = {
+			file_icons = false,
+		},
 		keymap = {
 			builtin = {
 				["<C-d>"] = "preview-page-down",
@@ -35,7 +38,32 @@ Finder.config = function()
 			["marker"] = { "fg", { "Pmenu" } },
 			["gutter"] = "-1",
 		},
-		-- TODO >>> got down to the files {} config
+		files = {
+			prompt = " ",
+			winopts = { title = "┤ Files ├", title_pos = "center" },
+		},
+		buffers = {
+			prompt = " ",
+			winopts = { title = "┤ Buffers ├", title_pos = "center" },
+		},
+		quickfix = {
+			prompt = " ",
+			winopts = { title = "┤ Quickfix ├", title_pos = "center" },
+		},
+		grep = {
+			prompt = " ",
+			winopts = { title = "┤ Ripgrep ├", title_pos = "center" },
+		},
+		diagnostics = {
+			prompt = " ",
+			winopts = { title = "┤ Diagnostics ├", title_pos = "center" },
+		},
+		lsp = {
+			symbols = {
+				prompt = " ",
+				winopts = { title = "┤ LSP Symbols ├", title_pos = "center" },
+			},
+		},
 	})
 	-- Buffers and Files
 	fzf_set("<leader>f", "files")
