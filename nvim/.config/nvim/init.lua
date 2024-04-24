@@ -39,6 +39,8 @@ set("i", "<C-f>", "<C-x><C-f>")
 -- Prev/next movements
 set("n", "[d", vim.diagnostic.goto_prev)
 set("n", "]d", vim.diagnostic.goto_next)
+set("n", "[q", "<cmd>cprev<cr>")
+set("n", "]q", "<cmd>cnext<cr>")
 
 -- STEP 4 - SETTINGS
 local o = vim.opt
@@ -139,4 +141,3 @@ vim.api.nvim_create_autocmd("FileType", {
 	group = augroup,
 	command = "compiler tsc | setlocal makeprg=tsc",
 })
-
