@@ -31,11 +31,12 @@ Finder.config = function()
 			["hl"] = { "fg", { "Normal" } },
 			["hl+"] = { "fg", { "PmenuSel" }, "italic", "underline" },
 			["query"] = { "fg", { "Normal" } },
-			["info"] = { "fg", { "Normal" } },
+			["info"] = { "fg", { "Comment" } },
 			["separator"] = { "fg", { "Comment" } },
 			["prompt"] = { "fg", { "Normal" } },
 			["pointer"] = { "fg", { "PmenuSel" } },
 			["marker"] = { "fg", { "Pmenu" } },
+			["header"] = { "fg", { "Normal" } },
 			["gutter"] = "-1",
 		},
 		files = {
