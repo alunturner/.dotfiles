@@ -12,6 +12,7 @@ end
 Finder.config = function()
 	require("fzf-lua").setup({
 		fzf_colors = {
+			["border"] = { "fg", { "Normal" } },
 			["fg"] = { "fg", { "Comment" } },
 			["fg+"] = { "fg", { "PmenuSel" } },
 			["bg+"] = { "bg", { "PmenuSel" } },
