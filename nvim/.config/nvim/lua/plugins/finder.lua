@@ -11,7 +11,19 @@ end
 
 Finder.config = function()
 	require("fzf-lua").setup({
-		fzf_colors = { ["gutter"] = "-1"} },
+		fzf_colors = {
+			["fg"] = { "fg", { "Comment" } },
+			["fg+"] = { "fg", { "PmenuSel" } },
+			["bg+"] = { "bg", { "PmenuSel" } },
+			["hl"] = { "fg", { "Normal" } },
+			["hl+"] = { "fg", { "PmenuSel" }, "italic", "underline" },
+			["query"] = { "fg", { "Normal" } },
+			["info"] = { "fg", { "Normal" } },
+			["prompt"] = { "fg", { "Normal" } },
+			["pointer"] = { "fg", { "PmenuSel" } },
+			["marker"] = { "fg", { "Pmenu" } },
+			["gutter"] = "-1",
+		},
 	})
 	-- Buffers and Files
 	fzf_set("<leader>f", "files")
