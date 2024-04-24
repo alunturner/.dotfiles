@@ -78,7 +78,6 @@ o.sidescrolloff = 7
 o.laststatus = 0
 o.fillchars = "eob: "
 o.showcmd = false
-
 function GetErrorIndicator()
 	local err_count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
 
@@ -88,7 +87,6 @@ function GetErrorIndicator()
 		return ""
 	end
 end
-
 function GetRulerIcon()
 	local modified = vim.bo.modified
 	local icon = ""
@@ -99,7 +97,7 @@ function GetRulerIcon()
 
 	return "%#CustomRulerSeparator#%#CustomRulerIcon#" .. icon .. " "
 end
-o.rulerformat = "%30(%=%{%v:lua.GetErrorIndicator()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
+o.rulerformat = "%50(%=%{%v:lua.GetErrorIndicator()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
 -- Completion
 o.completeopt = "menu"
 -- Netrw
