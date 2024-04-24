@@ -52,13 +52,14 @@ highlight! link CursorColumn CursorLine
 highlight CursorLineNr guifg=#FF007B guibg=#262626 guisp=NONE blend=NONE gui=NONE
 highlight! link CursorLineFold CursorLineNr
 highlight! link CursorLineSign CursorLineNr
-highlight CustomRulerError guifg=#FF0000 guibg=#3D3D3D guisp=NONE blend=NONE gui=NONE
-highlight CustomRulerFile guifg=#E9E7DD guibg=#3D3D3D guisp=NONE blend=NONE gui=NONE
+highlight CustomRulerError guifg=#FF0000 guibg=#19191F guisp=NONE blend=NONE gui=NONE
+highlight CustomRulerFile guifg=#E9E7DD guibg=#361736 guisp=NONE blend=NONE gui=NONE
 highlight CustomRulerIcon guifg=#E9E7DD guibg=#521452 guisp=NONE blend=NONE gui=NONE
-highlight CustomRulerSeparator guifg=#521452 guibg=#3D3D3D guisp=NONE blend=NONE gui=NONE
+highlight CustomRulerSeparator guifg=#521452 guibg=#19191F guisp=NONE blend=NONE gui=NONE
 highlight Delimiter guifg=#E9E7DD guibg=NONE guisp=NONE blend=NONE gui=NONE
 highlight! link @constructor.lua Delimiter
 highlight! link @tag.attribute.tsx Delimiter
+highlight! link @tag.delimiter.javascript Delimiter
 highlight! link @tag.delimiter.tsx Delimiter
 highlight DiagnosticError guifg=#FF0000 guibg=NONE guisp=NONE blend=NONE gui=NONE
 highlight DiagnosticOk guifg=#8CB2D9 guibg=NONE guisp=NONE blend=NONE gui=NONE
@@ -73,6 +74,7 @@ highlight ErrorMsg guifg=#FF0000 guibg=NONE guisp=NONE blend=NONE gui=NONE
 highlight Function guifg=#D1C794 guibg=NONE guisp=NONE blend=NONE gui=NONE
 highlight! link @constructor.javascript Function
 highlight! link @constructor.tsx Function
+highlight! link @constructor.typescript Function
 highlight Identifier guifg=#85ADAD guibg=NONE guisp=NONE blend=NONE gui=NONE
 highlight IncSearch guifg=#19191F guibg=#E9E7DD guisp=NONE blend=NONE gui=NONE
 highlight! link Search IncSearch
@@ -95,6 +97,7 @@ highlight! link WildMenu PmenuSel
 highlight PmenuThumb guifg=NONE guibg=#262626 guisp=NONE blend=NONE gui=NONE
 highlight PreProc guifg=#AD85AD guibg=NONE guisp=NONE blend=NONE gui=NONE
 highlight Statement guifg=#AD85AD guibg=NONE guisp=NONE blend=NONE gui=NONE
+highlight! link @function.builtin.javascript Statement
 highlight StatusLineNC guifg=#19191F guibg=#19191F guisp=NONE blend=NONE gui=NONE
 highlight TermCursor guifg=NONE guibg=#FF007B guisp=NONE blend=NONE gui=NONE
 highlight TermCursorNC guifg=#E9E7DD guibg=#19191F guisp=NONE blend=NONE gui=reverse
@@ -106,6 +109,7 @@ highlight! link @boolean.typescript Type
 highlight! link @constant.builtin.javascript Type
 highlight! link @constant.builtin.tsx Type
 highlight! link @constant.builtin.typescript Type
+highlight! link @tag.attribute.javascript Type
 highlight! link @tag.builtin.javascript Type
 highlight! link @tag.builtin.tsx Type
 highlight! link @tag.javascript Type
