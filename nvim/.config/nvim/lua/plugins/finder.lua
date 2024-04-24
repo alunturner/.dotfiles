@@ -23,6 +23,9 @@ Finder.config = function()
 				["ctrl-q"] = "select-all+accept",
 			},
 		},
+		fzf_opts = {
+			["--preview-label"] = "┤ $label ├",
+		},
 		fzf_colors = {
 			["border"] = { "fg", { "Normal" } },
 			["fg"] = { "fg", { "Comment" } },
@@ -41,28 +44,28 @@ Finder.config = function()
 		},
 		files = {
 			cwd_prompt = false,
-			prompt = " ",
+			prompt = "Files ",
 			winopts = { title = "┤ Files ├", title_pos = "center" },
 		},
 		buffers = {
-			prompt = " ",
+			prompt = "Buffers ",
 			winopts = { title = "┤ Buffers ├", title_pos = "center" },
 		},
 		quickfix = {
-			prompt = " ",
+			prompt = "Quickfix ",
 			winopts = { title = "┤ Quickfix ├", title_pos = "center" },
 		},
 		grep = {
-			prompt = " ",
+			prompt = "Ripgrep ",
 			winopts = { title = "┤ Ripgrep ├", title_pos = "center" },
 		},
 		diagnostics = {
-			prompt = " ",
+			prompt = "Diagnostics ",
 			winopts = { title = "┤ Diagnostics ├", title_pos = "center" },
 		},
 		lsp = {
 			symbols = {
-				prompt = " ",
+				prompt = "LSP ",
 				winopts = { title = "┤ LSP Symbols ├", title_pos = "center" },
 			},
 		},
