@@ -40,6 +40,7 @@ Finder.config = function()
 			["gutter"] = "-1",
 		},
 		files = {
+			cwd_prompt = false,
 			prompt = " ",
 			winopts = { title = "┤ Files ├", title_pos = "center" },
 		},
@@ -67,8 +68,8 @@ Finder.config = function()
 		},
 	})
 	-- Buffers and Files
-	fzf_set("<leader>f", "files")
 	fzf_set("<leader>b", "buffers")
+	fzf_set("<leader>f", "files")
 	fzf_set("<leader>q", "quickfix")
 	-- Search
 	fzf_set("<leader>s", "grep_project")
