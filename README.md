@@ -48,8 +48,6 @@
 
 ## Plugins
 
-- fzf
-  - find how to export all to quickfix list
 - helpers
   - create a react component folder
   - populate args list with component files (ie component, tests and css)
