@@ -118,7 +118,6 @@ vim.api.nvim_create_autocmd("filetype", {
 -- STEP 5 - COLORSCHEME AND CUSTOMISATION
 local _border = "rounded"
 vim.cmd("colorscheme pax_mono")
-set("n", "<leader>i", "<cmd>Inspect<cr>")
 vim.diagnostic.config({ float = { border = _border }, virtual_text = false })
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = _border,
@@ -140,3 +139,4 @@ vim.api.nvim_create_autocmd("FileType", {
 	group = augroup,
 	command = "compiler tsc | setlocal makeprg=tsc",
 })
+
