@@ -11,6 +11,15 @@ end
 
 Finder.config = function()
 	require("fzf-lua").setup({
+		keymap = {
+			builtin = {
+				["<C-d>"] = "preview-page-down",
+				["<C-u>"] = "preview-page-up",
+			},
+			fzf = {
+				["ctrl-q"] = "select-all+accept",
+			},
+		},
 		fzf_colors = {
 			["border"] = { "fg", { "Normal" } },
 			["fg"] = { "fg", { "Comment" } },
@@ -20,11 +29,13 @@ Finder.config = function()
 			["hl+"] = { "fg", { "PmenuSel" }, "italic", "underline" },
 			["query"] = { "fg", { "Normal" } },
 			["info"] = { "fg", { "Normal" } },
+			["separator"] = { "fg", { "Comment" } },
 			["prompt"] = { "fg", { "Normal" } },
 			["pointer"] = { "fg", { "PmenuSel" } },
 			["marker"] = { "fg", { "Pmenu" } },
 			["gutter"] = "-1",
 		},
+		-- TODO >>> got down to the files {} config
 	})
 	-- Buffers and Files
 	fzf_set("<leader>f", "files")
