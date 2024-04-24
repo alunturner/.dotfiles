@@ -6,6 +6,7 @@
   - change shell to zsh `chsh -s $(which zsh)`
 - Ripgrep: `brew install ripgrep`
 - Fzf: `brew install fzf`
+- fd: `brew install fd`
 - Stow: `brew install stow`
 - Neovim: `brew install neovim`
 - Stylua: `brew install stylua`
@@ -47,8 +48,6 @@
 
 ## Plugins
 
-- fzf
-  - find how to export all to quickfix list
 - helpers
   - create a react component folder
   - populate args list with component files (ie component, tests and css)
