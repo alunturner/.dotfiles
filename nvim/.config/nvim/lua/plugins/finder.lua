@@ -23,9 +23,6 @@ Finder.config = function()
 				["ctrl-q"] = "select-all+accept",
 			},
 		},
-		fzf_opts = {
-			["--preview-label"] = "┤ $label ├",
-		},
 		fzf_colors = {
 			["border"] = { "fg", { "Normal" } },
 			["fg"] = { "fg", { "Comment" } },
