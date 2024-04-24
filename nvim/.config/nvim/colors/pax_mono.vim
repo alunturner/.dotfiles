@@ -1,3 +1,4 @@
+hi clear
 highlight Normal guifg=#E6E6E6 guibg=#1A1A1A guisp=NONE blend=NONE gui=NONE
 highlight! link Error Normal
 highlight! link FloatTitle Normal
