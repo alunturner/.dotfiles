@@ -97,7 +97,7 @@ function GetRulerIcon()
 
 	return "%#CustomRulerSeparator#%#CustomRulerIcon#" .. icon .. " "
 end
-o.rulerformat = "%50(%=%{%v:lua.GetErrorIndicator()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
+o.rulerformat = "%40(%=%{%v:lua.GetErrorIndicator()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
 -- Completion
 o.completeopt = "menu"
 -- Netrw
