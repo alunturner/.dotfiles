@@ -41,28 +41,29 @@ Finder.config = function()
 		},
 		files = {
 			cwd_prompt = false,
-			prompt = "Files ",
+			prompt = "Files  ",
 			winopts = { title = "┤ Files ├", title_pos = "center" },
 		},
 		buffers = {
-			prompt = "Buffers ",
+			prompt = "Buffers  ",
 			winopts = { title = "┤ Buffers ├", title_pos = "center" },
 		},
 		quickfix = {
-			prompt = "Quickfix ",
+			prompt = "Quickfix  ",
 			winopts = { title = "┤ Quickfix ├", title_pos = "center" },
 		},
 		grep = {
-			prompt = "Ripgrep ",
+			prompt = "Ripgrep  ",
+			rg_opts = "--column --line-number --no-heading --color=never --smart-case --max-columns=4096 -e",
 			winopts = { title = "┤ Ripgrep ├", title_pos = "center" },
 		},
 		diagnostics = {
-			prompt = "Diagnostics ",
+			prompt = "Diagnostics  ",
 			winopts = { title = "┤ Diagnostics ├", title_pos = "center" },
 		},
 		lsp = {
 			symbols = {
-				prompt = "LSP ",
+				prompt = "LSP  ",
 				winopts = { title = "┤ LSP Symbols ├", title_pos = "center" },
 			},
 		},
