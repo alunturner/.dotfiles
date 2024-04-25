@@ -7,11 +7,11 @@ local config = w.config_builder()
 -- for details of how these thees can be altered (like we do the cursor)
 local hibiscus = "hsl:330 100 50"
 local tempWhite = "#e9e7dd"
-local d = w.get_builtin_color_schemes()["Github Dark (Gogh)"]
+local d = w.get_builtin_color_schemes()["Catppuccin Mocha (Gogh)"]
 d.cursor_bg = hibiscus
 d.foreground = tempWhite
 
-local l = w.get_builtin_color_schemes()["Github Light (Gogh)"]
+local l = w.get_builtin_color_schemes()["Catppuccin Latte (Gogh)"]
 l.cursor_bg = hibiscus
 
 config.color_schemes = {
