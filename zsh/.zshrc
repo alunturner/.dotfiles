@@ -29,6 +29,3 @@ PROMPT='%F{blue}IN %~%f %F{green}$(git_branch_name)%f$NEWLINE%(!.#.$) '
 if [ -f ~/.zsh_functions ]; then
     . ~/.zsh_functions
 fi
-
-# Make lazygit look in the right place for config
-export LG_CONFIG_FILE="$HOME/.config/lazygit/lazygit.conf"
