@@ -54,6 +54,7 @@ Finder.config = function()
 		},
 		grep = {
 			prompt = "Ripgrep ",
+			rg_opts = "--column --line-number --no-heading --color=never --smart-case --max-columns=4096 -e",
 			winopts = { title = "┤ Ripgrep ├", title_pos = "center" },
 		},
 		diagnostics = {
