@@ -12,14 +12,19 @@ d.cursor_bg = hibiscus
 d.foreground = tempWhite
 
 local l = w.get_builtin_color_schemes()["Catppuccin Latte (Gogh)"]
+d.cursor_bg = hibiscus
 l.cursor_bg = hibiscus
 
 config.color_schemes = {
 	["light"] = l,
 	["dark"] = d,
 }
-
 config.color_scheme = "dark"
+-- worth looking at the fact that config.colors actually lets you index arbitrary
+-- colours WHICH MEANS THAT we could load the terminal with encoded colours, which
+-- would then be available to use everywhere - eg could put hibiscus in there
+-- and use it wherever (like tmux) by referring to the code instead of using
+-- hex codes all over the place
 
 -- FONT
 config.font = w.font("JetBrainsMonoNL Nerd Font")
