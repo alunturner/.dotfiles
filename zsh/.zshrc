@@ -21,10 +21,10 @@ function git_branch_name()
 setopt prompt_subst
 
 # Config for prompt. Requires nerdfont installed.
-# Grey location followed by green git branch (if available).
+# Location followed by git branch (if available).
 # Prompt is $ for regular or # for elevated privilege.
 NEWLINE=$'\n'
-PROMPT='%F{#a3c2c2}IN %~%f %F{#00ff00}$(git_branch_name)%f$NEWLINE%(!.#.$) '
+PROMPT='%F{blue}IN %~%f %F{green}$(git_branch_name)%f$NEWLINE%(!.#.$) '
 
 if [ -f ~/.zsh_functions ]; then
     . ~/.zsh_functions
