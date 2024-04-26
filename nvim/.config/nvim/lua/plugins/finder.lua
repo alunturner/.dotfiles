@@ -67,9 +67,9 @@ Finder.config = function()
 			winopts = { title = "┤ Diagnostics ├", title_pos = "center" },
 		},
 		lsp = {
-			git_icons = false,
+			prompt_postfix = "  ",
 			symbols = {
-				prompt = "LSP  ",
+				prompt = "Symbol  ",
 				winopts = { title = "┤ LSP Symbols ├", title_pos = "center" },
 			},
 		},
