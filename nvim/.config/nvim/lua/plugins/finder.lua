@@ -52,6 +52,8 @@ Finder.config = function()
 		},
 		fzf_opts = {
 			["--info"] = "default",
+			["--pointer"] = "",
+			["--marker"] = "",
 		},
 		files = configure_finder("Finder", { cwd_prompt = false }),
 		buffers = configure_finder("Buffers"),
