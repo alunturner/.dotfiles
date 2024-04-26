@@ -53,26 +53,6 @@ Treesitter.config = function()
 					["<leader>A"] = "@parameter.inner",
 				},
 			},
-			move = {
-				enable = true,
-				set_jumps = true, -- whether to set jumps in the jumplist
-				goto_next_start = {
-					["]x"] = "@attribute.outer",
-					["]c"] = "@call.outer",
-					["]/"] = "@comment.outer",
-					["]f"] = "@function.outer",
-					["]a"] = "@parameter.outer",
-					["]r"] = "@regex.outer",
-				},
-				goto_previous_start = {
-					["[x"] = "@attribute.outer",
-					["[c"] = "@call.outer",
-					["[/"] = "@comment.outer",
-					["[f"] = "@function.outer",
-					["[a"] = "@parameter.outer",
-					["[r"] = "@regex.outer",
-				},
-			},
 		},
 	})
 end
