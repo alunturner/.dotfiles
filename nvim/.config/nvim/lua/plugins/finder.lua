@@ -9,6 +9,17 @@ local function fzf_set(bind, picker)
 	vim.keymap.set("n", bind, prefix .. picker .. suffix)
 end
 
+local function configure_finder(title, opts)
+	return vim.tbl_deep_extend("keep", opts or {}, {
+		prompt = title .. "  ",
+		git_icons = false,
+		winopts = {
+			title = "┤ " .. title .. " ├",
+			title_pos = "center",
+		},
+	})
+end
+
 Finder.config = function()
 	require("fzf-lua").setup({
 		defaults = {
@@ -24,48 +35,37 @@ Finder.config = function()
 			},
 		},
 		fzf_colors = {
-			["border"] = { "fg", { "Normal" } },
 			["fg"] = { "fg", { "Comment" } },
+			["hl"] = { "fg", { "Normal" } },
 			["fg+"] = { "fg", { "PmenuSel" } },
 			["bg+"] = { "bg", { "PmenuSel" } },
-			["hl"] = { "fg", { "Normal" } },
+			["gutter"] = "-1",
 			["hl+"] = { "fg", { "PmenuSel" }, "italic", "underline" },
 			["query"] = { "fg", { "Normal" } },
 			["info"] = { "fg", { "Comment" } },
+			["border"] = { "fg", { "Normal" } },
 			["separator"] = { "fg", { "Comment" } },
 			["prompt"] = { "fg", { "Normal" } },
 			["pointer"] = { "fg", { "PmenuSel" } },
 			["marker"] = { "fg", { "Pmenu" } },
 			["header"] = { "fg", { "Normal" } },
-			["gutter"] = "-1",
 		},
-		files = {
-			cwd_prompt = false,
-			prompt = "Files  ",
-			winopts = { title = "┤ Files ├", title_pos = "center" },
+		fzf_opts = {
+			["--info"] = "default",
+			["--pointer"] = "",
+			["--marker"] = "",
 		},
-		buffers = {
-			prompt = "Buffers  ",
-			winopts = { title = "┤ Buffers ├", title_pos = "center" },
-		},
-		quickfix = {
-			prompt = "Quickfix  ",
-			winopts = { title = "┤ Quickfix ├", title_pos = "center" },
-		},
-		grep = {
-			prompt = "Ripgrep  ",
-			rg_opts = "--column --line-number --no-heading --color=never --smart-case --max-columns=4096 -e",
-			winopts = { title = "┤ Ripgrep ├", title_pos = "center" },
-		},
-		diagnostics = {
-			prompt = "Diagnostics  ",
-			winopts = { title = "┤ Diagnostics ├", title_pos = "center" },
-		},
+		files = configure_finder("Finder", { cwd_prompt = false }),
+		buffers = configure_finder("Buffers"),
+		quickfix = configure_finder("Quickfix"),
+		grep = configure_finder(
+			"Ripgrep",
+			{ rg_opts = "--column --line-number --no-heading --color=never --smart-case --max-columns=4096 -e" }
+		),
+		diagnostics = configure_finder("Diagnostics"),
 		lsp = {
-			symbols = {
-				prompt = "LSP  ",
-				winopts = { title = "┤ LSP Symbols ├", title_pos = "center" },
-			},
+			prompt_postfix = "  ",
+			symbols = configure_finder("Symbol"),
 		},
 	})
 	-- Buffers and Files
