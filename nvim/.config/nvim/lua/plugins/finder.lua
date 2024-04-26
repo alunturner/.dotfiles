@@ -9,6 +9,17 @@ local function fzf_set(bind, picker)
 	vim.keymap.set("n", bind, prefix .. picker .. suffix)
 end
 
+local function configure_finder(title, opts)
+	return vim.tbl_deep_extend("keep", opts or {}, {
+		prompt = title .. "  ",
+		git_icons = false,
+		winopts = {
+			title = "┤ " .. title .. " ├",
+			title_pos = "center",
+		},
+	})
+end
+
 Finder.config = function()
 	require("fzf-lua").setup({
 		defaults = {
@@ -39,39 +50,17 @@ Finder.config = function()
 			["marker"] = { "fg", { "Pmenu" } },
 			["header"] = { "fg", { "Normal" } },
 		},
-		files = {
-			git_icons = false,
-			cwd_prompt = false,
-			prompt = "Files  ",
-			winopts = { title = "┤ Files ├", title_pos = "center" },
-		},
-		buffers = {
-			git_icons = false,
-			prompt = "Buffers  ",
-			winopts = { title = "┤ Buffers ├", title_pos = "center" },
-		},
-		quickfix = {
-			git_icons = false,
-			prompt = "Quickfix  ",
-			winopts = { title = "┤ Quickfix ├", title_pos = "center" },
-		},
-		grep = {
-			git_icons = false,
-			prompt = "Ripgrep  ",
-			rg_opts = "--column --line-number --no-heading --color=never --smart-case --max-columns=4096 -e",
-			winopts = { title = "┤ Ripgrep ├", title_pos = "center" },
-		},
-		diagnostics = {
-			git_icons = false,
-			prompt = "Diagnostics  ",
-			winopts = { title = "┤ Diagnostics ├", title_pos = "center" },
-		},
+		files = configure_finder("Finder", { cwd_prompt = false }),
+		buffers = configure_finder("Buffers"),
+		quickfix = configure_finder("Quickfix"),
+		grep = configure_finder(
+			"Ripgrep",
+			{ rg_opts = "--column --line-number --no-heading --color=never --smart-case --max-columns=4096 -e" }
+		),
+		diagnostics = configure_finder("Diagnostics"),
 		lsp = {
 			prompt_postfix = "  ",
-			symbols = {
-				prompt = "Symbol  ",
-				winopts = { title = "┤ LSP Symbols ├", title_pos = "center" },
-			},
+			symbols = configure_finder("Symbol"),
 		},
 	})
 	-- Buffers and Files
