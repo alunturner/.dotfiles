@@ -50,6 +50,9 @@ Finder.config = function()
 			["marker"] = { "fg", { "Pmenu" } },
 			["header"] = { "fg", { "Normal" } },
 		},
+		fzf_opts = {
+			["--info"] = "default",
+		},
 		files = configure_finder("Finder", { cwd_prompt = false }),
 		buffers = configure_finder("Buffers"),
 		quickfix = configure_finder("Quickfix"),
