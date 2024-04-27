@@ -36,11 +36,15 @@ set("n", "<leader>e", "<cmd>Ex<cr>")
 -- Completion - see :h ins-completion
 set("i", "<C-j>", "<C-x><C-o>")
 set("i", "<C-f>", "<C-x><C-f>")
+-- Set the args list with the local files
+set("n", "<leader>aa", "<cmd>args %:h/*.*<cr>")
 -- Prev/next movements
 set("n", "[d", vim.diagnostic.goto_prev)
 set("n", "]d", vim.diagnostic.goto_next)
 set("n", "[q", "<cmd>cprev<cr>")
 set("n", "]q", "<cmd>cnext<cr>")
+set("n", "[a", "<cmd>previous<cr>")
+set("n", "]a", "<cmd>next<cr>")
 
 -- STEP 4 - SETTINGS
 local o = vim.opt
