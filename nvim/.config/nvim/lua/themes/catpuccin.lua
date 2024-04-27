@@ -57,3 +57,49 @@ local catpuccin = {
 		crust = "#11111b",
 	},
 }
+
+-- this is an edited function to slim it down to the parts I'm using
+local function select(isLatte)
+	local c = isLatte and catpuccin.latte or catpuccin.mocha
+
+	-- this gives an idea for how it's mapped in wezterm
+	return {
+		foreground = c.text,
+		background = c.base,
+
+		cursor_fg = isLatte and c.base or c.crust,
+		cursor_bg = c.rosewater,
+		cursor_border = c.rosewater,
+
+		selection_fg = c.text,
+		selection_bg = c.surface2,
+
+		scrollbar_thumb = c.surface2,
+
+		split = c.overlay0,
+
+		ansi = {
+			isLatte and c.subtext1 or c.surface1,
+			c.red,
+			c.green,
+			c.yellow,
+			c.blue,
+			c.pink,
+			c.teal,
+			isLatte and c.surface2 or c.subtext1,
+		},
+
+		brights = {
+			isLatte and c.subtext0 or c.surface2,
+			c.red,
+			c.green,
+			c.yellow,
+			c.blue,
+			c.pink,
+			c.teal,
+			isLatte and c.surface1 or c.subtext0,
+		},
+
+		indexed = { [16] = c.peach, [17] = c.rosewater },
+	}
+end
