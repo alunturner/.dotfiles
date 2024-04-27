@@ -38,6 +38,7 @@ set("i", "<C-j>", "<C-x><C-o>")
 set("i", "<C-f>", "<C-x><C-f>")
 -- Set the args list with the local files
 set("n", "<leader>aa", "<cmd>args %:h/*.*<cr>")
+-- WIP
 set("n", "<leader>tt", "<cmd>!tmux split-window -h 'echo %:t | less'<cr>")
 -- Prev/next movements
 set("n", "[d", vim.diagnostic.goto_prev)
@@ -132,8 +133,15 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 })
 
 -- STEP 6 - ABBREVIATIONS
-vim.cmd("iab tbitd toBeInTheDocument()")
-
+-- replaces the preceding word with a React component of that name
+vim.cmd(
+	"iab tsrc <Esc>bdiwitype Props = {};<cr><cr>export default function <C-o>p({}: Props) {<cr>return null<cr>}<Esc>?null<cr><Esc>"
+)
+vim.cmd("iab tbitd toBeInTheDocument()<Esc>")
+-- jest boilerplate for a new component test file
+vim.cmd(
+	'iab tst import { render, screen } from "@/lib/testing-library/react";<cr><cr> import <C-r>=expand("%:t:r")<cr><Esc>byawea from "./<C-o>p";<cr><cr>it("", () => {})<Esc>F"i'
+)
 -- STEP 7 - EXPERIMENTAL
 -- Example error message from tsc
 -- src/features/app/components/AppHeader/AppHeader.tsx(11,19): error TS2552: Cannot find name useAccount. Did you mean account?
