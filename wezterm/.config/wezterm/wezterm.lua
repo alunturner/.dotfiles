@@ -42,4 +42,6 @@ config.window_padding = {
 	right = 0,
 	bottom = 0,
 }
+config.send_composed_key_when_left_alt_is_pressed = true -- make opt+3 = # on Mac
+
 return config
