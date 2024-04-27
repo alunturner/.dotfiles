@@ -38,6 +38,7 @@ set("i", "<C-j>", "<C-x><C-o>")
 set("i", "<C-f>", "<C-x><C-f>")
 -- Set the args list with the local files
 set("n", "<leader>aa", "<cmd>args %:h/*.*<cr>")
+set("n", "<leader>tt", "<cmd>!tmux split-window -h 'echo %:t | less'<cr>")
 -- Prev/next movements
 set("n", "[d", vim.diagnostic.goto_prev)
 set("n", "]d", vim.diagnostic.goto_next)
