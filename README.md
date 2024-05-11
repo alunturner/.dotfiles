@@ -28,12 +28,7 @@
 
 - `cd ~/.dotfiles && stow nvim tmux lazygit zsh`
 
-1. Set terminal colour to
-
-- bg = #19191f (dark)
-- fg = #e9e7dd (bright)
-- cursor bg = #ff007b (hotpink)
-- cursor fg = #e9e7dd (bright)
+1. If not on Wezterm, set terminal colours to Catpuccin and cursor bg to #ff007b
 
 # Tooling TODO
 
@@ -43,23 +38,16 @@
 
 ## Neovim
 
-- when using zsh everywhere, investigate zsh style `completeopt`
-- move the theme colours out into a separate core folder
-
 ## Plugins
 
 - helpers
-  - create a react component folder
   - populate args list with component files (ie component, tests and css)
   - make a centering plugin, don't like the current tmux solution
 
 # Pax TODO
 
-- make a common colours file that lists the used colours, not sure if these can be read into the other schemes
 - when diagnostic line indicators removed, want to colour the code to show what is generating errors vs warnings
 
 # Tmux TODO
 
-- figure out a good shortcut that works with vim for `tmux kill-pane -a`
-- transition to read theme colours when theme is compiled and built
 - make command to spawn a window running the jest tests on the current file
