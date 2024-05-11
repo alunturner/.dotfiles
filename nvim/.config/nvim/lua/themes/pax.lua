@@ -186,11 +186,15 @@ local colors = {
 	CustomRulerSeparator = { link = "ModeMsg" },
 }
 
-vim.cmd("highlight clear")
-vim.cmd("set t_Co=256")
-vim.cmd("let g:colors_name='pax_zero'")
+local function load()
+	vim.cmd("highlight clear")
+	vim.cmd("set t_Co=256")
+	vim.cmd("let g:colors_name='pax_zero'")
 
--- apply highlight groups
-for group, attrs in pairs(colors) do
-	vim.api.nvim_set_hl(0, group, attrs)
+	-- apply highlight groups
+	for group, attrs in pairs(colors) do
+		vim.api.nvim_set_hl(0, group, attrs)
+	end
 end
+
+return { load }

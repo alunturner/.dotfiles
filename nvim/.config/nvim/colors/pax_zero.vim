@@ -1,1 +1,1 @@
-lua require("themes.pax")
+lua require("themes.pax").load()
