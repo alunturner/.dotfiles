@@ -1,4 +1,15 @@
-local colors = { midnight = "#19191f", cream = "#e9e7dd", hibiscus = "#ff007b" }
+local colors = {
+	midnight = "#19191f",
+	cream = "#e9e7dd",
+	hibiscus = "#ff007b",
+	dark = "",
+	dark_plus = "",
+	dark_plus_plus = "",
+	mid = "",
+	bright_minus_minus = "",
+	bright_minus = "",
+	bright = "",
+}
 
 local theme = {
 	dark = {
