@@ -44,6 +44,10 @@ local pax_theme = {
 	},
 }
 
+-- TODO
+-- try removing empty groups
+-- try consolidating the linking
+-- add fzf groups
 local function get_highlight_groups(theme)
 	return {
 		-- NEOVIM
@@ -149,6 +153,7 @@ local function get_highlight_groups(theme)
 		Error = { link = "Normal" },
 		Todo = { link = "Normal" },
 		-- TREESITTER/SYNTAX
+		["@lsp.type.comment"] = {}, -- required to prevent below being overridden
 		["@comment.todo"] = { fg = theme.warning },
 		["@comment.warning"] = { fg = theme.warning },
 		["@comment.note"] = { fg = theme.warning },
