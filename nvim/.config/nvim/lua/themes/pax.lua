@@ -48,6 +48,7 @@ local pax_theme = {
 -- try removing empty groups
 -- try consolidating the linking
 -- add fzf groups
+-- consolidate tree-sitter groups
 local function get_highlight_groups(theme)
 	return {
 		-- NEOVIM
