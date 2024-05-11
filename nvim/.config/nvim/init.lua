@@ -36,8 +36,6 @@ set("n", "<leader>e", "<cmd>Ex<cr>")
 -- Completion - see :h ins-completion
 set("i", "<C-j>", "<C-x><C-o>")
 set("i", "<C-f>", "<C-x><C-f>")
--- Set the args list with the local files
-set("n", "<leader>aa", "<cmd>args %:h/*.*<cr>")
 -- WIP
 set("n", "<leader>tt", "<cmd>!tmux split-window -h 'echo %:t | less'<cr>")
 -- Prev/next movements
@@ -45,8 +43,7 @@ set("n", "[d", vim.diagnostic.goto_prev)
 set("n", "]d", vim.diagnostic.goto_next)
 set("n", "[q", "<cmd>cprev<cr>")
 set("n", "]q", "<cmd>cnext<cr>")
-set("n", "[a", "<cmd>previous<cr>")
-set("n", "]a", "<cmd>next<cr>")
+set("n", "<Tab>", "<C-6>")
 
 -- STEP 4 - SETTINGS
 local o = vim.opt
@@ -153,8 +150,3 @@ vim.api.nvim_create_autocmd("FileType", {
 	group = augroup,
 	command = "compiler tsc | setlocal makeprg=tsc",
 })
-
--- ideas:
--- map tab to alternate file in normal mode
--- make backspace noop in normal and insert modes to make voyager easier to use
--- add bind for searching help (can be highlights in colour scheme work)
