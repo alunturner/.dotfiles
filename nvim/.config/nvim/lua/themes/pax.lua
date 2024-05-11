@@ -47,11 +47,10 @@ local pax_theme = {
 	},
 }
 
+-- TODO sort out theme switching based on background
 local theme = pax_theme.dark
 
 local colors = {
-	-- content here will not be touched
-	-- PATCH_OPEN
 	Normal = { fg = theme.fg, bg = theme.bg },
 	Error = { link = "Normal" },
 	FloatTitle = { link = "Normal" },
@@ -175,11 +174,8 @@ local colors = {
 	["@tag.delimiter.tsx"] = { fg = theme.fg, bold = true },
 	["@tag.javascript"] = { fg = theme.fg_minus, italic = true },
 	["@tag.tsx"] = { fg = theme.fg_minus, italic = true },
-	-- PATCH_CLOSE
-	-- content here will not be touched
 }
 
--- colorschemes generally want to do this
 vim.cmd("highlight clear")
 vim.cmd("set t_Co=256")
 vim.cmd("let g:colors_name='pax_zero'")
