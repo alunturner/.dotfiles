@@ -1,13 +1,12 @@
-local colors = {
+local pax_colors = {
 	-- Colors
-	midnight = "#19191f",
-	cream = "#e9e7dd",
 	hibiscus = "#ff007b",
 	red = "#e61919",
 	orange = "#e68019",
 	green = "#14b814",
 
 	-- Shade ramp
+	grey10 = "#1a1a1a",
 	grey20 = "#333333",
 	grey30 = "#4d4d4d",
 	grey60 = "#999999",
@@ -16,20 +15,20 @@ local colors = {
 	grey90 = "#e6e6e6",
 }
 
-local theme = {
+local pax_theme = {
 	dark = {
-		bg = colors.midnight,
-		bg_plus = colors.grey20,
-		bg_plus_plus = colors.grey30,
-		mg = colors.grey60,
-		fg_minus_minus = colors.grey70,
-		fg_minus = colors.grey80,
-		fg = colors.grey90,
-		cursor_bg = colors.hibiscus,
-		error = colors.red,
-		warning = colors.orange,
-		success = colors.green,
-		higlights = {},
+		bg = pax_colors.grey10,
+		bg_plus = pax_colors.grey20,
+		bg_plus_plus = pax_colors.grey30,
+		mg = pax_colors.grey60,
+		fg_minus_minus = pax_colors.grey70,
+		fg_minus = pax_colors.grey80,
+		fg = pax_colors.grey90,
+		cursor_bg = pax_colors.hibiscus,
+		error = pax_colors.red,
+		warning = pax_colors.orange,
+		success = pax_colors.green,
+		highlights = {},
 	},
 	light = {
 		bg = "",
@@ -44,7 +43,7 @@ local theme = {
 		error = "",
 		warning = "",
 		success = "",
-		higlights = {},
+		highlights = {},
 	},
 }
 -- build/pax_zero.lua
