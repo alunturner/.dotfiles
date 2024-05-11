@@ -81,14 +81,14 @@ o.sidescrolloff = 7
 o.laststatus = 0
 o.fillchars = "eob: "
 o.showcmd = false
-function GetErrorIndicator()
-	local err_count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+function GetIndicators()
+	local error_count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+	local warn_count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
 
-	if err_count > 0 then
-		return "%#CustomRulerError# "
-	else
-		return ""
-	end
+	local warn_string = warn_count > 0 and "%#DiagnosticWarn# " or ""
+	local error_string = error_count > 0 and "%#DiagnosticError# " or ""
+
+	return warn_string .. error_string
 end
 function GetRulerIcon()
 	local modified = vim.bo.modified
@@ -100,7 +100,7 @@ function GetRulerIcon()
 
 	return "%#CustomRulerSeparator#%#CustomRulerIcon#" .. icon .. " "
 end
-o.rulerformat = "%40(%=%{%v:lua.GetErrorIndicator()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
+o.rulerformat = "%40(%=%{%v:lua.GetIndicators()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
 -- Completion
 o.completeopt = "menu"
 -- Netrw
