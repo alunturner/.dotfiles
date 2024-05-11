@@ -36,8 +36,6 @@ set("n", "<leader>e", "<cmd>Ex<cr>")
 -- Completion - see :h ins-completion
 set("i", "<C-j>", "<C-x><C-o>")
 set("i", "<C-f>", "<C-x><C-f>")
--- Set the args list with the local files
-set("n", "<leader>aa", "<cmd>args %:h/*.*<cr>")
 -- WIP
 set("n", "<leader>tt", "<cmd>!tmux split-window -h 'echo %:t | less'<cr>")
 -- Prev/next movements
@@ -45,8 +43,7 @@ set("n", "[d", vim.diagnostic.goto_prev)
 set("n", "]d", vim.diagnostic.goto_next)
 set("n", "[q", "<cmd>cprev<cr>")
 set("n", "]q", "<cmd>cnext<cr>")
-set("n", "[a", "<cmd>previous<cr>")
-set("n", "]a", "<cmd>next<cr>")
+set("n", "<Tab>", "<C-6>")
 
 -- STEP 4 - SETTINGS
 local o = vim.opt
@@ -84,14 +81,14 @@ o.sidescrolloff = 7
 o.laststatus = 0
 o.fillchars = "eob: "
 o.showcmd = false
-function GetErrorIndicator()
-	local err_count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+function GetIndicators()
+	local error_count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
+	local warn_count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
 
-	if err_count > 0 then
-		return "%#CustomRulerError# "
-	else
-		return ""
-	end
+	local warn_string = warn_count > 0 and "%#DiagnosticWarn# " or ""
+	local error_string = error_count > 0 and "%#DiagnosticError# " or ""
+
+	return warn_string .. error_string
 end
 function GetRulerIcon()
 	local modified = vim.bo.modified
@@ -103,7 +100,7 @@ function GetRulerIcon()
 
 	return "%#CustomRulerSeparator#%#CustomRulerIcon#" .. icon .. " "
 end
-o.rulerformat = "%40(%=%{%v:lua.GetErrorIndicator()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
+o.rulerformat = "%40(%=%{%v:lua.GetIndicators()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
 -- Completion
 o.completeopt = "menu"
 -- Netrw
@@ -123,7 +120,8 @@ vim.api.nvim_create_autocmd("filetype", {
 
 -- STEP 5 - COLORSCHEME AND CUSTOMISATION
 local _border = "rounded"
-vim.cmd("colorscheme pax_mono")
+o.background = "dark"
+vim.cmd("colorscheme pax_zero")
 vim.diagnostic.config({ float = { border = _border }, virtual_text = false })
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = _border,
@@ -152,8 +150,3 @@ vim.api.nvim_create_autocmd("FileType", {
 	group = augroup,
 	command = "compiler tsc | setlocal makeprg=tsc",
 })
-
--- ideas:
--- map tab to alternate file in normal mode
--- make backspace noop in normal and insert modes to make voyager easier to use
--- add bind for searching help (can be highlights in colour scheme work)
