@@ -1,5 +1,3 @@
-local M = {}
-
 local pax_colors = {
 	hibiscus = "#ff007b",
 	red = "#e61919",
@@ -194,7 +192,7 @@ local function get_theme_colors()
 	return pax_theme.dark
 end
 
-function M.load()
+local function load()
 	vim.cmd("highlight clear")
 	vim.cmd("set t_Co=256")
 	vim.cmd("let g:colors_name='pax_zero'")
@@ -207,4 +205,4 @@ function M.load()
 	end
 end
 
-return M
+return { load }
