@@ -2,29 +2,21 @@ local w = require("wezterm")
 
 local config = w.config_builder()
 
--- COLOR SCHEME
--- See https://wezfurlong.org/wezterm/config/lua/wezterm/get_builtin_color_schemes.html
--- for details of how these thees can be altered (like we do the cursor)
-local hibiscus = "hsl:330 100 50"
-local tempWhite = "#e9e7dd"
+-- COLOR SCHEMES
+local pax_hibiscus = "#ff007b"
+local pax_cream = "#e9e7dd"
 local d = w.get_builtin_color_schemes()["Catppuccin Mocha (Gogh)"]
-d.cursor_bg = hibiscus
-d.foreground = tempWhite
+d.cursor_bg = pax_hibiscus
+d.foreground = pax_cream
 
 local l = w.get_builtin_color_schemes()["Catppuccin Latte (Gogh)"]
-d.cursor_bg = hibiscus
-l.cursor_bg = hibiscus
+l.cursor_bg = pax_hibiscus
 
 config.color_schemes = {
 	["light"] = l,
 	["dark"] = d,
 }
 config.color_scheme = "dark"
--- worth looking at the fact that config.colors actually lets you index arbitrary
--- colours WHICH MEANS THAT we could load the terminal with encoded colours, which
--- would then be available to use everywhere - eg could put hibiscus in there
--- and use it wherever (like tmux) by referring to the code instead of using
--- hex codes all over the place
 
 -- FONT
 config.font = w.font("JetBrainsMonoNL Nerd Font")

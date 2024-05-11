@@ -4,9 +4,8 @@ if [ $? != 0 ]; then
 # create the session in the .dotfiles folder
     tmux new-session -s dotfiles -n git -c ~/.dotfiles -d "lazygit"
 
-# add windows for the nvim instances and open them up
-    tmux new-window -n config "nvim ."
-    tmux new-window -n README "nvim ./README.md"
+# add window for the nvim instance
+    tmux new-window -n neovim "nvim ."
 fi
 
-tmux attach -t dotfiles:config
+tmux attach -t dotfiles:neovim

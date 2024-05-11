@@ -152,3 +152,8 @@ vim.api.nvim_create_autocmd("FileType", {
 	group = augroup,
 	command = "compiler tsc | setlocal makeprg=tsc",
 })
+
+-- ideas:
+-- map tab to alternate file in normal mode
+-- make backspace noop in normal and insert modes to make voyager easier to use
+-- add bind for searching help (can be highlights in colour scheme work)
