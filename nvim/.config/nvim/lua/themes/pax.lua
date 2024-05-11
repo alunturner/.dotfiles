@@ -185,7 +185,6 @@ local function get_highlight_groups(theme)
 		["@boolean.lua"] = { fg = theme.fg_minus, bold = true },
 		["@constructor.lua"] = { link = "Delimiter" },
 		-- CUSTOM
-		CustomRulerError = { fg = theme.error, bg = theme.bg },
 		CustomRulerFile = { link = "ModeMsg" },
 		CustomRulerIcon = { fg = theme.fg, bg = theme.bg, reverse = true },
 		CustomRulerSeparator = { link = "ModeMsg" },
