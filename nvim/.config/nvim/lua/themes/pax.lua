@@ -186,7 +186,6 @@ end
 
 local function get_theme_colors()
 	local background = vim.o.background
-	print("GTC" .. background)
 
 	if background == "light" then
 		return pax_theme.light
