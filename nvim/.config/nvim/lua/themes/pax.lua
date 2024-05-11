@@ -186,7 +186,9 @@ local colors = {
 	CustomRulerSeparator = { link = "ModeMsg" },
 }
 
-local function load()
+local M = {}
+
+function M.load()
 	vim.cmd("highlight clear")
 	vim.cmd("set t_Co=256")
 	vim.cmd("let g:colors_name='pax_zero'")
@@ -197,4 +199,4 @@ local function load()
 	end
 end
 
-return { load }
+return M
