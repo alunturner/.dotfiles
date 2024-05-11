@@ -1,3 +1,5 @@
-local pax_colors = { midnight = "", cream = "", hibiscus = "" }
+local colors = { midnight = "#19191f", cream = "#e9e7dd", hibiscus = "#ff007b" }
 
-local pax = { dark = {}, light = {} }
+local theme = { dark = {}, light = {} }
+
+return { theme, colors }
