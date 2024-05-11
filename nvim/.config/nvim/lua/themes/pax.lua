@@ -202,7 +202,6 @@ function M.load()
 	local theme_colors = get_theme_colors()
 	local highlight_groups = get_highlight_groups(theme_colors)
 
-	-- apply highlight groups
 	for group, attrs in pairs(highlight_groups) do
 		vim.api.nvim_set_hl(0, group, attrs)
 	end
