@@ -147,7 +147,11 @@ local function get_highlight_groups(theme)
 		Underlined = { underline = true },
 		Ignore = { link = "Normal" },
 		Error = { link = "Normal" },
-		Todo = { link = "Normal", reverse = true },
+		Todo = { link = "Normal" },
+		-- TREESITTER/SYNTAX
+		["@comment.todo"] = { fg = theme.warning },
+		["@comment.warning"] = { fg = theme.warning },
+		["@comment.note"] = { fg = theme.warning },
 		-- TREESITTER/JSX
 		["@boolean.javascript"] = { fg = theme.fg_minus, bold = true },
 		["@constant.builtin.javascript"] = { fg = theme.fg_minus, bold = true },
