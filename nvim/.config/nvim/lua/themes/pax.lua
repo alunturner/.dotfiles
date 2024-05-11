@@ -46,7 +46,7 @@ local pax_theme = {
 	},
 }
 
-function M.get_highlight_groups(theme)
+local function get_highlight_groups(theme)
 	return {
 		-- NEOVIM
 		ColorColumn = { bg = theme.bg_plus },
@@ -184,7 +184,14 @@ function M.get_highlight_groups(theme)
 	}
 end
 
-function M.get_theme_colors()
+local function get_theme_colors()
+	local background = vim.o.background
+	print("GTC" .. background)
+
+	if background == "light" then
+		return pax_theme.light
+	end
+
 	return pax_theme.dark
 end
 
@@ -193,8 +200,8 @@ function M.load()
 	vim.cmd("set t_Co=256")
 	vim.cmd("let g:colors_name='pax_zero'")
 
-	local theme_colors = M.get_theme_colors()
-	local highlight_groups = M.get_highlight_groups(theme_colors)
+	local theme_colors = get_theme_colors()
+	local highlight_groups = get_highlight_groups(theme_colors)
 
 	-- apply highlight groups
 	for group, attrs in pairs(highlight_groups) do
