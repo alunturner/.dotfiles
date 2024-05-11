@@ -31,6 +31,9 @@ Finder.config = function()
 			header_text = "Constant",
 			path_linenr = "LineNr",
 			path_colnr = "LineNr",
+			buf_nr = "LineNr",
+			buf_flag_cur = "LineNr",
+			buf_flag_alt = "LineNr",
 		},
 		keymap = {
 			builtin = {
