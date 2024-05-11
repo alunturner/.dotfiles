@@ -12,7 +12,6 @@ end
 local function configure_finder(title, opts)
 	return vim.tbl_deep_extend("keep", opts or {}, {
 		prompt = title .. "  ",
-		git_icons = false,
 		winopts = {
 			title = "┤ " .. title .. " ├",
 			title_pos = "center",
@@ -24,6 +23,14 @@ Finder.config = function()
 	require("fzf-lua").setup({
 		defaults = {
 			file_icons = false,
+			git_icons = false,
+		},
+		hls = {
+			-- TODO probably a better hl group possible for the header
+			header_bind = "Constant",
+			header_text = "Constant",
+			path_linenr = "LineNr",
+			path_colnr = "LineNr",
 		},
 		keymap = {
 			builtin = {
@@ -34,6 +41,11 @@ Finder.config = function()
 				["ctrl-q"] = "select-all+accept",
 			},
 		},
+		fzf_opts = {
+			["--info"] = "default",
+			["--pointer"] = "",
+			["--marker"] = "",
+		},
 		fzf_colors = {
 			["fg"] = { "fg", { "Comment" } },
 			["hl"] = { "fg", { "Normal" } },
@@ -41,7 +53,7 @@ Finder.config = function()
 			["bg+"] = { "bg", { "PmenuSel" } },
 			["gutter"] = "-1",
 			["hl+"] = { "fg", { "PmenuSel" }, "italic", "underline" },
-			["query"] = { "fg", { "Normal" } },
+			["query"] = { "fg", { "Cursor" } },
 			["info"] = { "fg", { "Comment" } },
 			["border"] = { "fg", { "Normal" } },
 			["separator"] = { "fg", { "Comment" } },
@@ -49,11 +61,6 @@ Finder.config = function()
 			["pointer"] = { "fg", { "PmenuSel" } },
 			["marker"] = { "fg", { "Pmenu" } },
 			["header"] = { "fg", { "Normal" } },
-		},
-		fzf_opts = {
-			["--info"] = "default",
-			["--pointer"] = "",
-			["--marker"] = "",
 		},
 		files = configure_finder("Finder", { cwd_prompt = false }),
 		buffers = configure_finder("Buffers"),
