@@ -1,7 +1,11 @@
+-- nb this will move into the pax file when it is in lua
 local colors = {
+	-- Colors
 	midnight = "#19191f",
 	cream = "#e9e7dd",
 	hibiscus = "#ff007b",
+
+	-- Shade ramp
 	dark = "",
 	dark_plus = "",
 	dark_plus_plus = "",
