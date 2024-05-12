@@ -3,18 +3,9 @@ local w = require("wezterm")
 local config = w.config_builder()
 
 -- COLOR SCHEMES
-local pax_hibiscus = "#ff007b"
-local pax_cream = "#e9e7dd"
-local d = w.get_builtin_color_schemes()["Catppuccin Mocha (Gogh)"]
-d.cursor_bg = pax_hibiscus
-d.foreground = pax_cream
-
-local l = w.get_builtin_color_schemes()["Catppuccin Latte (Gogh)"]
-l.cursor_bg = pax_hibiscus
-
 config.color_schemes = {
-	["light"] = l,
-	["dark"] = d,
+	["light"] = w.get_builtin_color_schemes()["Catppuccin Latte (Gogh)"],
+	["dark"] = w.get_builtin_color_schemes()["Catppuccin Mocha (Gogh)"],
 }
 config.color_scheme = "dark"
 
@@ -24,6 +15,23 @@ config.font_size = 15
 
 -- COMMAND PALETTE
 config.command_palette_font_size = 18
+w.on("augment-command-palette", function(window, pane)
+	return {
+		{
+			brief = "Toggle light/dark mode",
+			action = w.action.EmitEvent("toggle-colorscheme"),
+		},
+	}
+end)
+w.on("toggle-colorscheme", function(window, _pane)
+	local overrides = window:get_config_overrides() or {}
+	if not overrides.color_scheme then
+		overrides.color_scheme = "light"
+	else
+		overrides.color_scheme = nil
+	end
+	window:set_config_overrides(overrides)
+end)
 
 -- OTHER
 config.enable_tab_bar = false
