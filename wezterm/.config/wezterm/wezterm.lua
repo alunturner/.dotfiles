@@ -2,10 +2,15 @@ local w = require("wezterm")
 
 local config = w.config_builder()
 
+local dark_scheme = w.get_builtin_color_schemes()["Catppuccin Mocha (Gogh)"]
+dark_scheme.foreground = "#e9e7dd"
+
+local light_scheme = w.get_builtin_color_schemes()["Catppuccin Latte (Gogh)"]
+light_scheme.foreground = "#19191f"
 -- COLOR SCHEMES
 config.color_schemes = {
-	["light"] = w.get_builtin_color_schemes()["Catppuccin Latte (Gogh)"],
-	["dark"] = w.get_builtin_color_schemes()["Catppuccin Mocha (Gogh)"],
+	["light"] = light_scheme,
+	["dark"] = dark_scheme,
 }
 config.color_scheme = "dark"
 
