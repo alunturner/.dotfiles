@@ -71,6 +71,7 @@ o.signcolumn = "yes"
 o.number = true
 -- Other
 o.termguicolors = true
+o.guicursor:append({ ",a:Cursor" }) -- means we can override terminal cursor
 o.undofile = true
 o.swapfile = false
 o.updatetime = 500
