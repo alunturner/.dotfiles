@@ -2,6 +2,7 @@
 
 1. Installs:
 
+- Homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 - Zsh: on mac: `brew install zsh`, on wsl: `sudo apt install zsh`
   - change shell to zsh `chsh -s $(which zsh)`
 - Ripgrep: `brew install ripgrep`
@@ -28,26 +29,12 @@
 
 - `cd ~/.dotfiles && stow nvim tmux lazygit zsh`
 
-1. If not on Wezterm, set terminal colours to Catpuccin and cursor bg to #ff007b
+1. If not on Wezterm, set terminal colours to Catpuccin Mocha/Latte with overrides:
 
-# Tooling TODO
+- fg color #e9e7dd / #19191f
 
-- start with ansible and create ansible config
+# TODO
 
-# Neovim TODO
-
-## Neovim
-
-## Plugins
-
-- helpers
-  - populate args list with component files (ie component, tests and css)
-  - make a centering plugin, don't like the current tmux solution
-
-# Pax TODO
-
-- when diagnostic line indicators removed, want to colour the code to show what is generating errors vs warnings
-
-# Tmux TODO
-
-- make command to spawn a window running the jest tests on the current file
+- Ansible: start with ansible and create ansible config
+- Neovim: remove diagnostic line letters
+- Neovim: make single pax theme that can accept variable highlight count
