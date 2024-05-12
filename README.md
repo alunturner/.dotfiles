@@ -6,27 +6,44 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-1. Install nvm and node (tbc)
-1. Install Brew packages (Ripgrep, fzf, fd, stow, neovim, lua formatter and lang server, tmux)
+2. Install nvm and node (tbc)
+3. Install Brew packages (Ripgrep, fzf, fd, stow, neovim, lua formatter and lang server, tmux)
 
-   - `brew install ripgrep fzf fd stow neovim stylua lua-language-server tmux`
+```bash
+brew install ripgrep fzf fd stow neovim stylua lua-language-server tmux
+```
 
-1. Install Gitmux
+4. Install Gitmux
 
-   - `brew tap arl/arl && brew install gitmux`
+```bash
+brew tap arl/arl && brew install gitmux
+```
 
-1. Install npm packages (TS, ESLint, CSS lang servers, daemons)
+5. Install Wezterm
 
-   - `npm i -g typescript typescript-language-server vscode-langservers-extracted css-variables-language-server cssmodules-language-server nodemon @fsouza/prettierd eslint_d`
+```bash
+brew install --cask wezterm
+```
 
-1. Clone .dotfiles at the top level `~/.dotfiles`
-1. Stow the config folders:
+6. Install npm packages (TS, ESLint, CSS lang servers, daemons)
 
-- `cd ~/.dotfiles && stow nvim tmux lazygit zsh`
+```bash
+npm i -g typescript typescript-language-server vscode-langservers-extracted css-variables-language-server cssmodules-language-server nodemon @fsouza/prettierd eslint_d
+```
 
-1. If not on Wezterm, set terminal colours to Catpuccin Mocha/Latte with overrides:
+7. Clone .dotfiles at the top level `~/.dotfiles`
 
-- fg color #e9e7dd / #19191f
+```bash
+cd && git clone https://github.com/alunturner/.dotfiles.git
+```
+
+8. Stow the config folders:
+
+```bash
+cd ~/.dotfiles && stow nvim tmux lazygit wezterm zsh
+```
+
+9. If not on Wezterm, set terminal colours to Catpuccin Mocha/Latte and override fg color #e9e7dd / #19191f
 
 # TODO
 
