@@ -2,27 +2,19 @@
 
 1. Installs:
 
-- Homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-- Zsh: on mac: `brew install zsh`, on wsl: `sudo apt install zsh`
-  - change shell to zsh `chsh -s $(which zsh)`
-- Ripgrep: `brew install ripgrep`
-- Fzf: `brew install fzf`
-- fd: `brew install fd`
-- Stow: `brew install stow`
-- Neovim: `brew install neovim`
-- Stylua: `brew install stylua`
-- Lang servers:
-  - TS: `npm install -g typescript typescript-language-server`
-  - ESLint: `npm i -g vscode-langservers-extracted`
-  - Lua: `brew install lua-language-server`
-  - CSS variables: `npm i -g css-variables-language-server`
-  - CSS modules: `npm install -g cssmodules-language-server`
-- Tmux: `brew install tmux`
-- Gitmux: `brew tap arl/arl && brew install gitmux`
-- JS daemons
-  - nodemon: `npm i -g nodemon`
-  - prettierd: `npm i -g fsouza/prettierd` or `brew install prettierd`
-  - eslint_d: `npm i -g eslint_d`
+1. Homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+1. nvm and node (tbc)
+1. Install brew packages (Ripgrep, fzf, fd, stow, neovim, lua formatter and lang server, tmux)
+
+- `brew install ripgrep fzf fd stow neovim stylua lua-language-server tmux`
+
+1. Install gitmux
+
+- `brew tap arl/arl && brew install gitmux`
+
+1. Install npm packages (TS, ESLint, CSS lang servers, daemons)
+
+- `npm i -g typescript typescript-language-server vscode-langservers-extracted css-variables-language-server cssmodules-language-server nodemon @fsouza/prettierd eslint_d`
 
 1. Clone .dotfiles at the top level `~/.dotfiles`
 1. Stow the config folders:
