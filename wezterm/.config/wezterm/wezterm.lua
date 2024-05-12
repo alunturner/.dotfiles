@@ -19,6 +19,7 @@ w.on("augment-command-palette", function()
 	return {
 		{
 			brief = "Toggle light/dark mode",
+			icon = "fa_sun_o",
 			action = w.action.EmitEvent("toggle-colorscheme"),
 		},
 	}
