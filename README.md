@@ -1,6 +1,11 @@
 # Tooling configuration steps
 
-1. Install Homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+1. Install Homebrew:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
 1. Install nvm and node (tbc)
 1. Install Brew packages (Ripgrep, fzf, fd, stow, neovim, lua formatter and lang server, tmux)
 
