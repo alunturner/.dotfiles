@@ -71,7 +71,8 @@ o.signcolumn = "yes"
 o.number = true
 -- Other
 o.termguicolors = true
-o.guicursor:append({ ",a:Cursor" }) -- means we can override terminal cursor
+-- ,a:Cursor means in all modes hl group Cursor is applied
+o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:Cursor"
 o.undofile = true
 o.swapfile = false
 o.updatetime = 500
