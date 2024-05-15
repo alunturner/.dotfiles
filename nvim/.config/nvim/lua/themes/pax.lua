@@ -45,7 +45,7 @@ local pax_theme = {
 }
 
 -- TODO
--- try consolidating the linking
+-- consolidate as much as practicable
 -- add fzf groups
 -- consolidate tree-sitter groups
 local function get_highlight_groups(theme)
@@ -173,6 +173,9 @@ local function get_highlight_groups(theme)
 		CustomRulerFile = { link = "ModeMsg" },
 		CustomRulerIcon = { fg = theme.fg, bg = theme.bg, reverse = true },
 		CustomRulerSeparator = { link = "ModeMsg" },
+		-- FZF
+
+		-- NETRW
 	}
 end
 
