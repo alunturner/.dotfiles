@@ -25,16 +25,6 @@ Finder.config = function()
 			file_icons = false,
 			git_icons = false,
 		},
-		hls = {
-			-- TODO probably a better hl group possible for the header
-			header_bind = "Constant",
-			header_text = "Constant",
-			path_linenr = "LineNr",
-			path_colnr = "LineNr",
-			buf_nr = "LineNr",
-			buf_flag_cur = "LineNr",
-			buf_flag_alt = "LineNr",
-		},
 		keymap = {
 			builtin = {
 				["<C-d>"] = "preview-page-down",

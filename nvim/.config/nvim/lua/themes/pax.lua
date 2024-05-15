@@ -174,7 +174,13 @@ local function get_highlight_groups(theme)
 		CustomRulerIcon = { fg = theme.fg, bg = theme.bg, reverse = true },
 		CustomRulerSeparator = { link = "ModeMsg" },
 		-- FZF
-
+		FzfLuaHeaderBind = { fg = theme.fg },
+		FzfLuaHeaderText = { link = "FzfLuaHeaderBind" },
+		FzfLuaPathColNr = { link = "LineNr" },
+		FzfLuaPathLineNr = { link = "LineNr" },
+		FzfLuaBufNr = { link = "LineNr" },
+		FzfLuaBufFlagCur = { link = "LineNr" },
+		FzfLuaBufFlagAlt = { link = "LineNr" },
 		-- NETRW
 	}
 end
