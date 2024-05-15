@@ -12,5 +12,5 @@ set("n", "<Tab>", "<C-6>", { silent = true })
 -- Experimental tmux test runner bind, WIP
 set("n", "<leader>tt", "<cmd>!tmux split-window -h 'echo %:t | less'<cr>", { silent = true })
 -- Insertion mode completion
-set("i", "<C-j>", "<C-x><C-o>", { silent = true }) -- lsp completion
+set("i", "<C-j>", "<C-x><C-o>", { silent = true }) -- lsp
 set("i", "<C-f>", "<C-x><C-f>", { silent = true }) -- filepath
