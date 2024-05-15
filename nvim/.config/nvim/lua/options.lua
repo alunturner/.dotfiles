@@ -18,7 +18,7 @@ vim.opt.breakindent = true
 vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "no"
 vim.opt.number = true
 -- Other
 vim.opt.termguicolors = true
