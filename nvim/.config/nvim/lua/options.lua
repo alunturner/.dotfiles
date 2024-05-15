@@ -37,20 +37,6 @@ vim.opt.fillchars = "eob: "
 vim.opt.showcmd = false
 -- Completion
 vim.opt.completeopt = "menu"
--- Netrw
-vim.g.netrw_banner = 0
-vim.api.nvim_create_autocmd("filetype", {
-	pattern = "netrw",
-	desc = "Netrw specific mappings",
-	callback = function()
-		local netrw_set = function(lhs, rhs)
-			vim.keymap.set("n", lhs, rhs, { remap = true, buffer = true })
-		end
-		netrw_set("<esc>", "<cmd>Rex<cr>")
-		netrw_set("h", "-")
-		netrw_set("l", "<cr>")
-	end,
-})
 -- Custom Ruler
 function GetIndicators()
 	local error_count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })

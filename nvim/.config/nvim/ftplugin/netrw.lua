@@ -1,0 +1,3 @@
+vim.keymap.set("n", "<esc>", "<cmd>Rex<cr>", { remap = true, buffer = true })
+vim.keymap.set("n", "h", "-", { remap = true, buffer = true })
+vim.keymap.set("n", "l", "<cr>", { remap = true, buffer = true })
