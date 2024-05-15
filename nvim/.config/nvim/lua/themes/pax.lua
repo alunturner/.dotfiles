@@ -45,8 +45,7 @@ local pax_theme = {
 }
 
 -- TODO
--- try removing empty groups
--- try consolidating the linking
+-- consolidate as much as practicable
 -- add fzf groups
 -- consolidate tree-sitter groups
 local function get_highlight_groups(theme)
@@ -58,37 +57,23 @@ local function get_highlight_groups(theme)
 		Cursor = { fg = theme.fg, bg = theme.cursor_bg },
 		CursorLine = { bg = theme.bg_plus_plus },
 		CursorLineNr = { fg = theme.fg, bg = theme.bg_plus_plus },
-		DiffAdd = {},
-		DiffChange = {},
-		DiffDelete = {},
-		DiffText = {},
 		Directory = { fg = theme.fg },
 		EndOfBuffer = { fg = theme.bg, bg = theme.bg },
 		ErrorMsg = { fg = theme.error },
 		FloatBorder = { fg = theme.fg },
-		FoldColumn = {},
-		Folded = {},
 		IncSearch = { fg = theme.fg, bg = theme.bg, reverse = true },
 		LineNr = { fg = theme.mg },
 		MatchParen = { fg = theme.fg, bg = theme.bg, reverse = true },
-		NonText = {},
 		Normal = { fg = theme.fg, bg = theme.bg },
 		Pmenu = { fg = theme.fg_minus, bg = theme.bg_plus },
 		PmenuSbar = { bg = theme.bg_plus },
 		PmenuSel = { fg = theme.fg_minus, bg = theme.bg_plus, reverse = true },
 		PmenuThumb = { bg = theme.fg_minus },
-		SignColumn = {},
+		SignColumn = {}, -- deliberately blank
 		StatusLineNC = { fg = theme.bg, bg = theme.bg },
-		TabLine = {},
-		TabLineFill = {},
-		TabLineSel = {},
 		TermCursor = { bg = theme.cursor_bg },
-		TermCursorNC = {},
 		Visual = { fg = theme.bg_plus_plus, bg = theme.fg_minus_minus },
 		WarningMsg = { fg = theme.warnin },
-		WinBar = {},
-		WinBarNC = {},
-		Winseparator = {},
 		-- NEOVIM LINKED
 		CursorColumn = { link = "CursorLine" },
 		CursorIM = { link = "Cursor" },
@@ -152,12 +137,12 @@ local function get_highlight_groups(theme)
 		Underlined = { underline = true },
 		Ignore = { link = "Normal" },
 		Error = { link = "Normal" },
-		Todo = { link = "Normal" },
+		Todo = { fg = theme.bg, bg = theme.fg },
 		-- TREESITTER/SYNTAX
 		["@lsp.type.comment"] = {}, -- required to prevent below being overridden
-		["@comment.todo"] = { fg = theme.warning },
-		["@comment.warning"] = { fg = theme.warning },
-		["@comment.note"] = { fg = theme.warning },
+		["@comment.todo"] = { link = "Todo" },
+		["@comment.warning"] = { link = "Todo" },
+		["@comment.note"] = { link = "Todo" },
 		-- TREESITTER/JSX
 		["@boolean.javascript"] = { fg = theme.fg_minus, bold = true },
 		["@constant.builtin.javascript"] = { fg = theme.fg_minus, bold = true },
@@ -188,6 +173,15 @@ local function get_highlight_groups(theme)
 		CustomRulerFile = { link = "ModeMsg" },
 		CustomRulerIcon = { fg = theme.fg, bg = theme.bg, reverse = true },
 		CustomRulerSeparator = { link = "ModeMsg" },
+		-- FZF
+		FzfLuaHeaderBind = { fg = theme.fg },
+		FzfLuaHeaderText = { link = "FzfLuaHeaderBind" },
+		FzfLuaPathColNr = { link = "LineNr" },
+		FzfLuaPathLineNr = { link = "LineNr" },
+		FzfLuaBufNr = { link = "LineNr" },
+		FzfLuaBufFlagCur = { link = "LineNr" },
+		FzfLuaBufFlagAlt = { link = "LineNr" },
+		-- NETRW
 	}
 end
 

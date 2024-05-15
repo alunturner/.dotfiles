@@ -71,6 +71,7 @@ o.signcolumn = "yes"
 o.number = true
 -- Other
 o.termguicolors = true
+o.wildmode = "longest:full,full"
 -- ,a:Cursor means in all modes hl group Cursor is applied
 o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:Cursor"
 o.undofile = true
