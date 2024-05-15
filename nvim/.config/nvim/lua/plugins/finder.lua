@@ -69,7 +69,7 @@ Finder.config = function()
 		},
 	})
 	-- Buffers and Files
-	fzf_set("<leader>b", "buffers")
+	fzf_set("<leader>r", "buffers")
 	fzf_set("<leader>f", "files")
 	fzf_set("<leader>q", "quickfix")
 	-- Search
@@ -77,6 +77,7 @@ Finder.config = function()
 	-- LSP/Diagnostics
 	fzf_set("<leader>d", "lsp_document_diagnostics")
 	fzf_set("<leader>o", "lsp_document_symbols")
+	fzf_set("<leader>O", "lsp_live_workspace_symbols")
 	fzf_set("gr", "lsp_references")
 	fzf_set("gd", "lsp_definitions")
 	-- Misc
