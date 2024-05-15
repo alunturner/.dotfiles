@@ -45,7 +45,6 @@ local pax_theme = {
 }
 
 -- TODO
--- try removing empty groups
 -- try consolidating the linking
 -- add fzf groups
 -- consolidate tree-sitter groups
@@ -58,37 +57,23 @@ local function get_highlight_groups(theme)
 		Cursor = { fg = theme.fg, bg = theme.cursor_bg },
 		CursorLine = { bg = theme.bg_plus_plus },
 		CursorLineNr = { fg = theme.fg, bg = theme.bg_plus_plus },
-		DiffAdd = {},
-		DiffChange = {},
-		DiffDelete = {},
-		DiffText = {},
 		Directory = { fg = theme.fg },
 		EndOfBuffer = { fg = theme.bg, bg = theme.bg },
 		ErrorMsg = { fg = theme.error },
 		FloatBorder = { fg = theme.fg },
-		FoldColumn = {},
-		Folded = {},
 		IncSearch = { fg = theme.fg, bg = theme.bg, reverse = true },
 		LineNr = { fg = theme.mg },
 		MatchParen = { fg = theme.fg, bg = theme.bg, reverse = true },
-		NonText = {},
 		Normal = { fg = theme.fg, bg = theme.bg },
 		Pmenu = { fg = theme.fg_minus, bg = theme.bg_plus },
 		PmenuSbar = { bg = theme.bg_plus },
 		PmenuSel = { fg = theme.fg_minus, bg = theme.bg_plus, reverse = true },
 		PmenuThumb = { bg = theme.fg_minus },
-		SignColumn = {},
+		SignColumn = {}, -- deliberately blank
 		StatusLineNC = { fg = theme.bg, bg = theme.bg },
-		TabLine = {},
-		TabLineFill = {},
-		TabLineSel = {},
 		TermCursor = { bg = theme.cursor_bg },
-		TermCursorNC = {},
 		Visual = { fg = theme.bg_plus_plus, bg = theme.fg_minus_minus },
 		WarningMsg = { fg = theme.warnin },
-		WinBar = {},
-		WinBarNC = {},
-		Winseparator = {},
 		-- NEOVIM LINKED
 		CursorColumn = { link = "CursorLine" },
 		CursorIM = { link = "Cursor" },
