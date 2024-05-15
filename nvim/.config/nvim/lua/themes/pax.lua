@@ -152,12 +152,12 @@ local function get_highlight_groups(theme)
 		Underlined = { underline = true },
 		Ignore = { link = "Normal" },
 		Error = { link = "Normal" },
-		Todo = { link = "Normal" },
+		Todo = { fg = theme.bg, bg = theme.fg },
 		-- TREESITTER/SYNTAX
 		["@lsp.type.comment"] = {}, -- required to prevent below being overridden
-		["@comment.todo"] = { fg = theme.warning },
-		["@comment.warning"] = { fg = theme.warning },
-		["@comment.note"] = { fg = theme.warning },
+		["@comment.todo"] = { link = "Todo" },
+		["@comment.warning"] = { link = "Todo" },
+		["@comment.note"] = { link = "Todo" },
 		-- TREESITTER/JSX
 		["@boolean.javascript"] = { fg = theme.fg_minus, bold = true },
 		["@constant.builtin.javascript"] = { fg = theme.fg_minus, bold = true },
