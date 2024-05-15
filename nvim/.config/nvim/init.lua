@@ -33,16 +33,7 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 	border = _border,
 })
 
--- STEP 6 - ABBREVIATIONS
--- replaces the preceding word with a React component of that name
-vim.cmd(
-	"iab tsrc <Esc>bdiwitype Props = {};<cr><cr>export default function <C-o>p({}: Props) {<cr>return null<cr>}<Esc>?null<cr><Esc>"
-)
-vim.cmd("iab tbitd toBeInTheDocument()<Esc>")
--- jest boilerplate for a new component test file
-vim.cmd(
-	'iab tst import { render, screen } from "@/lib/testing-library/react";<cr><cr> import <C-r>=expand("%:t:r")<cr><Esc>byawea from "./<C-o>p";<cr><cr>it("", () => {})<Esc>F"i'
-)
+require("abbreviations")
 -- STEP 7 - EXPERIMENTAL
 -- Example error message from tsc
 -- src/features/app/components/AppHeader/AppHeader.tsx(11,19): error TS2552: Cannot find name useAccount. Did you mean account?
