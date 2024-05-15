@@ -1,43 +1,42 @@
-local o = vim.opt
 -- Tabs/spaces
-o.expandtab = true
-o.shiftwidth = 4
-o.tabstop = 4
-o.softtabstop = 4
-o.smartindent = true
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.smartindent = true
 -- Clipboard
-o.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamedplus"
 -- Search
-o.ignorecase = true
-o.smartcase = true
-o.showmatch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.showmatch = true
 -- New windows
-o.splitbelow = true
-o.splitright = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 -- Text display
-o.breakindent = true
-o.colorcolumn = "80"
-o.cursorline = true
-o.cursorcolumn = true
-o.signcolumn = "yes"
-o.number = true
+vim.opt.breakindent = true
+vim.opt.colorcolumn = "80"
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
+vim.opt.signcolumn = "yes"
+vim.opt.number = true
 -- Other
-o.termguicolors = true
-o.wildmode = "longest:full,full"
+vim.opt.termguicolors = true
+vim.opt.wildmode = "longest:full,full"
 -- ,a:Cursor means in all modes hl group Cursor is applied
-o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:Cursor"
-o.undofile = true
-o.swapfile = false
-o.updatetime = 500
-o.timeoutlen = 500
-o.jumpoptions = "stack"
-o.sidescrolloff = 7
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:Cursor"
+vim.opt.undofile = true
+vim.opt.swapfile = false
+vim.opt.updatetime = 500
+vim.opt.timeoutlen = 500
+vim.opt.jumpoptions = "stack"
+vim.opt.sidescrolloff = 7
 -- Lines
-o.laststatus = 0
-o.fillchars = "eob: "
-o.showcmd = false
+vim.opt.laststatus = 0
+vim.opt.fillchars = "eob: "
+vim.opt.showcmd = false
 -- Completion
-o.completeopt = "menu"
+vim.opt.completeopt = "menu"
 -- Netrw
 vim.g.netrw_banner = 0
 vim.api.nvim_create_autocmd("filetype", {
@@ -72,4 +71,4 @@ function GetRulerIcon()
 
 	return "%#CustomRulerSeparator#%#CustomRulerIcon#" .. icon .. " "
 end
-o.rulerformat = "%40(%=%{%v:lua.GetIndicators()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
+vim.opt.rulerformat = "%40(%=%{%v:lua.GetIndicators()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
