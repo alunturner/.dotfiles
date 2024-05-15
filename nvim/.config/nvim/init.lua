@@ -17,22 +17,13 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.keymap.set({ "n", "v" }, " ", "<nop>", { silent = true })
 
+-- Load the plugins followed by all local setup
 require("lazy").setup("plugins")
 require("keybinds")
 require("options")
 require("colorscheme")
-
--- STEP 5 - CUSTOMISATION
-local _border = "rounded"
-vim.diagnostic.config({ float = { border = _border }, virtual_text = false })
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-	border = _border,
-})
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-	border = _border,
-})
-
 require("abbreviations")
+
 -- STEP 7 - EXPERIMENTAL
 -- Example error message from tsc
 -- src/features/app/components/AppHeader/AppHeader.tsx(11,19): error TS2552: Cannot find name useAccount. Did you mean account?
