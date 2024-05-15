@@ -20,11 +20,10 @@ vim.keymap.set({ "n", "v" }, " ", "<nop>", { silent = true })
 require("lazy").setup("plugins")
 require("keybinds")
 require("options")
+require("colorscheme")
 
--- STEP 5 - COLORSCHEME AND CUSTOMISATION
+-- STEP 5 - CUSTOMISATION
 local _border = "rounded"
-vim.opt.background = "dark"
-vim.cmd("colorscheme pax_zero")
 vim.diagnostic.config({ float = { border = _border }, virtual_text = false })
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = _border,
