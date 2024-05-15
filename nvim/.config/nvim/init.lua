@@ -13,37 +13,15 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Set the leader key before loading plugins
-local function set(mode, lhs, rhs)
-	vim.keymap.set(mode, lhs, rhs, { silent = true })
-end
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-set({ "n", "v" }, " ", "<nop>")
+vim.keymap.set({ "n", "v" }, " ", "<nop>", { silent = true })
 
 -- STEP 1 - INSTALL EXTERNAL DEPENDENCIES
 require("lazy").setup("plugins")
 
 -- STEP 2 - KEY REMAPS
--- Quick way to remove highlighting
-set("n", "<Esc>", "<cmd>nohl<cr>")
--- Make Y act like C and D
-set("n", "Y", "y$")
--- Don't move the cursor when using J
-set("n", "J", "mzJ`z")
--- File Browser
-set("n", "<leader>e", "<cmd>Ex<cr>")
--- Completion - see :h ins-completion
-set("i", "<C-j>", "<C-x><C-o>")
-set("i", "<C-f>", "<C-x><C-f>")
--- WIP
-set("n", "<leader>tt", "<cmd>!tmux split-window -h 'echo %:t | less'<cr>")
--- Prev/next movements
-set("n", "[d", vim.diagnostic.goto_prev)
-set("n", "]d", vim.diagnostic.goto_next)
-set("n", "[q", "<cmd>cprev<cr>")
-set("n", "]q", "<cmd>cnext<cr>")
-set("n", "<Tab>", "<C-6>")
+require("keybinds")
 
 -- STEP 4 - SETTINGS
 local o = vim.opt
