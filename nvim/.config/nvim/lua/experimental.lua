@@ -1,4 +1,3 @@
--- STEP 7 - EXPERIMENTAL
 -- Example error message from tsc
 -- src/features/app/components/AppHeader/AppHeader.tsx(11,19): error TS2552: Cannot find name useAccount. Did you mean account?
 local augroup = vim.api.nvim_create_augroup("makers", { clear = true })
