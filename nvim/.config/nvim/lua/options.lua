@@ -38,22 +38,15 @@ vim.opt.showcmd = false
 vim.opt.completeopt = "menu"
 -- Custom Ruler
 function GetIndicators()
-	local error_count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
-	local warn_count = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
-
-	local warn_string = warn_count > 0 and "%#DiagnosticWarn# " or ""
-	local error_string = error_count > 0 and "%#DiagnosticError# " or ""
-
+	local counts = vim.diagnostic.count()
+	local errors = counts[vim.diagnostic.severity.ERROR] or 0
+	local warnings = counts[vim.diagnostic.severity.WARN] or 0
+	local warn_string = warnings > 0 and "%#DiagnosticWarn# " or "  "
+	local error_string = errors > 0 and "%#DiagnosticError# " or "  "
 	return warn_string .. error_string
 end
 function GetRulerIcon()
-	local modified = vim.bo.modified
-	local icon = ""
-
-	if modified then
-		icon = ""
-	end
-
+	local icon = vim.bo.modified and "" or ""
 	return "%#CustomRulerSeparator#%#CustomRulerIcon#" .. icon .. " "
 end
 vim.opt.rulerformat = "%40(%=%{%v:lua.GetIndicators()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"

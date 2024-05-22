@@ -28,16 +28,11 @@ Lsp.config = function()
 	lspconfig.css_variables.setup({})
 	lspconfig.cssls.setup({})
 	lspconfig.cssmodules_ls.setup({})
-	-- Use LspAttach autocommand to only map the following keys
-	-- after the language server attaches to the current buffer
+	-- Use LspAttach to set mapping after the language server attaches
 	vim.api.nvim_create_autocmd("LspAttach", {
-		group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-		callback = function(ev)
-			-- Enable completion triggered by <c-x><c-o>
-			vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-			-- Buffer local mappings.
-			-- See `:help vim.lsp.*` for documentation on any of the below functions
-			local opts = { buffer = ev.buf }
+		callback = function(args)
+			-- these could potentially be guarded, see :h lsp-config
+			local opts = { buffer = args.buf }
 			vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
 			vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action, opts)
 		end,
@@ -46,6 +41,7 @@ end
 
 -- Make lsp and diagnostics look a little nicer
 local _border = "rounded"
+-- this shouldn't be here, can contain the diagnostic characters too
 vim.diagnostic.config({ float = { border = _border }, virtual_text = false })
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = _border,
