@@ -38,7 +38,6 @@ Lsp.config = function()
 			-- Buffer local mappings.
 			-- See `:help vim.lsp.*` for documentation on any of the below functions
 			local opts = { buffer = ev.buf }
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 			vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
 			vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action, opts)
 		end,

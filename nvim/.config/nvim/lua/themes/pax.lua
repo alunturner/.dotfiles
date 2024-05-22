@@ -48,6 +48,13 @@ local pax_theme = {
 -- consolidate as much as practicable
 -- add fzf groups
 -- consolidate tree-sitter groups
+-- help topics to check all the highlights:
+-- :h group-name
+-- :h highlight-groups
+-- :h treesitter-highlight-groups
+-- :h diagnostic-highlights
+-- :h lsp-highlight
+-- :h lsp-semantic-highlight
 local function get_highlight_groups(theme)
 	return {
 		-- NEOVIM
@@ -133,6 +140,7 @@ local function get_highlight_groups(theme)
 		PreProc = { fg = theme.fg, bold = true },
 		Special = { fg = theme.fg },
 		Statement = { fg = theme.fg, bold = true },
+		String = { link = "Constant" },
 		Type = { fg = theme.fg_minus },
 		Underlined = { underline = true },
 		Ignore = { link = "Normal" },
