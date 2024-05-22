@@ -21,7 +21,6 @@ vim.opt.cursorcolumn = true
 vim.opt.signcolumn = "no"
 vim.opt.number = true
 -- Other
-vim.opt.termguicolors = true
 vim.opt.wildmode = "longest:full,full"
 -- ,a:Cursor means in all modes hl group Cursor is applied
 vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:Cursor"
