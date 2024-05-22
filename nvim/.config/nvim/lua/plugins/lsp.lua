@@ -46,6 +46,7 @@ end
 
 -- Make lsp and diagnostics look a little nicer
 local _border = "rounded"
+-- this shouldn't be here, can contain the diagnostic characters too
 vim.diagnostic.config({ float = { border = _border }, virtual_text = false })
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = _border,
