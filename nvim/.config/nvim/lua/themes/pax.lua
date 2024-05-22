@@ -148,6 +148,7 @@ local function get_highlight_groups(theme)
 		Todo = { fg = theme.bg, bg = theme.fg },
 		-- TREESITTER/SYNTAX
 		["@lsp.type.comment"] = {}, -- required to prevent below being overridden
+		["@comment.error"] = { link = "Todo" },
 		["@comment.todo"] = { link = "Todo" },
 		["@comment.warning"] = { link = "Todo" },
 		["@comment.note"] = { link = "Todo" },
