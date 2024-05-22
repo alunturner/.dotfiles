@@ -4,13 +4,7 @@ local Formatter = {
 }
 
 Formatter.config = function()
-	local conform = require("conform")
-	local format_on_save_config = {
-		lsp_fallback = true,
-		async = true,
-		timeout_ms = 500,
-	}
-	conform.setup({
+	require("conform").setup({
 		formatters_by_ft = {
 			javascript = { "prettierd" },
 			typescript = { "prettierd" },
@@ -23,11 +17,11 @@ Formatter.config = function()
 			markdown = { "prettierd" },
 			lua = { "stylua" },
 		},
-		format_on_save = format_on_save_config,
+		format_on_save = {
+			lsp_fallback = true,
+			timeout_ms = 500,
+		},
 	})
-	vim.keymap.set("n", "<leader>p", function()
-		conform.format(format_on_save_config)
-	end)
 end
 
 return { Formatter }
