@@ -2,10 +2,7 @@ local Surround = {
 	"kylechui/nvim-surround",
 	version = "*",
 	event = "VeryLazy",
+	config = true, -- ie use default config
 }
-
-Surround.config = function()
-	require("nvim-surround").setup()
-end
 
 return { Surround }
