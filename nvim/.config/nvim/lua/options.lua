@@ -4,30 +4,22 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.smartindent = true
 vim.opt.clipboard = "unnamedplus"
--- Search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
--- New windows
 vim.opt.splitbelow = true
 vim.opt.splitright = true
--- Text display
 vim.opt.breakindent = true
 vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 vim.opt.signcolumn = "no"
 vim.opt.number = true
--- Other
 vim.opt.wildmode = "longest:full,full"
--- ,a:Cursor means in all modes hl group Cursor is applied
-vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:Cursor"
+vim.o.guicursor = vim.o.guicursor .. ",a:Cursor" -- append hl-Cursor to all modes
 vim.opt.undofile = true
 vim.opt.swapfile = false
-vim.opt.updatetime = 500
-vim.opt.timeoutlen = 500
 vim.opt.jumpoptions = "stack"
 vim.opt.sidescrolloff = 7
--- Lines
 vim.opt.laststatus = 0
 vim.opt.fillchars = "eob: "
 vim.opt.showcmd = false
