@@ -1,15 +1,12 @@
--- Tabs/spaces
 vim.opt.expandtab = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.smartindent = true
--- Clipboard
 vim.opt.clipboard = "unnamedplus"
 -- Search
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.showmatch = true
 -- New windows
 vim.opt.splitbelow = true
 vim.opt.splitright = true
