@@ -5,17 +5,11 @@ local Treesitter = {
 	build = ":TSUpdate",
 }
 
+local parsers = { "css", "javascript", "lua", "typescript", "tsx", "vim", "vimdoc" }
+
 Treesitter.config = function()
 	require("nvim-treesitter.configs").setup({
-		ensure_installed = {
-			"css",
-			"javascript",
-			"lua",
-			"typescript",
-			"tsx",
-			"vim",
-			"vimdoc",
-		},
+		ensure_installed = parsers,
 		sync_install = false,
 		auto_install = false,
 		highlight = {
@@ -25,7 +19,7 @@ Treesitter.config = function()
 		textobjects = {
 			select = {
 				enable = true,
-				lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+				lookahead = true, -- Automatically jump forward to textobj
 				keymaps = {
 					["ac"] = "@call.outer",
 					["ic"] = "@call.inner",
