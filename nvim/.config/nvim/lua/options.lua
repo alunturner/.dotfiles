@@ -22,20 +22,14 @@ vim.opt.jumpoptions = "stack"
 vim.opt.sidescrolloff = 7
 vim.opt.laststatus = 0
 vim.opt.fillchars = "eob: "
-vim.opt.showcmd = false
--- Completion
-vim.opt.completeopt = "menu"
+vim.opt.completeopt = "longest,menu"
 -- Custom Ruler
-function GetIndicators()
-	local counts = vim.diagnostic.count()
-	local errors = counts[vim.diagnostic.severity.ERROR] or 0
-	local warnings = counts[vim.diagnostic.severity.WARN] or 0
-	local warn_string = warnings > 0 and "%#DiagnosticWarn# " or "  "
-	local error_string = errors > 0 and "%#DiagnosticError# " or "  "
-	return warn_string .. error_string
+function GetErrors()
+	local errors = vim.diagnostic.count()[vim.diagnostic.severity.ERROR] or 0
+	return errors > 0 and "%#DiagnosticError# " or ""
 end
-function GetRulerIcon()
+function GetIcon()
 	local icon = vim.bo.modified and "" or ""
 	return "%#CustomRulerSeparator#%#CustomRulerIcon#" .. icon .. " "
 end
-vim.opt.rulerformat = "%40(%=%{%v:lua.GetIndicators()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
+vim.opt.rulerformat = "%40(%=%{%v:lua.GetErrors()%}%{%v:lua.GetIcon()%}%#CustomRulerFile# %t %)"
