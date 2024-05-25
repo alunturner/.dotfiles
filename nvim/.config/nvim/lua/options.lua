@@ -11,6 +11,7 @@ vim.opt.ignorecase = true
 vim.opt.jumpoptions = "stack"
 vim.opt.laststatus = 0
 vim.opt.number = true
+vim.opt.rulerformat = "%40(%=%{%v:lua.GetErrors()%}%{%v:lua.GetIcon()%}%#CustomRulerFile# %t %)"
 vim.opt.shiftwidth = 4
 vim.opt.showcmd = false
 vim.opt.sidescrolloff = 7
@@ -33,4 +34,3 @@ function GetIcon()
 	local icon = vim.bo.modified and "" or ""
 	return "%#CustomRulerSeparator#%#CustomRulerIcon#" .. icon .. " "
 end
-vim.opt.rulerformat = "%40(%=%{%v:lua.GetErrors()%}%{%v:lua.GetIcon()%}%#CustomRulerFile# %t %)"
