@@ -19,14 +19,18 @@ Treesitter.config = function()
 		textobjects = {
 			select = {
 				enable = true,
-				lookahead = true, -- Automatically jump forward to textobj
+				lookahead = true,
 				keymaps = {
+					-- inbuilt
 					["ac"] = "@call.outer",
 					["ic"] = "@call.inner",
 					["af"] = "@function.outer",
 					["if"] = "@function.inner",
 					["aa"] = "@parameter.outer",
 					["ia"] = "@parameter.inner",
+					-- custom
+					["ae"] = "@entry.outer",
+					["ie"] = "@entry.inner",
 				},
 			},
 		},
