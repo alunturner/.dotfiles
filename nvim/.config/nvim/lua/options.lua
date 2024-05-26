@@ -27,7 +27,7 @@ vim.opt.undofile = true
 vim.opt.wildmode = "longest:full,full"
 
 function GetErrors()
-	local errors = vim.diagnostic.count()[vim.diagnostic.severity.ERROR] or 0
+	local errors = vim.diagnostic.count(0)[vim.diagnostic.severity.ERROR] or 0
 	return errors > 0 and "%#DiagnosticError# " or ""
 end
 function GetIcon()
