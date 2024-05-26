@@ -1,6 +1,5 @@
 local set = vim.keymap.set
 set("n", "<Esc><Esc>", "<cmd>noh<cr>", { silent = true }) -- Remove search hls
-set("n", "Y", "y$", { silent = true }) -- Make Y act like C and D
 set("n", "J", "mzJ`z", { silent = true }) -- Don't move the cursor when using J
 set("n", "<leader>e", "<cmd>Ex<cr>", { silent = true })
 set("n", "[d", vim.diagnostic.goto_prev, { silent = true })
