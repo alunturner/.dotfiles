@@ -30,7 +30,10 @@ Treesitter.config = function()
 					["ia"] = "@parameter.inner",
 					-- custom
 					["ae"] = "@entry.outer",
-					["ie"] = "@entry.inner",
+					["le"] = "@entry.lhs",
+					["re"] = "@entry.rhs",
+					["as"] = "@string.outer",
+					["is"] = "@string.inner",
 				},
 			},
 		},

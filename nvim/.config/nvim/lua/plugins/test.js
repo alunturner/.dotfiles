@@ -8,4 +8,6 @@ const thing = {
   method: () => {},
 };
 
+let stringThank = `asdfasdf`;
+
 const thingArr = [defaultThing, 4, false, () => {}];
