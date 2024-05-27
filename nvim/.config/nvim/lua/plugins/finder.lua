@@ -62,7 +62,7 @@ Finder.config = function()
 			"Ripgrep",
 			{ rg_opts = "--column --line-number --no-heading --color=never --smart-case --max-columns=4096 -e" }
 		),
-		diagnostics = configure_finder("Diagnostics"),
+		diagnostics = configure_finder("Diagnostics", { severity_limit = "warning" }),
 		lsp = {
 			prompt_postfix = "  ",
 			symbols = configure_finder("Symbol"),
