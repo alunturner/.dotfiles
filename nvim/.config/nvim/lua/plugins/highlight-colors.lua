@@ -9,6 +9,4 @@ local HighlightColors = {
 	end,
 }
 
-vim.keymap.set("n", "<leader>th", "<cmd>HighlightColors Toggle<cr>", { silent = true })
-
 return { HighlightColors }

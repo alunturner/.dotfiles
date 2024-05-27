@@ -9,3 +9,7 @@ set("n", "]c", "<cmd>cnext<cr>", { silent = true })
 set("n", "<Tab>", "<C-6>", { silent = true }) -- Easy alternate file access
 set("i", "<C-j>", "<C-x><C-o>", { silent = true }) -- Lsp completion
 set("i", "<C-f>", "<C-x><C-f>", { silent = true }) -- Filepath completion
+set("n", "<leader>th", "<cmd>HighlightColors Toggle<cr>", { silent = true })
+set("n", "<leader>ti", function()
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { expr = true, silent = true })
