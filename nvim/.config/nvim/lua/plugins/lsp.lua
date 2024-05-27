@@ -39,12 +39,6 @@ Lsp.config = function()
 	})
 end
 
--- TODO move this somewhere more sensible
-vim.diagnostic.config({
-	float = { border = "rounded", severity_sort = true },
-	severity_sort = true,
-	virtual_text = false,
-})
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 	border = "rounded",
 })
