@@ -26,6 +26,12 @@ vim.opt.tabstop = 4
 vim.opt.undofile = true
 vim.opt.wildmode = "longest:full,full"
 
+vim.diagnostic.config({
+	float = { border = "rounded", severity_sort = true },
+	severity_sort = true,
+	virtual_text = false,
+})
+
 function GetErrors()
 	local errors = vim.diagnostic.count(0)[vim.diagnostic.severity.ERROR] or 0
 	return errors > 0 and "%#DiagnosticError# " or ""
