@@ -21,19 +21,18 @@ Treesitter.config = function()
 				enable = true,
 				lookahead = true,
 				keymaps = {
-					-- inbuilt
+					-- Treesitter Text Objects
 					["ac"] = "@call.outer",
 					["ic"] = "@call.inner",
 					["af"] = "@function.outer",
 					["if"] = "@function.inner",
 					["aa"] = "@parameter.outer",
 					["ia"] = "@parameter.inner",
-					-- custom
-					["ae"] = "@entry.outer",
-					["le"] = "@entry.lhs",
-					["re"] = "@entry.rhs",
-					["as"] = "@string.outer",
-					["is"] = "@string.inner",
+					-- Custom WIP
+					-- ["ae"] = "@entry.outer",
+					-- ["ie"] = "@entry.inner",
+					-- ["as"] = "@string.outer",
+					-- ["is"] = "@string.inner",
 				},
 			},
 		},

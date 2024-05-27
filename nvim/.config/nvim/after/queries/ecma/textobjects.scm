@@ -1,10 +1,7 @@
 ; extends
-
 ; entry
-(array (_) @entry.outer)
-(object (pair
-    key: (_) @entry.lhs
-    value: (_) @entry.rhs) @entry.outer)
+(array (_) @entry.inner ","? @_end (#make-range! "entry.outer" @entry.inner @_end))
+(object (_) @entry.inner ","? @_end (#make-range! "entry.outer" @entry.inner @_end))
 
 ; string
 (string (_) @string.inner) @string.outer

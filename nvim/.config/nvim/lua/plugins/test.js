@@ -1,13 +1,7 @@
-const defaultThing = "shorthand";
-const thing = {
-  defaultThing,
-  1: "he",
-  2: true,
-  4: Boolean(),
-  howdy: "there partner",
-  method: () => {},
-};
+[1, 2, 3, 4, 5, 6];
 
-let stringThank = `asdfasdf`;
-
-const thingArr = [defaultThing, 4, false, () => {}];
+const arr = [
+  "super long striiiiiiiiiiiiiiiiiiiing",
+  123123,
+  "super long striiiiiiiiiiiiiiiiiiiing",
+];
