@@ -2,6 +2,7 @@ local set = vim.keymap.set
 set("n", "<Esc><Esc>", "<cmd>noh<cr>", { silent = true }) -- Remove search hls
 set("n", "J", "mzJ`z", { silent = true }) -- Don't move the cursor when using J
 set("n", "<leader>e", "<cmd>Ex<cr>", { silent = true })
+-- can be removed when https://github.com/neovim/neovim/pull/29067 available
 set("n", "[d", vim.diagnostic.goto_prev, { silent = true })
 set("n", "]d", vim.diagnostic.goto_next, { silent = true })
 set("n", "[c", "<cmd>cprev<cr>", { silent = true })

@@ -49,6 +49,5 @@ cd ~/.dotfiles && stow nvim tmux lazygit wezterm zsh
 
 - Ansible: start with ansible and create ansible config
 - Pax: make a light theme, accept a highlight count, look at ts highlight groups
-- Neovim: insert () after a function or method after omnifunc completion
 - Neovim: custom motions/text objects for quotes, brackets, strings, lists etc.
 - Tmux: create a scratchpad/centring script
