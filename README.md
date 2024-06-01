@@ -57,6 +57,5 @@ cd ~/.dotfiles && stow nvim tmux lazygit wezterm zsh
   - move lsp autocmd outside (use this as a pattern for autocmds if possible)
   - treesitter.lua - turn custom commands on after further testing
   - add insert mode <C-k> bind to show signature
-  - turn off all lazy loading (just load everything at startup) if possible, and then remove event config in each plugin if possible
 - Remove zsh config and add starship
 - Tmux: add full border for splits - need better pane differentiation
