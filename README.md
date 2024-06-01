@@ -49,5 +49,13 @@ cd ~/.dotfiles && stow nvim tmux lazygit wezterm zsh
 
 - Ansible: start with ansible and create ansible config
 - Pax: make a light theme, accept a highlight count, look at ts highlight groups
-- Neovim: custom motions/text objects for quotes, brackets, strings, lists etc.
-- Tmux: create a scratchpad/centring script
+- Neovim:
+  - custom motions/text objects for quotes, brackets, strings, lists etc.
+  - move abbreviations to /after/ftplugin if doable for ecmascript
+  - finder.lua - add title to help finder and make diagnostics display errors only, toggleable to show all
+  - can nvim.lint go??? test on work system, could remove eslint_d install too
+  - move lsp autocmd outside (use this as a pattern for autocmds if possible)
+  - treesitter.lua - turn custom commands on after further testing
+  - add insert mode <C-k> bind to show signature
+  - turn off all lazy loading (just load everything at startup) if possible, and then remove event config in each plugin if possible
+- Remove zsh config and add starship

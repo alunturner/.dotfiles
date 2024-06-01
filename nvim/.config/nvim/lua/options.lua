@@ -1,4 +1,5 @@
 vim.o.guicursor = vim.o.guicursor .. ",a:Cursor" -- append hl-Cursor to all modes
+vim.opt.background = "dark"
 vim.opt.breakindent = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.colorcolumn = "80"
@@ -11,7 +12,7 @@ vim.opt.ignorecase = true
 vim.opt.jumpoptions = "stack"
 vim.opt.laststatus = 0
 vim.opt.number = true
-vim.opt.rulerformat = "%40(%=%{%v:lua.GetErrors()%}%{%v:lua.GetIcon()%}%#CustomRulerFile# %t %)"
+vim.opt.rulerformat = "%40(%=%{%v:lua.GetRulerFlags()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
 vim.opt.shiftwidth = 4
 vim.opt.showcmd = false
 vim.opt.sidescrolloff = 7
@@ -26,6 +27,8 @@ vim.opt.tabstop = 4
 vim.opt.undofile = true
 vim.opt.wildmode = "longest:full,full"
 
+vim.cmd("colorscheme pax_zero")
+
 vim.diagnostic.config({
 	float = { border = "rounded", severity_sort = true },
 	severity_sort = true,
@@ -33,11 +36,11 @@ vim.diagnostic.config({
 	jump = { float = true }, -- see https://github.com/neovim/neovim/pull/29067
 })
 
-function GetErrors()
+function GetRulerFlags()
 	local errors = vim.diagnostic.count(0)[vim.diagnostic.severity.ERROR] or 0
 	return errors > 0 and "%#DiagnosticError# " or ""
 end
-function GetIcon()
+function GetRulerIcon()
 	local icon = vim.bo.modified and "" or ""
 	return "%#CustomRulerSeparator#%#CustomRulerIcon#" .. icon .. " "
 end
