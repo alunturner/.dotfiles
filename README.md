@@ -53,7 +53,8 @@ cd ~/.dotfiles && stow nvim tmux lazygit wezterm zsh
   - custom motions/text objects for quotes, brackets, strings, lists etc.
   - move abbreviations to /after/ftplugin if doable for ecmascript
   - finder.lua - add title to help finder and make diagnostics display errors only, toggleable to show all
-  - can nvim.lint go??? test on work system
+  - can nvim.lint go??? test on work system, could remove eslint_d install too
   - move lsp autocmd outside (use this as a pattern for autocmds if possible)
   - treesitter.lua - turn custom commands on after further testing
+  - add insert mode <C-k> bind to show signature
 - Remove zsh config and add starship
