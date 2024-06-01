@@ -4,6 +4,7 @@ local Treesitter = {
 	pin = true,
 	dependencies = { { "nvim-treesitter/nvim-treesitter-textobjects", pin = true } },
 	build = ":TSUpdate",
+	main = "nvim-treesitter.configs",
 	opts = {
 		ensure_installed = parsers,
 		sync_install = false,
