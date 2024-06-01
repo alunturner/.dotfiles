@@ -2,10 +2,9 @@ local HighlightColors = {
 	"brenoprata10/nvim-highlight-colors",
 	pin = true,
 	version = "*",
+	opts = { enable_tailwind = true },
 	config = function()
-		local plugin = require("nvim-highlight-colors")
-		plugin.setup({ enable_tailwind = true })
-		plugin.turnOff()
+		require("nvim-highlight-colors").turnOff()
 	end,
 }
 
