@@ -51,7 +51,6 @@ cd ~/.dotfiles && stow nvim tmux lazygit wezterm starship
 - Pax: make a light theme, accept a highlight count, look at ts highlight groups
 - Neovim:
   - custom motions/text objects for quotes, brackets, strings, lists etc.
-  - move abbreviations to /after/ftplugin if doable for ecmascript
   - finder.lua - add title to help finder and make diagnostics display errors only, toggleable to show all
   - can nvim.lint go??? test on work system, could remove eslint_d install too
   - move lsp autocmd outside (use this as a pattern for autocmds if possible)
