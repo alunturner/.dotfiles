@@ -7,10 +7,10 @@
 ```
 
 2. Install nvm and node (tbc)
-3. Install Brew packages (Ripgrep, fzf, fd, stow, neovim, lua formatter and lang server, tmux)
+3. Install Brew packages (Ripgrep, fzf, fd, stow, neovim, lua formatter and lang server, tmux, starship)
 
 ```bash
-brew install ripgrep fzf fd stow neovim stylua lua-language-server tmux
+brew install ripgrep fzf fd stow neovim stylua lua-language-server tmux starship
 ```
 
 4. Install Gitmux
