@@ -1,12 +1,16 @@
-format = "[󰇥](yellow) $directory $git_branch\n$character"
+format = "${custom.duck}$directory $git_branch\n$character"
+
+[custom.duck]
+when = true
+format = "[ [󰇥](yellow)](black) "
 
 [directory]
-format = "[ $path]($style)"
+format = "[  $path]($style)"
 truncate_to_repo = false
 style = "blue"
 
 [git_branch]
-format = "[ $branch]($style)"
+format = "[  $branch]($style)"
 style = "green"
 
 [character]
