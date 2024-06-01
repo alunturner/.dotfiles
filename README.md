@@ -40,7 +40,7 @@ cd && git clone https://github.com/alunturner/.dotfiles.git
 8. Stow the config folders:
 
 ```bash
-cd ~/.dotfiles && stow nvim tmux lazygit wezterm zsh
+cd ~/.dotfiles && stow nvim tmux lazygit wezterm starship
 ```
 
 9. If not on Wezterm, set terminal colours to Catpuccin Mocha/Latte and override fg color #e9e7dd / #19191f
