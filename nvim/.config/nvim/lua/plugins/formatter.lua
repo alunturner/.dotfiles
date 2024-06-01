@@ -1,10 +1,7 @@
 local Formatter = {
 	"stevearc/conform.nvim",
-	event = { "BufReadPre", "BufNewFile" },
-}
-
-Formatter.config = function()
-	require("conform").setup({
+	pin = true,
+	opts = {
 		formatters_by_ft = {
 			javascript = { "prettierd" },
 			typescript = { "prettierd" },
@@ -21,7 +18,7 @@ Formatter.config = function()
 			lsp_fallback = true,
 			timeout_ms = 500,
 		},
-	})
-end
+	},
+}
 
 return { Formatter }

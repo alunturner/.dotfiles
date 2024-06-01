@@ -1,14 +1,10 @@
+local parsers = { "css", "javascript", "lua", "typescript", "tsx", "vim", "vimdoc" }
 local Treesitter = {
 	"nvim-treesitter/nvim-treesitter",
-	lazy = false,
-	dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+	pin = true,
+	dependencies = { { "nvim-treesitter/nvim-treesitter-textobjects", pin = true } },
 	build = ":TSUpdate",
-}
-
-local parsers = { "css", "javascript", "lua", "typescript", "tsx", "vim", "vimdoc" }
-
-Treesitter.config = function()
-	require("nvim-treesitter.configs").setup({
+	opts = {
 		ensure_installed = parsers,
 		sync_install = false,
 		auto_install = false,
@@ -36,7 +32,7 @@ Treesitter.config = function()
 				},
 			},
 		},
-	})
-end
+	},
+}
 
 return { Treesitter }

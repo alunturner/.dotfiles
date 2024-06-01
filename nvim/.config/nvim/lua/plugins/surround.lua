@@ -1,8 +1,8 @@
 local Surround = {
 	"kylechui/nvim-surround",
+	pin = true,
 	version = "*",
-	event = "VeryLazy",
-	config = true, -- ie use default config
+	opts = {},
 }
 
 return { Surround }
