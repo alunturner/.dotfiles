@@ -2,8 +2,10 @@ local parsers = { "css", "javascript", "lua", "typescript", "tsx", "vim", "vimdo
 local Treesitter = {
 	"nvim-treesitter/nvim-treesitter",
 	pin = true,
-	dependencies = { { "nvim-treesitter/nvim-treesitter-textobjects", pin = true } },
+	-- TODO: figure out how to pin this dependency
+	dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
 	build = ":TSUpdate",
+	main = "nvim-treesitter.configs",
 	opts = {
 		ensure_installed = parsers,
 		sync_install = false,
