@@ -1,6 +1,6 @@
 local Lsp = {
 	"neovim/nvim-lspconfig",
-	event = { "BufReadPre", "BufNewFile" },
+	pin = true,
 }
 
 Lsp.config = function()
