@@ -1,5 +1,6 @@
 local Finder = {
 	"ibhagwan/fzf-lua",
+	pin = true,
 }
 
 local function fzf_set(bind, picker)
