@@ -14,6 +14,6 @@ format = "[  $branch]($style)"
 style = "green"
 
 [character]
-format = "[$symbol](white) "
-success_symbol = "  \\$"
+format = "[$symbol](foreground) "
+success_symbol = " \\$"
 error_symbol = "[ ](red)\\$"
