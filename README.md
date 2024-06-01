@@ -7,10 +7,10 @@
 ```
 
 2. Install nvm and node (tbc)
-3. Install Brew packages (Ripgrep, fzf, fd, stow, neovim, lua formatter and lang server, tmux)
+3. Install Brew packages (Ripgrep, fzf, fd, stow, neovim, lua formatter and lang server, tmux, starship)
 
 ```bash
-brew install ripgrep fzf fd stow neovim stylua lua-language-server tmux
+brew install ripgrep fzf fd stow neovim stylua lua-language-server tmux starship
 ```
 
 4. Install Gitmux
@@ -57,5 +57,4 @@ cd ~/.dotfiles && stow nvim tmux lazygit wezterm zsh
   - move lsp autocmd outside (use this as a pattern for autocmds if possible)
   - treesitter.lua - turn custom commands on after further testing
   - add insert mode <C-k> bind to show signature
-- Remove zsh config and add starship
 - Tmux: add full border for splits - need better pane differentiation

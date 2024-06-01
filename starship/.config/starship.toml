@@ -1,0 +1,19 @@
+format = "${custom.duck} $directory $git_branch\n$character"
+
+[custom.duck]
+when = true
+format = "[󰇥](yellow)"
+
+[directory]
+format = "[  $path]($style)"
+truncate_to_repo = false
+style = "blue"
+
+[git_branch]
+format = "[  $branch]($style)"
+style = "green"
+
+[character]
+format = "[$symbol](white) "
+success_symbol = "  \\$"
+error_symbol = "[ ](red)\\$"
