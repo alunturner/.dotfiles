@@ -1,8 +1,8 @@
-format = "${custom.duck}$directory $git_branch\n$character"
+format = "${custom.duck} $directory $git_branch\n$character"
 
 [custom.duck]
 when = true
-format = "[ [󰇥](yellow)](black) "
+format = "[󰇥](yellow)"
 
 [directory]
 format = "[  $path]($style)"
@@ -15,5 +15,5 @@ style = "green"
 
 [character]
 format = "[$symbol](white) "
-success_symbol = "\\$"
-error_symbol = "\\$"
+success_symbol = "  \\$"
+error_symbol = "[ ](red)\\$"
