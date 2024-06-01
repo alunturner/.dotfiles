@@ -1,12 +1,3 @@
-local Finder = {
-	"ibhagwan/fzf-lua",
-	pin = true,
-}
-
-local function fzf_set(bind, picker)
-	vim.keymap.set("n", bind, "<cmd>lua require('fzf-lua')." .. picker .. "()<cr>")
-end
-
 local function configure_finder(title, opts)
 	return vim.tbl_deep_extend("keep", opts or {}, {
 		prompt = title .. "  ",
@@ -17,8 +8,10 @@ local function configure_finder(title, opts)
 	})
 end
 
-Finder.config = function()
-	require("fzf-lua").setup({
+local Finder = {
+	"ibhagwan/fzf-lua",
+	pin = true,
+	opts = {
 		defaults = {
 			file_icons = false,
 			git_icons = false,
@@ -65,16 +58,19 @@ Finder.config = function()
 			prompt_postfix = "  ",
 			symbols = configure_finder("Symbol"),
 		},
-	})
-	fzf_set("<leader>f", "files")
-	fzf_set("<leader>q", "quickfix")
-	fzf_set("<leader>s", "grep_project")
-	fzf_set("<leader>d", "lsp_document_diagnostics")
-	fzf_set("<leader>o", "lsp_document_symbols")
-	fzf_set("<leader>O", "lsp_live_workspace_symbols")
-	fzf_set("gr", "lsp_references")
-	fzf_set("gd", "lsp_definitions")
-	fzf_set("<leader>h", "helptags")
-end
+	},
+}
+
+local pre = "<cmd>lua require('fzf-lua')."
+local post = "()<cr>"
+vim.keymap.set("n", "<leader>f", pre .. "files" .. post)
+vim.keymap.set("n", "<leader>q", pre .. "quickfix" .. post)
+vim.keymap.set("n", "<leader>s", pre .. "grep_project" .. post)
+vim.keymap.set("n", "<leader>d", pre .. "lsp_document_diagnostics" .. post)
+vim.keymap.set("n", "<leader>o", pre .. "lsp_document_symbols" .. post)
+vim.keymap.set("n", "<leader>O", pre .. "lsp_live_workspace_symbols" .. post)
+vim.keymap.set("n", "gr", pre .. "lsp_references" .. post)
+vim.keymap.set("n", "gd", pre .. "lsp_definitions" .. post)
+vim.keymap.set("n", "<leader>h", pre .. "helptags" .. post)
 
 return { Finder }
