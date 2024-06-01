@@ -1,5 +1,6 @@
 local Navigation = {
 	"christoomey/vim-tmux-navigator",
+	pin = true,
 	cmd = {
 		"TmuxNavigateLeft",
 		"TmuxNavigateDown",
