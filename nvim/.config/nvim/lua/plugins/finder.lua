@@ -3,10 +3,7 @@ local Finder = {
 }
 
 local function fzf_set(bind, picker)
-	-- see https://github.com/ibhagwan/fzf-lua?tab=readme-ov-file#commands
-	local prefix = "<cmd>lua require('fzf-lua')."
-	local suffix = "()<cr>"
-	vim.keymap.set("n", bind, prefix .. picker .. suffix)
+	vim.keymap.set("n", bind, "<cmd>lua require('fzf-lua')." .. picker .. "()<cr>")
 end
 
 local function configure_finder(title, opts)
