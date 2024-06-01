@@ -1,6 +1,6 @@
 local Linter = {
 	"mfussenegger/nvim-lint",
-	event = { "BufReadPre", "BufNewFile" },
+	pin = true,
 }
 
 Linter.config = function()
