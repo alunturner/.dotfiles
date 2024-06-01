@@ -1,5 +1,6 @@
 local Formatter = {
 	"stevearc/conform.nvim",
+	pin = true,
 	config = function()
 		require("conform").setup({
 			formatters_by_ft = {
