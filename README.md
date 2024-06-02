@@ -53,4 +53,3 @@ cd ~/.dotfiles && stow nvim tmux lazygit wezterm starship
   - finder.lua - make diagnostic finder severity toggleable
   - can nvim.lint go??? test on work system, could remove eslint_d install too
   - move lsp autocmd outside (use this as a pattern for autocmds if possible)
-  - add insert mode <C-k> bind to show signature
