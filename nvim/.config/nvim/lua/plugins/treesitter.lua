@@ -27,8 +27,8 @@ local Treesitter = {
 					["aa"] = "@parameter.outer",
 					["ia"] = "@parameter.inner",
 					-- Custom WIP
-					["ae"] = "@entry.outer",
-					["ie"] = "@entry.inner",
+					["ae"] = "@custom_entry.outer",
+					["ie"] = "@custom_entry.inner",
 					["aq"] = "@custom_quotation.outer",
 					["iq"] = "@custom_quotation.inner",
 				},
