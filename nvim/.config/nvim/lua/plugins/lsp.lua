@@ -4,6 +4,7 @@ local Lsp = {
 }
 
 Lsp.config = function()
+	require("lspconfig.ui.windows").default_options = { border = "rounded" }
 	local lspconfig = require("lspconfig")
 	-- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#configurations
 	lspconfig.tsserver.setup({})
@@ -35,6 +36,7 @@ Lsp.config = function()
 			local opts = { buffer = args.buf }
 			vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
 			vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action, opts)
+			vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 		end,
 	})
 end

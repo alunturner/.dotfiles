@@ -53,11 +53,19 @@ local Finder = {
 			"Ripgrep",
 			{ rg_opts = "--column --line-number --no-heading --color=never --smart-case --max-columns=4096 -e" }
 		),
-		diagnostics = configure_finder("Diagnostics", { severity_limit = "warning" }),
+		diagnostics = configure_finder("Diagnostics", {
+			severity_limit = "error",
+			actions = {
+				["ctrl-g"] = function()
+					print("TODO hook up severity filter")
+				end,
+			},
+		}),
 		lsp = {
 			prompt_postfix = "  ",
 			symbols = configure_finder("Symbol"),
 		},
+		helptags = configure_finder("Help"),
 	},
 }
 

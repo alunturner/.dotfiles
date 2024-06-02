@@ -121,7 +121,7 @@ local function get_highlight_groups(theme)
 		LspReferenceRead = { link = "Normal" },
 		LspReferenceText = { link = "Normal" },
 		LspReferenceWrite = { link = "Normal" },
-		LspSignatureActiveParameter = { link = "Normal" },
+		LspSignatureActiveParameter = { link = "IncSearch" },
 		-- DIAGNOSTIC
 		DiagnosticError = { fg = theme.error },
 		DiagnosticUnderlineError = { fg = theme.error, underline = true },
