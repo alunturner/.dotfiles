@@ -7,7 +7,6 @@ vim.opt.completeopt = "longest,menu"
 vim.opt.cursorcolumn = true
 vim.opt.cursorline = true
 vim.opt.expandtab = true
-vim.opt.fillchars = "eob: "
 vim.opt.ignorecase = true
 vim.opt.jumpoptions = "stack"
 vim.opt.laststatus = 0
@@ -44,3 +43,25 @@ function GetRulerIcon()
 	local icon = vim.bo.modified and "" or ""
 	return "%#CustomRulerSeparator#%#CustomRulerIcon#" .. icon .. " "
 end
+
+-- hacky idea is to have two pointer chars in the winbar pointing at the active
+-- window, which then merge nicely into the divider (which can be a full character)
+vim.opt.winbar = "%="
+--up    ▀
+--down  ▄
+--full  █
+--left  ▌
+--right ▐
+-- utils: nvim_win_get_position, fillchars
+
+vim.api.nvim_create_autocmd({ "WinEnter", "VimEnter" }, {
+	callback = function(args)
+		vim.opt_local.fillchars = { eob = " ", vert = "▌", wbr = "▄", horizdown = "▄" }
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "WinLeave" }, {
+	callback = function(args)
+		vim.opt_local.fillchars = { eob = " ", vert = "▐", horiz = "&", wbr = " ", horizdown = "▄" }
+	end,
+})
