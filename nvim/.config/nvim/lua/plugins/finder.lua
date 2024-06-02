@@ -58,6 +58,7 @@ local Finder = {
 			prompt_postfix = "  ",
 			symbols = configure_finder("Symbol"),
 		},
+		helptags = configure_finder("Help"),
 	},
 }
 
