@@ -1,7 +1,7 @@
 ; extends
-; entry => e represents anything that is list like, array item, object item, argument item, parameter item
-(array (_) @entry.inner ","? @_end (#make-range! "entry.outer" @entry.inner @_end))
-(object (_) @entry.inner ","? @_end (#make-range! "entry.outer" @entry.inner @_end))
+; entry => e represents an item in anything that is list like
+; array 
+(array ((_) @entry.inner ","?) @entry_outer) 
 
 ; quotations => q represents anything wrapped in " or ' or `
 (string (["'" "\""] . (_) @_start (_)? @_end . ["'" "\""])(#make-range! "custom_quotation.inner" @_start @_end)) @custom_quotation.outer
