@@ -36,6 +36,7 @@ Lsp.config = function()
 			local opts = { buffer = args.buf }
 			vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
 			vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action, opts)
+			vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
 		end,
 	})
 end
