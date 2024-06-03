@@ -80,7 +80,11 @@ local function get_highlight_groups(theme)
 		StatusLineNC = { fg = theme.bg, bg = theme.bg },
 		TermCursor = { bg = theme.cursor_bg },
 		Visual = { fg = theme.bg_plus_plus, bg = theme.fg_minus_minus },
-		WarningMsg = { fg = theme.warnin },
+		WarningMsg = { fg = theme.warning },
+		-- TODO WIP ETC
+		WinSeparator = { fg = theme.fg, bg = theme.fg },
+		WinBar = { fg = theme.cursor_bg, bg = theme.fg },
+		WinBarNC = { link = "WinSeparator" },
 		-- NEOVIM LINKED
 		CursorColumn = { link = "CursorLine" },
 		CursorIM = { link = "Cursor" },
@@ -110,7 +114,6 @@ local function get_highlight_groups(theme)
 		StatusLine = { link = "Normal" },
 		Substitute = { link = "CurSearch" },
 		Title = { link = "Normal" },
-		VertSplit = { link = "Normal" },
 		VisualNOS = { link = "Visual" },
 		Whitespace = { link = "Normal" },
 		WildMenu = { link = "PmenuSel" },

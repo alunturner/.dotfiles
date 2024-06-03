@@ -44,9 +44,17 @@ function GetRulerIcon()
 	return "%#CustomRulerSeparator#%#CustomRulerIcon#" .. icon .. " "
 end
 
--- hacky idea is to have two pointer chars in the winbar pointing at the active
--- window, which then merge nicely into the divider (which can be a full character)
+-- IDEA OUTLINE >
+-- Winbar is the horizontal divider
+--  - when active, fg = cursor, bg = vert separator
+--  - when inactive, fg = vert separator, bg = vert separator
+--  - this means we can toggle hl groups to show / hide the character
+-- Vertical separator is the vertical divider
+--  - just basic empty character to start with, bg = separator colour
+--  progress from just win bar changing => top and bottom winbars changing
+--  => side bars changing
 vim.opt.winbar = "%="
+vim.opt.fillchars = { eob = " ", wbr = "▄", vert = " " }
 --up    ▀
 --down  ▄
 --full  █
@@ -54,14 +62,14 @@ vim.opt.winbar = "%="
 --right ▐
 -- utils: nvim_win_get_position, fillchars
 
-vim.api.nvim_create_autocmd({ "WinEnter", "VimEnter" }, {
-	callback = function(args)
-		vim.opt_local.fillchars = { eob = " ", vert = "▌", wbr = "▄", horizdown = "▄" }
-	end,
-})
-
-vim.api.nvim_create_autocmd({ "WinLeave" }, {
-	callback = function(args)
-		vim.opt_local.fillchars = { eob = " ", vert = "▐", horiz = "&", wbr = " ", horizdown = "▄" }
-	end,
-})
+-- vim.api.nvim_create_autocmd({ "WinEnter", "VimEnter" }, {
+-- 	callback = function(args)
+-- 		vim.opt_local.fillchars = { eob = " ", vert = "▌", wbr = "▄", horizdown = "▄" }
+-- 	end,
+-- })
+--
+-- vim.api.nvim_create_autocmd({ "WinLeave" }, {
+-- 	callback = function(args)
+-- 		vim.opt_local.fillchars = { eob = " ", vert = "▐", horiz = "&", wbr = " ", horizdown = "▄" }
+-- 	end,
+-- })
