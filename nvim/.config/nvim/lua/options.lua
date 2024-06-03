@@ -12,6 +12,7 @@ vim.opt.ignorecase = true
 vim.opt.jumpoptions = "stack"
 vim.opt.laststatus = 0
 vim.opt.number = true
+vim.opt.ruler = false
 vim.opt.shiftwidth = 4
 vim.opt.showcmd = false
 vim.opt.sidescrolloff = 7
