@@ -80,11 +80,11 @@ local function get_highlight_groups(theme)
 		TermCursor = { bg = theme.cursor_bg },
 		Visual = { fg = theme.bg_plus_plus, bg = theme.fg_minus_minus },
 		WarningMsg = { fg = theme.warning },
-		-- TODO WIP ETC
-		WinSeparator = { fg = theme.fg },
+		-- TODO decide colours and tidy up
+		WinSeparator = { fg = theme.mg },
 		WinBar = { fg = theme.cursor_bg, bg = theme.bg },
 		WinBarNC = { link = "WinSeparator" },
-		StatusLineNC = { fg = theme.fg, bg = theme.fg },
+		StatusLineNC = { fg = theme.mg, bg = theme.mg },
 		StatusLine = { link = "StatusLineNC" },
 		ModeMsg = { fg = theme.fg_minus, bg = theme.bg_plus },
 		MoreMsg = { link = "ModeMsg" },
