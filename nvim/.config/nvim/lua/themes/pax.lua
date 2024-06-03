@@ -17,6 +17,10 @@ local pax_theme = {
 		bg = pax_colors.grey10,
 		bg_plus = pax_colors.grey20,
 		bg_plus_plus = pax_colors.grey30,
+		-- TODO make some new greys
+		_mg_minus = "TODO grey 40",
+		_mg = "TODO grey 50",
+		_mg_plus = "TODO rename of grey60",
 		mg = pax_colors.grey60,
 		fg_minus_minus = pax_colors.grey70,
 		fg_minus = pax_colors.grey80,
@@ -81,10 +85,10 @@ local function get_highlight_groups(theme)
 		Visual = { fg = theme.bg_plus_plus, bg = theme.fg_minus_minus },
 		WarningMsg = { fg = theme.warning },
 		-- TODO decide colours and tidy up
-		WinSeparator = { fg = theme.mg },
+		WinSeparator = { fg = theme.bg_plus_plus },
 		WinBar = { fg = theme.cursor_bg, bg = theme.bg },
 		WinBarNC = { link = "WinSeparator" },
-		StatusLineNC = { fg = theme.mg, bg = theme.mg },
+		StatusLineNC = { fg = theme.bg_plus_plus, bg = theme.bg_plus_plus },
 		StatusLine = { link = "StatusLineNC" },
 		ModeMsg = { fg = theme.fg_minus, bg = theme.bg_plus },
 		MoreMsg = { link = "ModeMsg" },
