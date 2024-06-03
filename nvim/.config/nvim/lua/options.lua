@@ -11,7 +11,6 @@ vim.opt.ignorecase = true
 vim.opt.jumpoptions = "stack"
 vim.opt.laststatus = 2 -- default
 vim.opt.number = true
-vim.opt.rulerformat = "%40(%=%{%v:lua.GetRulerFlags()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
 vim.opt.shiftwidth = 4
 vim.opt.showcmd = false
 vim.opt.sidescrolloff = 7
@@ -43,6 +42,14 @@ function GetRulerIcon()
 	local icon = vim.bo.modified and "" or ""
 	return "%#CustomRulerSeparator#%#CustomRulerIcon#" .. icon .. " "
 end
+function IsModifiedFlag()
+	local icon = vim.bo.modified and "" or ""
+	return icon
+end
+function HasErrorFlag()
+	local errors = vim.diagnostic.count(0)[vim.diagnostic.severity.ERROR] or 0
+	return errors > 0 and "%#DiagnosticError#" or " "
+end
 
 -- IDEA OUTLINE >
 -- Winbar and statusbars are the horizontal divider
@@ -53,9 +60,10 @@ end
 --  - just basic empty character to start with, bg = separator colour
 --  progress from just win bar changing => top and bottom winbars changing
 --  => side bars changing
-vim.opt.winbar = "%="
+vim.opt.winbar = "%= %{%v:lua.IsModifiedFlag()%} %t %{%v:lua.HasErrorFlag()%} %="
 vim.opt.statusline = "%="
 vim.opt.fillchars = { eob = " ", wbr = "▄", vert = " ", stl = "▀" }
+-- vim.opt.rulerformat = "%40(%=%{%v:lua.GetRulerFlags()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
 --up    ▀
 --down  ▄
 --full  █
@@ -73,16 +81,21 @@ vim.api.nvim_create_autocmd({ "WinEnter", "VimEnter" }, {
 			local position = vim.api.nvim_win_get_position(handle)
 			local buf = vim.api.nvim_win_get_buf(handle)
 			local buf_name = vim.api.nvim_buf_get_name(buf)
-			print("Buffer name: " .. buf_name)
-			print(vim.inspect(position))
-			print("\n---\n")
+			-- print("Buffer name: " .. buf_name)
+			-- print(vim.inspect(position))
+			-- print("\n---\n")
 		end
-		print("Window Configuration:")
+
+		vim.opt_local.colorcolumn = "80"
+		vim.opt_local.cursorcolumn = true
+		vim.opt_local.cursorline = true
 	end,
 })
 --
--- vim.api.nvim_create_autocmd({ "WinLeave" }, {
--- 	callback = function(args)
--- 		vim.opt_local.fillchars = { eob = " ", vert = "▐", horiz = "&", wbr = " ", horizdown = "▄" }
--- 	end,
--- })
+vim.api.nvim_create_autocmd({ "WinLeave" }, {
+	callback = function(args)
+		vim.opt_local.colorcolumn = ""
+		vim.opt_local.cursorcolumn = false
+		vim.opt_local.cursorline = false
+	end,
+})
