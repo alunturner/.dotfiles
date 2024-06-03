@@ -42,15 +42,22 @@ function GetRulerIcon()
 	local icon = vim.bo.modified and "" or ""
 	return "%#CustomRulerSeparator#%#CustomRulerIcon#" .. icon .. " "
 end
-function IsModifiedFlag()
-	local icon = vim.bo.modified and "" or ""
-	return icon
-end
-function HasErrorFlag()
+function GetFlagIcon()
 	local errors = vim.diagnostic.count(0)[vim.diagnostic.severity.ERROR] or 0
-	return errors > 0 and "%#DiagnosticError#" or " "
+	if errors > 0 then
+		return ""
+	else
+		local icon = vim.bo.modified and "" or ""
+		return icon
+	end
+end
+function GetErrorStyle()
+	local errors = vim.diagnostic.count(0)[vim.diagnostic.severity.ERROR] or 0
+	return errors > 0 and "%#CustomLineError#" or " "
 end
 
+-- TODO remove the statusline idea, it's too scrappy and requires an extra line
+-- go back to winbar only
 -- IDEA OUTLINE >
 -- Winbar and statusbars are the horizontal divider
 --  - when active, fg = cursor, bg = vert separator
@@ -60,7 +67,7 @@ end
 --  - just basic empty character to start with, bg = separator colour
 --  progress from just win bar changing => top and bottom winbars changing
 --  => side bars changing
-vim.opt.winbar = "%= %{%v:lua.IsModifiedFlag()%} %t %{%v:lua.HasErrorFlag()%} %="
+vim.opt.winbar = "%= %{%v:lua.GetFlagIcon()%} %t %="
 vim.opt.statusline = "%="
 vim.opt.fillchars = { eob = " ", wbr = "▄", vert = " ", stl = "▀" }
 -- vim.opt.rulerformat = "%40(%=%{%v:lua.GetRulerFlags()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
