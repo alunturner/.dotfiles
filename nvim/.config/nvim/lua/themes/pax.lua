@@ -81,7 +81,7 @@ local function get_highlight_groups(theme)
 		Visual = { fg = theme.bg_plus_plus, bg = theme.fg_minus_minus },
 		WarningMsg = { fg = theme.warning },
 		-- TODO WIP ETC
-		WinSeparator = { fg = theme.fg, bg = theme.bg },
+		WinSeparator = { fg = theme.fg },
 		WinBar = { fg = theme.cursor_bg, bg = theme.bg },
 		WinBarNC = { link = "WinSeparator" },
 		StatusLineNC = { fg = theme.fg, bg = theme.fg },
