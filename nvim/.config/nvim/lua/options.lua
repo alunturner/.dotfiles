@@ -43,14 +43,16 @@ function GetModifiedFlag()
 	return icon
 end
 
-vim.opt.winbar = "%= %{%v:lua.GetModifiedFlag()%} %t %="
-vim.opt.fillchars = { eob = " ", wbr = "▄", vert = " " }
+vim.opt.winbar = "%=▜ %{%v:lua.GetModifiedFlag()%} %t ▛%="
+vim.opt.fillchars = { eob = " ", wbr = "▀", vert = "█", stlnc = "▀" }
 vim.opt.rulerformat = "%=%{%v:lua.GetErrorFlag()%}"
+vim.opt.statusline = ""
 --up    ▀
 --down  ▄
 --full  █
 --left  ▌
 --right ▐
+--
 -- utils: nvim_win_get_position, fillchars
 
 vim.api.nvim_create_autocmd({ "WinEnter", "VimEnter" }, {
