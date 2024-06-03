@@ -9,7 +9,7 @@ vim.opt.cursorline = true
 vim.opt.expandtab = true
 vim.opt.ignorecase = true
 vim.opt.jumpoptions = "stack"
-vim.opt.laststatus = 0
+vim.opt.laststatus = 2 -- default
 vim.opt.number = true
 vim.opt.rulerformat = "%40(%=%{%v:lua.GetRulerFlags()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
 vim.opt.shiftwidth = 4
@@ -54,7 +54,8 @@ end
 --  progress from just win bar changing => top and bottom winbars changing
 --  => side bars changing
 vim.opt.winbar = "%="
-vim.opt.fillchars = { eob = " ", wbr = "▄", vert = " " }
+vim.opt.statusline = "%="
+vim.opt.fillchars = { eob = " ", wbr = "▄", vert = " ", stl = "▀" }
 --up    ▀
 --down  ▄
 --full  █
