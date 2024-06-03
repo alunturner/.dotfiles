@@ -69,8 +69,11 @@ vim.api.nvim_create_autocmd({ "WinEnter", "VimEnter" }, {
 		local current_handle = vim.api.get_current_window
 
 		for _, handle in pairs(all_window_handles) do
-			local config = vim.api.nvim_win_get_config(handle)
-			print(vim.inspect(config))
+			local position = vim.api.nvim_win_get_position(handle)
+			local buf = vim.api.nvim_win_get_buf(handle)
+			local buf_name = vim.api.nvim_buf_get_name(buf)
+			print("Buffer name: " .. buf_name)
+			print(vim.inspect(position))
 			print("\n---\n")
 		end
 		print("Window Configuration:")
