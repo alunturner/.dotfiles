@@ -7,7 +7,7 @@ vim.opt.completeopt = "longest,menu"
 vim.opt.cursorcolumn = true
 vim.opt.cursorline = true
 vim.opt.expandtab = true
-vim.opt.fillchars = { eob = " ", wbr = "▀", vert = "█", stlnc = "▀" } -- see unicode block
+vim.opt.fillchars = { eob = " ", wbr = "▀", vert = "█" } -- see unicode block
 vim.opt.ignorecase = true
 vim.opt.jumpoptions = "stack"
 vim.opt.laststatus = 0
