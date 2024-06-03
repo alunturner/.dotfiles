@@ -62,11 +62,20 @@ vim.opt.fillchars = { eob = " ", wbr = "▄", vert = " " }
 --right ▐
 -- utils: nvim_win_get_position, fillchars
 
--- vim.api.nvim_create_autocmd({ "WinEnter", "VimEnter" }, {
--- 	callback = function(args)
--- 		vim.opt_local.fillchars = { eob = " ", vert = "▌", wbr = "▄", horizdown = "▄" }
--- 	end,
--- })
+vim.api.nvim_create_autocmd({ "WinEnter", "VimEnter" }, {
+	callback = function(args)
+		-- vim.opt_local.fillchars = { eob = " ", vert = "▌", wbr = "▄", horizdown = "▄" }
+		local all_window_handles = vim.api.nvim_list_wins()
+		local current_handle = vim.api.get_current_window
+
+		for _, handle in pairs(all_window_handles) do
+			local config = vim.api.nvim_win_get_config(handle)
+			print(vim.inspect(config))
+			print("\n---\n")
+		end
+		print("Window Configuration:")
+	end,
+})
 --
 -- vim.api.nvim_create_autocmd({ "WinLeave" }, {
 -- 	callback = function(args)
