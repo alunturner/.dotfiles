@@ -9,7 +9,7 @@ vim.opt.cursorline = true
 vim.opt.expandtab = true
 vim.opt.ignorecase = true
 vim.opt.jumpoptions = "stack"
-vim.opt.laststatus = 2 -- default
+vim.opt.laststatus = 0
 vim.opt.number = true
 vim.opt.shiftwidth = 4
 vim.opt.showcmd = false
@@ -34,43 +34,18 @@ vim.diagnostic.config({
 	jump = { float = true }, -- see https://github.com/neovim/neovim/pull/29067
 })
 
-function GetRulerFlags()
+function GetErrorFlag()
 	local errors = vim.diagnostic.count(0)[vim.diagnostic.severity.ERROR] or 0
-	return errors > 0 and "%#DiagnosticError# " or ""
+	return errors > 0 and "%#DiagnosticError#" or " "
 end
-function GetRulerIcon()
+function GetModifiedFlag()
 	local icon = vim.bo.modified and "" or ""
-	return "%#CustomRulerSeparator#%#CustomRulerIcon#" .. icon .. " "
-end
-function GetFlagIcon()
-	local errors = vim.diagnostic.count(0)[vim.diagnostic.severity.ERROR] or 0
-	if errors > 0 then
-		return ""
-	else
-		local icon = vim.bo.modified and "" or ""
-		return icon
-	end
-end
-function GetErrorStyle()
-	local errors = vim.diagnostic.count(0)[vim.diagnostic.severity.ERROR] or 0
-	return errors > 0 and "%#CustomLineError#" or " "
+	return icon
 end
 
--- TODO remove the statusline idea, it's too scrappy and requires an extra line
--- go back to winbar only
--- IDEA OUTLINE >
--- Winbar and statusbars are the horizontal divider
---  - when active, fg = cursor, bg = vert separator
---  - when inactive, fg = vert separator, bg = vert separator
---  - this means we can toggle hl groups to show / hide the character
--- Vertical separator is the vertical divider
---  - just basic empty character to start with, bg = separator colour
---  progress from just win bar changing => top and bottom winbars changing
---  => side bars changing
-vim.opt.winbar = "%= %{%v:lua.GetFlagIcon()%} %t %="
-vim.opt.statusline = "%="
-vim.opt.fillchars = { eob = " ", wbr = "▄", vert = " ", stl = "▀" }
--- vim.opt.rulerformat = "%40(%=%{%v:lua.GetRulerFlags()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
+vim.opt.winbar = "%= %{%v:lua.GetModifiedFlag()%} %t %="
+vim.opt.fillchars = { eob = " ", wbr = "▄", vert = " " }
+vim.opt.rulerformat = "%=%{%v:lua.GetErrorFlag()%}"
 --up    ▀
 --down  ▄
 --full  █
@@ -79,20 +54,8 @@ vim.opt.fillchars = { eob = " ", wbr = "▄", vert = " ", stl = "▀" }
 -- utils: nvim_win_get_position, fillchars
 
 vim.api.nvim_create_autocmd({ "WinEnter", "VimEnter" }, {
-	callback = function(args)
-		-- vim.opt_local.fillchars = { eob = " ", vert = "▌", wbr = "▄", horizdown = "▄" }
-		local all_window_handles = vim.api.nvim_list_wins()
-		local current_handle = vim.api.get_current_window
-
-		for _, handle in pairs(all_window_handles) do
-			local position = vim.api.nvim_win_get_position(handle)
-			local buf = vim.api.nvim_win_get_buf(handle)
-			local buf_name = vim.api.nvim_buf_get_name(buf)
-			-- print("Buffer name: " .. buf_name)
-			-- print(vim.inspect(position))
-			-- print("\n---\n")
-		end
-
+	-- TODO exclude netrw somehow
+	callback = function(_)
 		vim.opt_local.colorcolumn = "80"
 		vim.opt_local.cursorcolumn = true
 		vim.opt_local.cursorline = true
@@ -100,7 +63,7 @@ vim.api.nvim_create_autocmd({ "WinEnter", "VimEnter" }, {
 })
 --
 vim.api.nvim_create_autocmd({ "WinLeave" }, {
-	callback = function(args)
+	callback = function(_)
 		vim.opt_local.colorcolumn = ""
 		vim.opt_local.cursorcolumn = false
 		vim.opt_local.cursorline = false
