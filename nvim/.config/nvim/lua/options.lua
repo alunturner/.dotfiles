@@ -46,7 +46,7 @@ end
 vim.opt.winbar = "%=▜ %{%v:lua.GetModifiedFlag()%} %t ▛%="
 vim.opt.fillchars = { eob = " ", wbr = "▀", vert = "█", stlnc = "▀" }
 vim.opt.rulerformat = "%=%{%v:lua.GetErrorFlag()%}"
-vim.opt.statusline = ""
+vim.opt.cmdheight = 0
 --up    ▀
 --down  ▄
 --full  █
