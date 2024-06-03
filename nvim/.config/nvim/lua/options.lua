@@ -45,7 +45,7 @@ function GetRulerIcon()
 end
 
 -- IDEA OUTLINE >
--- Winbar is the horizontal divider
+-- Winbar and statusbars are the horizontal divider
 --  - when active, fg = cursor, bg = vert separator
 --  - when inactive, fg = vert separator, bg = vert separator
 --  - this means we can toggle hl groups to show / hide the character
