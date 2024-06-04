@@ -17,6 +17,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.keymap.set({ "n", "v" }, " ", "<nop>", { silent = true })
 
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", { ui = { border = "rounded" } })
 require("keybinds")
 require("options")
