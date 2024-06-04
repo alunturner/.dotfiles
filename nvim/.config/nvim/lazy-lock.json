@@ -1,12 +1,11 @@
 {
   "conform.nvim": { "branch": "master", "commit": "5c9b6a6a50f3ec2c01f729dac872679fa6ea813f" },
   "fzf-lua": { "branch": "main", "commit": "e65b86532380c4e60490bc19b647d0c4faa58096" },
-  "lazy.nvim": { "branch": "main", "commit": "8f19915175395680808de529e4220da8dafc0759" },
-  "nvim-highlight-colors": { "branch": "main", "commit": "582064092cff170331064b7d198a5b97cb261fca" },
+  "lazy.nvim": { "branch": "main", "commit": "eab487c2520f0fe9e54eb5e3ea0606e20512492e" },
   "nvim-lint": { "branch": "master", "commit": "4f354839581be5f4ec229869c82106826b39807d" },
   "nvim-lspconfig": { "branch": "master", "commit": "eadcee1573ca9d0e0cd36a49f620186a8dfdc607" },
   "nvim-surround": { "branch": "main", "commit": "79aaa42da1f698ed31bcbe7f83081f69dca7ba17" },
   "nvim-treesitter": { "branch": "master", "commit": "30de5e7e9486fb1b1b8c2a1e71052b13f94f1cb0" },
-  "nvim-treesitter-textobjects": { "branch": "master", "commit": "5f9bf4b1ead7707e4e74e5319ee56bdc81fb73db" },
+  "nvim-treesitter-textobjects": { "branch": "master", "commit": "5d60748e863a53442590e5767b2be216db32943a" },
   "vim-tmux-navigator": { "branch": "master", "commit": "c600cf10db1bf933aab9e357158bf9b202ecf99b" }
 }
