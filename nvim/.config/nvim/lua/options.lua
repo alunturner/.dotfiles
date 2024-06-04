@@ -24,6 +24,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.swapfile = false
 vim.opt.tabstop = 4
+vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.wildmode = "longest:full,full"
 vim.opt.winbar = "%=▜ %{%v:lua.GetModifiedFlag()%} %t ▛%=" -- see unicode quadrant
