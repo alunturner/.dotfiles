@@ -62,12 +62,12 @@ local pax_theme = {
 local function get_highlight_groups(theme)
 	return {
 		-- NEOVIM
-		ColorColumn = { bg = theme.bg_plus_plus },
+		ColorColumn = { bg = theme.bg_plus },
 		Conceal = { fg = theme.bg, bg = theme.bg },
 		CurSearch = { fg = theme.fg, bg = theme.bg, reverse = true },
 		Cursor = { fg = theme.fg, bg = theme.cursor_bg },
-		CursorLine = { bg = theme.bg_plus_plus },
-		CursorLineNr = { fg = theme.fg, bg = theme.bg_plus_plus },
+		CursorLine = { bg = theme.bg_plus },
+		CursorLineNr = { fg = theme.fg, bg = theme.bg_plus },
 		Directory = { fg = theme.fg },
 		EndOfBuffer = { fg = theme.bg, bg = theme.bg },
 		ErrorMsg = { fg = theme.error },
@@ -86,7 +86,7 @@ local function get_highlight_groups(theme)
 		Visual = { fg = theme.bg_plus_plus, bg = theme.fg_minus_minus },
 		WarningMsg = { fg = theme.warning },
 		WinBar = { fg = theme.cursor_bg, bg = theme.bg },
-		WinSeparator = { fg = theme.mg_minus, bg = theme.bg },
+		WinSeparator = { fg = theme.bg_plus_plus, bg = theme.bg },
 		-- NEOVIM LINKED
 		CursorColumn = { link = "CursorLine" },
 		CursorIM = { link = "Cursor" },

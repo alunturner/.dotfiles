@@ -1,4 +1,4 @@
--- Install plugin manager
+-- Install plugin manager, set leader, load plugins then settings
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -11,8 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 vim.opt.rtp:prepend(lazypath)
-
--- Need to set leader before loading plugins
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.keymap.set({ "n", "v" }, " ", "<nop>", { silent = true })
@@ -21,4 +19,4 @@ require("lazy").setup("plugins", { ui = { border = "rounded" } })
 require("keybinds")
 require("options")
 
-vim.api.nvim_create_autocmd("VimEnter", { command = "FzfLua files" })
+vim.cmd("au VimEnter * FzfLua files")
