@@ -80,5 +80,6 @@ vim.keymap.set("n", "<leader>O", pre .. "lsp_live_workspace_symbols" .. post)
 vim.keymap.set("n", "gr", pre .. "lsp_references" .. post)
 vim.keymap.set("n", "gd", pre .. "lsp_definitions" .. post)
 vim.keymap.set("n", "<leader>h", pre .. "helptags" .. post)
+vim.keymap.set("n", "<leader><leader>", pre .. "resume" .. post)
 
 return { Finder }
