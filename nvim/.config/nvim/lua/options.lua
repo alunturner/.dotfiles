@@ -27,7 +27,7 @@ vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.wildmode = "longest:full,full"
-vim.opt.winbar = "%=▜ %{%v:lua.GetModifiedFlag()%} %t ▛%=" -- see unicode quadrant
+vim.opt.winbar = "%{%v:lua.GetWinBar()%}"
 
 vim.cmd("colorscheme pax_zero")
 
@@ -38,6 +38,8 @@ vim.diagnostic.config({
 	jump = { float = true }, -- see https://github.com/neovim/neovim/pull/29067
 })
 
-function GetModifiedFlag()
-	return vim.bo.modified and "" or ""
+function GetWinBar()
+	local folder_or_file_icon = vim.bo.filetype == "netrw" and "" or ""
+	local display_icon = vim.bo.modified and "" or folder_or_file_icon
+	return "%=▜%#Normal# " .. display_icon .. " %t %*▛%="
 end
