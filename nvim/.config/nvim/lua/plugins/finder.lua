@@ -62,6 +62,7 @@ local Finder = {
 			},
 		}),
 		lsp = {
+			jump_to_single_result = true,
 			prompt_postfix = "  ",
 			symbols = configure_finder("Symbol"),
 		},
