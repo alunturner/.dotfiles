@@ -20,3 +20,5 @@ vim.keymap.set({ "n", "v" }, " ", "<nop>", { silent = true })
 require("lazy").setup("plugins", { ui = { border = "rounded" } })
 require("keybinds")
 require("options")
+
+vim.api.nvim_create_autocmd("VimEnter", { command = "FzfLua files" })
