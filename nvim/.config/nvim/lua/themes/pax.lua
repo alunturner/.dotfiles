@@ -62,7 +62,7 @@ local pax_theme = {
 local function get_highlight_groups(theme)
 	return {
 		-- NEOVIM
-		ColorColumn = { bg = theme.bg_plus },
+		ColorColumn = { bg = theme.bg_plus_plus },
 		Conceal = { fg = theme.bg, bg = theme.bg },
 		CurSearch = { fg = theme.fg, bg = theme.bg, reverse = true },
 		Cursor = { fg = theme.fg, bg = theme.cursor_bg },
@@ -75,6 +75,7 @@ local function get_highlight_groups(theme)
 		IncSearch = { fg = theme.fg, bg = theme.bg, reverse = true },
 		LineNr = { fg = theme.mg },
 		MatchParen = { fg = theme.fg, bg = theme.bg, reverse = true },
+		ModeArea = { fg = theme.fg, bg = theme.bg_plus_plus },
 		Normal = { fg = theme.fg, bg = theme.bg },
 		Pmenu = { fg = theme.fg_minus, bg = theme.bg_plus },
 		PmenuSbar = { bg = theme.bg_plus },
@@ -84,15 +85,8 @@ local function get_highlight_groups(theme)
 		TermCursor = { bg = theme.cursor_bg },
 		Visual = { fg = theme.bg_plus_plus, bg = theme.fg_minus_minus },
 		WarningMsg = { fg = theme.warning },
-		-- TODO decide colours and tidy up
-		WinSeparator = { fg = theme.bg_plus_plus },
 		WinBar = { fg = theme.cursor_bg, bg = theme.bg },
-		WinBarNC = { link = "WinSeparator" },
-		StatusLineNC = { fg = theme.bg_plus_plus, bg = theme.bg_plus_plus },
-		StatusLine = { link = "StatusLineNC" },
-		ModeMsg = { fg = theme.fg_minus, bg = theme.bg_plus },
-		MoreMsg = { link = "ModeMsg" },
-		MsgArea = { link = "ModeMsg" },
+		WinSeparator = { fg = theme.mg_minus, bg = theme.bg },
 		-- NEOVIM LINKED
 		CursorColumn = { link = "CursorLine" },
 		CursorIM = { link = "Cursor" },
@@ -101,6 +95,9 @@ local function get_highlight_groups(theme)
 		FloatTitle = { link = "Normal" },
 		LineNrAbove = { link = "LineNr" },
 		LineNrBelow = { link = "LineNr" },
+		ModeMsg = { link = "ModeArea" },
+		MoreMsg = { link = "ModeArea" },
+		MsgArea = { link = "ModeArea" },
 		MsgSeparator = { link = "ModeMsg" },
 		NormalFloat = { link = "Normal" },
 		NormalNC = { link = "Normal" },
@@ -116,11 +113,14 @@ local function get_highlight_groups(theme)
 		SpellCap = { link = "Normal" },
 		SpellLocal = { link = "Normal" },
 		SpellRare = { link = "Normal" },
+		StatusLine = { link = "Conceal" },
+		StatusLineNC = { link = "Conceal" },
 		Substitute = { link = "CurSearch" },
 		Title = { link = "Normal" },
 		VisualNOS = { link = "Visual" },
 		Whitespace = { link = "Normal" },
 		WildMenu = { link = "PmenuSel" },
+		WinBarNC = { link = "WinSeparator" },
 		lCursor = { link = "Cursor" },
 		-- LSP
 		LspCodeLens = { link = "Normal" },
