@@ -7,12 +7,12 @@ vim.opt.completeopt = "longest,menu"
 vim.opt.cursorcolumn = true
 vim.opt.cursorline = true
 vim.opt.expandtab = true
-vim.opt.fillchars = "eob: "
+vim.opt.fillchars = { eob = " ", wbr = "▀", vert = "█" } -- see unicode block
 vim.opt.ignorecase = true
 vim.opt.jumpoptions = "stack"
 vim.opt.laststatus = 0
 vim.opt.number = true
-vim.opt.rulerformat = "%40(%=%{%v:lua.GetRulerFlags()%}%{%v:lua.GetRulerIcon()%}%#CustomRulerFile# %t %)"
+vim.opt.ruler = false
 vim.opt.shiftwidth = 4
 vim.opt.showcmd = false
 vim.opt.sidescrolloff = 7
@@ -27,6 +27,7 @@ vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.wildmode = "longest:full,full"
+vim.opt.winbar = "%{%v:lua.GetWinBar()%}"
 
 vim.cmd("colorscheme pax_zero")
 
@@ -37,11 +38,8 @@ vim.diagnostic.config({
 	jump = { float = true }, -- see https://github.com/neovim/neovim/pull/29067
 })
 
-function GetRulerFlags()
-	local errors = vim.diagnostic.count(0)[vim.diagnostic.severity.ERROR] or 0
-	return errors > 0 and "%#DiagnosticError# " or ""
-end
-function GetRulerIcon()
-	local icon = vim.bo.modified and "" or ""
-	return "%#CustomRulerSeparator#%#CustomRulerIcon#" .. icon .. " "
+function GetWinBar()
+	local folder_or_file_icon = vim.bo.filetype == "netrw" and "" or ""
+	local display_icon = vim.bo.modified and "" or folder_or_file_icon
+	return "%=▜%#Normal# " .. display_icon .. " %t %*▛%="
 end
