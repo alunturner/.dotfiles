@@ -185,10 +185,6 @@ local function get_highlight_groups(theme)
 		-- TREESITTER/Lua
 		["@boolean.lua"] = { fg = theme.fg_minus, bold = true },
 		["@constructor.lua"] = { link = "Delimiter" },
-		-- CUSTOM
-		CustomRulerFile = { link = "ModeMsg" },
-		CustomRulerIcon = { fg = theme.fg, bg = theme.bg, reverse = true },
-		CustomRulerSeparator = { link = "ModeMsg" },
 		-- FZF
 		FzfLuaHeaderBind = { fg = theme.fg },
 		FzfLuaHeaderText = { link = "FzfLuaHeaderBind" },
@@ -197,7 +193,6 @@ local function get_highlight_groups(theme)
 		FzfLuaBufNr = { link = "LineNr" },
 		FzfLuaBufFlagCur = { link = "LineNr" },
 		FzfLuaBufFlagAlt = { link = "LineNr" },
-		-- NETRW
 	}
 end
 

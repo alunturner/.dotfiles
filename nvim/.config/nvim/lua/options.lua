@@ -12,7 +12,7 @@ vim.opt.ignorecase = true
 vim.opt.jumpoptions = "stack"
 vim.opt.laststatus = 0
 vim.opt.number = true
-vim.opt.ruler = false
+vim.opt.rulerformat = "%3(%=%{%v:lua.Ruler()%}%)"
 vim.opt.shiftwidth = 4
 vim.opt.showcmd = false
 vim.opt.sidescrolloff = 7
@@ -27,7 +27,7 @@ vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 vim.opt.undofile = true
 vim.opt.wildmode = "longest:full,full"
-vim.opt.winbar = "%{%v:lua.GetWinBar()%}"
+vim.opt.winbar = "%{%v:lua.WinBar()%}"
 
 vim.cmd("colorscheme pax_zero")
 
@@ -38,8 +38,13 @@ vim.diagnostic.config({
 	jump = { float = true }, -- see https://github.com/neovim/neovim/pull/29067
 })
 
-function GetWinBar()
+function WinBar()
 	local folder_or_file_icon = vim.bo.filetype == "netrw" and "" or ""
 	local display_icon = vim.bo.modified and "" or folder_or_file_icon
 	return "%=▜%#Normal# " .. display_icon .. " %t %*▛%="
+end
+
+function Ruler()
+	local has_errors = vim.diagnostic.count(0)[vim.diagnostic.severity.ERROR] or 0 > 0
+	return has_errors and "%#DiagnosticError#███" or ""
 end
