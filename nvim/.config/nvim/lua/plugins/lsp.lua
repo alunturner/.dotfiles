@@ -48,4 +48,29 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 	border = "rounded",
 })
 
+vim.ui.input = function(opts, on_confirm)
+	local _opts = vim.lsp.util.make_floating_popup_options(20, 1, { anchor_bias = "above", border = "rounded" })
+	local buffer = vim.api.nvim_create_buf(false, true)
+	local window = vim.api.nvim_open_win(buffer, true, _opts)
+	vim.cmd("startinsert")
+
+	-- Enter to confirm
+	vim.keymap.set({ "n", "i", "v" }, "<cr>", function()
+		local lines = vim.api.nvim_buf_get_lines(buffer, 0, 1, false)
+		if on_confirm then
+			on_confirm(lines[1])
+		end
+		vim.api.nvim_win_close(window, true)
+		vim.cmd("stopinsert")
+	end, { buffer = buffer })
+
+	-- Esc or q to close
+	vim.keymap.set("n", "<esc>", function()
+		vim.api.nvim_win_close(window, true)
+	end, { buffer = buffer })
+	vim.keymap.set("n", "q", function()
+		vim.api.nvim_win_close(window, true)
+	end, { buffer = buffer })
+end
+
 return { Lsp }
