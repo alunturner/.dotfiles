@@ -48,6 +48,7 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 	border = "rounded",
 })
 
+-- TODO can use this logic to easily make scratchpad centering functionality
 vim.ui.input = function(opts, on_confirm)
 	local float_opts = vim.lsp.util.make_floating_popup_options(20, 1, { anchor_bias = "above", border = "rounded" })
 	local win_opts = vim.tbl_deep_extend("force", float_opts, { title = opts.prompt })
