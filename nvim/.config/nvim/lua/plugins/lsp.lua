@@ -49,9 +49,10 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 })
 
 vim.ui.input = function(opts, on_confirm)
-	local _opts = vim.lsp.util.make_floating_popup_options(20, 1, { anchor_bias = "above", border = "rounded" })
+	local float_opts = vim.lsp.util.make_floating_popup_options(20, 1, { anchor_bias = "above", border = "rounded" })
+	local win_opts = vim.tbl_deep_extend("force", float_opts, { title = opts.prompt })
 	local buffer = vim.api.nvim_create_buf(false, true)
-	local window = vim.api.nvim_open_win(buffer, true, _opts)
+	local window = vim.api.nvim_open_win(buffer, true, win_opts)
 	vim.cmd("startinsert")
 
 	-- Enter to confirm
