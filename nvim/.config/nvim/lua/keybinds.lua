@@ -45,7 +45,7 @@ vim.keymap.set("n", "<leader>lD", function()
 	local command = ""
 
 	if qf.size > 0 then
-		command = "call setqflist([]) | echo 'Qf list cleared'"
+		command = "call setqflist([]) | cclose | echo 'Qf list cleared'"
 	elseif arg_count > 0 then
 		command = "%argdelete | echo 'Args list cleared'"
 	else
