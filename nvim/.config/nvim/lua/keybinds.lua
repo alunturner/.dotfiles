@@ -10,7 +10,7 @@ vim.keymap.set("n", "<C-q>", "<cmd>close<cr>", { silent = true }) -- General pur
 -- list add - add a file and increment the pointer
 vim.keymap.set("n", "<leader>la", function()
 	if pcall(vim.cmd, "argadd | next | argdedupe") then
-		vim.print("File added to: arglist")
+		print("File added to: arglist")
 	end
 end, { silent = true })
 
@@ -19,27 +19,25 @@ vim.keymap.set("n", "<leader>ld", function()
 	local first_or_prev = vim.fn.argidx() == 0 and "first" or "prev"
 	local command = string.format("argdelete %% | %s", first_or_prev)
 	if pcall(vim.cmd, command) then
-		vim.print("File removed from: arglist")
+		print("File removed from: arglist")
 	end
 end, { silent = true })
 
 -- Clear the qflist or argslist
 vim.keymap.set("n", "<leader>lD", function()
-	local qf = vim.fn.getqflist({ size = 0, idx = 0 })
-	local arg_count = vim.fn.argc()
-
-	local command = ""
-
-	if qf.size > 0 then
-		command = "call setqflist([]) | cclose | echo 'Qf list cleared'"
-	elseif arg_count > 0 then
-		command = "%argdelete | echo 'Args list cleared'"
+	if vim.fn.getqflist({ size = 0, idx = 0 }).size > 0 then
+		if pcall(vim.cmd, "call setqflist([]) | cclose") then
+			print("All entries removed from: qflist")
+		end
+	elseif vim.fn.argc() > 0 then
+		if pcall(vim.cmd, "%argdelete") then
+			print("All entries removed from: arglist")
+		end
 	else
-		command = "echo 'No lists to clear'"
+		print("No lists to clear")
 	end
-
-	pcall(vim.cmd, command)
 end, { silent = true })
+
 -- TODO tidy up the logic and status messages, FIX this clobbers <C-i> and will
 -- always do so in tmux. May need to move this to another key. I like being able
 -- to trigger it with a single press though. Perhaps S-Tab could work.
