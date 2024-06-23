@@ -39,9 +39,9 @@ vim.diagnostic.config({
 })
 
 function WinBar()
-	local folder_or_file_icon = vim.bo.filetype == "netrw" and "" or ""
-	local display_icon = vim.bo.modified and "" or folder_or_file_icon
-	return "%=▜%#Normal# " .. display_icon .. " %t %*▛%="
+	local icon_and_path = vim.bo.filetype == "netrw" and " %f" or " %t"
+	local display_icon_and_path = vim.bo.modified and " %t" or icon_and_path
+	return "%=%#Normal# " .. display_icon_and_path .. " %*%="
 end
 
 function Ruler()
