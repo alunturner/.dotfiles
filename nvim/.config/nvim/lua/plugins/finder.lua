@@ -48,7 +48,6 @@ local Finder = {
 		},
 		files = configure_finder("Finder", { cwd_prompt = false }),
 		buffers = configure_finder("Buffers"),
-		quickfix = configure_finder("Quickfix"),
 		grep = configure_finder(
 			"Ripgrep",
 			{ rg_opts = "--column --line-number --no-heading --color=never --smart-case --max-columns=4096 -e" }
