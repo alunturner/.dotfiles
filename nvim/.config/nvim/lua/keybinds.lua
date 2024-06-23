@@ -7,36 +7,22 @@ vim.keymap.set("i", "<C-j>", "<C-x><C-o>", { silent = true }) -- Lsp completion
 vim.keymap.set("i", "<C-f>", "<C-x><C-f>", { silent = true }) -- Filepath completion
 vim.keymap.set("n", "<C-q>", "<cmd>close<cr>", { silent = true }) -- General purpose quit
 
--- List add
+-- list add - add a file and increment the pointer
 vim.keymap.set("n", "<leader>la", function()
-	-- add a file and increment the pointer
-	pcall(vim.cmd, "argadd | next")
-
-	-- get the position and show status message
-	local arg_count = vim.fn.argc()
-	local arg_idx = vim.fn.argidx()
-	local one_based_idx = arg_idx + 1
-	local location = string.format("[%i|%i]", one_based_idx, arg_count)
-	local message = string.format("[A]%s File added to end of args list", location)
-	vim.print(message)
+	if pcall(vim.cmd, "argadd | next | argdedupe") then
+		vim.print("File added to: arglist")
+	end
 end, { silent = true })
--- delete from args list and point at the previous arg or the beginning of the list
+
+-- list delete -  remove a file and and point at prev file (or list start)
 vim.keymap.set("n", "<leader>ld", function()
-	-- remove the file and decrement pointer
 	local first_or_prev = vim.fn.argidx() == 0 and "first" or "prev"
 	local command = string.format("argdelete %% | %s", first_or_prev)
-	pcall(vim.cmd, command)
-
-	-- get the position and show status message
-	local arg_count = vim.fn.argc()
-	local arg_idx = vim.fn.argidx()
-	local one_based_idx = arg_idx + 1
-
-	local location = string.format("[%i|%i]", one_based_idx, arg_count)
-	local message = arg_count == 0 and "[A] Args list empty"
-		or string.format("[A]%s File removed from args list", location)
-	vim.print(message)
+	if pcall(vim.cmd, command) then
+		vim.print("File removed from: arglist")
+	end
 end, { silent = true })
+
 -- Clear the qflist or argslist
 vim.keymap.set("n", "<leader>lD", function()
 	local qf = vim.fn.getqflist({ size = 0, idx = 0 })
