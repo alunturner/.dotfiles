@@ -72,7 +72,6 @@ local Finder = {
 local pre = "<cmd>lua require('fzf-lua')."
 local post = "()<cr>"
 vim.keymap.set("n", "<leader>f", pre .. "files" .. post)
-vim.keymap.set("n", "<leader>q", pre .. "quickfix" .. post)
 vim.keymap.set("n", "<leader>s", pre .. "grep_project" .. post)
 vim.keymap.set("n", "<leader>d", pre .. "lsp_document_diagnostics" .. post)
 vim.keymap.set("n", "<leader>o", pre .. "lsp_document_symbols" .. post)
