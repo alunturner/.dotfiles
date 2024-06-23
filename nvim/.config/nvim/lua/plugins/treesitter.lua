@@ -2,8 +2,6 @@ local parsers = { "css", "javascript", "lua", "typescript", "tsx", "vim", "vimdo
 local Treesitter = {
 	"nvim-treesitter/nvim-treesitter",
 	pin = true,
-	-- TODO: figure out how to pin this dependency
-	dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
 	build = ":TSUpdate",
 	main = "nvim-treesitter.configs",
 	opts = {
@@ -13,26 +11,6 @@ local Treesitter = {
 		highlight = {
 			enable = true,
 			additional_vim_regex_highlighting = false,
-		},
-		textobjects = {
-			select = {
-				enable = true,
-				lookahead = true,
-				keymaps = {
-					-- Treesitter Text Objects
-					["ac"] = "@call.outer",
-					["ic"] = "@call.inner",
-					["af"] = "@function.outer",
-					["if"] = "@function.inner",
-					["aa"] = "@parameter.outer",
-					["ia"] = "@parameter.inner",
-					-- Custom WIP
-					["ae"] = "@custom_entry.outer",
-					["ie"] = "@custom_entry.inner",
-					["aq"] = "@custom_quotation.outer",
-					["iq"] = "@custom_quotation.inner",
-				},
-			},
 		},
 	},
 }
