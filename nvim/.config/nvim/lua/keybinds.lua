@@ -54,7 +54,9 @@ vim.keymap.set("n", "<leader>lD", function()
 
 	pcall(vim.cmd, command)
 end, { silent = true })
--- TODO tidy up the logic and status messages
+-- TODO tidy up the logic and status messages, FIX this clobbers <C-i> and will
+-- always do so in tmux. May need to move this to another key. I like being able
+-- to trigger it with a single press though. Perhaps S-Tab could work.
 -- Rotate through qflist, argslist or alt file
 vim.keymap.set("n", "<Tab>", function()
 	local qf = vim.fn.getqflist({ size = 0, idx = 0 })
