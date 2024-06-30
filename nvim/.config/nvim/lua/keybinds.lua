@@ -9,6 +9,11 @@ vim.keymap.set("n", "]d", function()
 end, { silent = true })
 vim.keymap.set("i", "<C-j>", "<C-x><C-o><C-p>", { silent = true }) -- Lsp completion
 vim.keymap.set("n", "<C-q>", "<cmd>close<cr>", { silent = true }) -- General purpose quit
+vim.keymap.set(
+	"n",
+	"<leader>m",
+	"<cmd>compiler tsc | echo 'Building TypeScript...' | silent make! --noEmit | echo 'TypeScript built.' | copen<cr>"
+)
 
 -- list add - add a file and increment the pointer
 vim.keymap.set("n", "<leader>la", function()
