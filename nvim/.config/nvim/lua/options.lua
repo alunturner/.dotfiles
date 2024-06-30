@@ -1,9 +1,6 @@
 vim.o.guicursor = vim.o.guicursor .. ",a:Cursor" -- append hl-Cursor to all modes
-vim.opt.background = "dark"
 vim.opt.breakindent = true
-vim.opt.clipboard = "unnamedplus"
 vim.opt.colorcolumn = "80"
-vim.opt.completeopt = "longest,menu"
 vim.opt.cursorcolumn = true
 vim.opt.cursorline = true
 vim.opt.expandtab = true
@@ -26,9 +23,9 @@ vim.opt.swapfile = false
 vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 vim.opt.undofile = true
-vim.opt.wildmode = "longest:full,full"
 vim.opt.winbar = "%{%v:lua.WinBar()%}"
 
+vim.opt.background = "dark"
 vim.cmd("colorscheme pax_zero")
 
 vim.diagnostic.config({
