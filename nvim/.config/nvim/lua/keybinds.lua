@@ -3,8 +3,7 @@ vim.keymap.set("n", "<leader>e", "<cmd>Ex<cr>", { silent = true })
 -- can be removed when https://github.com/neovim/neovim/pull/29067 available
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { silent = true })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { silent = true })
-vim.keymap.set("i", "<C-j>", "<C-x><C-o>", { silent = true }) -- Lsp completion
-vim.keymap.set("i", "<C-f>", "<C-x><C-f>", { silent = true }) -- Filepath completion
+vim.keymap.set("i", "<C-j>", "<C-x><C-o><C-p>", { silent = true }) -- Lsp completion
 vim.keymap.set("n", "<C-q>", "<cmd>close<cr>", { silent = true }) -- General purpose quit
 
 -- list add - add a file and increment the pointer
