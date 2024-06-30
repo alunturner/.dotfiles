@@ -8,56 +8,50 @@ vim.keymap.set("n", "]d", function()
 end, { silent = true })
 vim.keymap.set("n", "3", function()
 	local qf_start = vim.fn.getqflist({ idx = 0, size = 0 })
+
 	if qf_start.size == 0 then
 		return print("[QF] empty")
-	end
-
-	if qf_start.idx == 1 then
+	elseif qf_start.idx == 1 then
 		return print("[QF] 1 of " .. qf_start.size)
+	else
+		vim.cmd("cprev")
+		local qf_end = vim.fn.getqflist({ idx = 0, size = 0 })
+		print("[QF] " .. qf_end.idx .. " of " .. qf_end.size)
 	end
-
-	vim.cmd("cprev")
-	local qf_end = vim.fn.getqflist({ idx = 0, size = 0 })
-	print("[QF] " .. qf_end.idx .. " of " .. qf_end.size)
 end)
 vim.keymap.set("n", "4", function()
 	local qf_start = vim.fn.getqflist({ idx = 0, size = 0 })
+
 	if qf_start.size == 0 then
 		return print("[QF] empty")
-	end
-
-	if qf_start.idx == qf_start.size then
+	elseif qf_start.idx == qf_start.size then
 		return print("[QF] " .. qf_start.idx .. " of " .. qf_start.size)
+	else
+		vim.cmd("cnext")
+		local qf_end = vim.fn.getqflist({ idx = 0, size = 0 })
+		print("[QF] " .. qf_end.idx .. " of " .. qf_end.size)
 	end
-
-	vim.cmd("cnext")
-	local qf_end = vim.fn.getqflist({ idx = 0, size = 0 })
-	print("[QF] " .. qf_end.idx .. " of " .. qf_end.size)
 end)
 vim.keymap.set("n", "6", "<C-6>", { silent = true })
 vim.keymap.set("n", "7", function()
 	if vim.fn.argc() == 0 then
 		return print("[ARG] empty")
-	end
-
-	if vim.fn.argidx() == 0 then
+	elseif vim.fn.argidx() == 0 then
 		return print("[ARG] 1 of " .. vim.fn.argc())
+	else
+		vim.cmd("prev")
+		print("[ARG] " .. vim.fn.argidx() + 1 .. " of " .. vim.fn.argc())
 	end
-
-	vim.cmd("prev")
-	print("[ARG] " .. vim.fn.argidx() + 1 .. " of " .. vim.fn.argc())
 end)
 vim.keymap.set("n", "8", function()
 	if vim.fn.argc() == 0 then
 		return print("[ARG] empty")
-	end
-
-	if vim.fn.argidx() == vim.fn.argc() - 1 then
+	elseif vim.fn.argidx() == vim.fn.argc() - 1 then
 		return print("[ARG] " .. vim.fn.argidx() + 1 .. " of " .. vim.fn.argc())
+	else
+		vim.cmd("next")
+		print("[ARG] " .. vim.fn.argidx() + 1 .. " of " .. vim.fn.argc())
 	end
-
-	vim.cmd("next")
-	print("[ARG] " .. vim.fn.argidx() + 1 .. " of " .. vim.fn.argc())
 end)
 -- arglist add - add a file and increment the pointer
 vim.keymap.set("n", "9", function()
