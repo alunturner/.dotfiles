@@ -6,7 +6,7 @@ end, { silent = true })
 vim.keymap.set("n", "]d", function()
 	vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
-vim.keymap.set("n", "3", function()
+vim.keymap.set("n", "<C-3>", function()
 	local qf_start = vim.fn.getqflist({ idx = 0, size = 0 })
 
 	if qf_start.size == 0 then
@@ -19,7 +19,7 @@ vim.keymap.set("n", "3", function()
 		print("[QF] " .. qf_end.idx .. " of " .. qf_end.size)
 	end
 end)
-vim.keymap.set("n", "4", function()
+vim.keymap.set("n", "<C-4>", function()
 	local qf_start = vim.fn.getqflist({ idx = 0, size = 0 })
 
 	if qf_start.size == 0 then
@@ -32,8 +32,7 @@ vim.keymap.set("n", "4", function()
 		print("[QF] " .. qf_end.idx .. " of " .. qf_end.size)
 	end
 end)
-vim.keymap.set("n", "6", "<C-6>", { silent = true })
-vim.keymap.set("n", "7", function()
+vim.keymap.set("n", "<C-7>", function()
 	if vim.fn.argc() == 0 then
 		return print("[ARG] empty")
 	elseif vim.fn.argidx() == 0 then
@@ -43,7 +42,7 @@ vim.keymap.set("n", "7", function()
 		print("[ARG] " .. vim.fn.argidx() + 1 .. " of " .. vim.fn.argc())
 	end
 end)
-vim.keymap.set("n", "8", function()
+vim.keymap.set("n", "<C-8>", function()
 	if vim.fn.argc() == 0 then
 		return print("[ARG] empty")
 	elseif vim.fn.argidx() == vim.fn.argc() - 1 then
@@ -54,7 +53,7 @@ vim.keymap.set("n", "8", function()
 	end
 end)
 -- arglist add - add a file and increment the pointer
-vim.keymap.set("n", "9", function()
+vim.keymap.set("n", "<C-9>", function()
 	if pcall(vim.cmd, "argadd | next | argdedupe") then
 		print("File added to: [ARG]")
 	end
