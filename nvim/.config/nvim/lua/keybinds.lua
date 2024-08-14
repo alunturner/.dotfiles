@@ -1,5 +1,5 @@
-vim.keymap.set("n", "<Esc><Esc>", "<cmd>noh<cr>", { silent = true }) -- Remove search hls
-vim.keymap.set("n", "<leader>e", "<cmd>Ex<cr>", { silent = true }) -- NetRW
+vim.keymap.set("n", "<Esc><Esc>", "<cmd>noh<cr>", { silent = true })
+vim.keymap.set("n", "<leader>e", "<cmd>Ex<cr>", { silent = true })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { silent = true })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { silent = true })
 vim.keymap.set("n", "[e", function()
