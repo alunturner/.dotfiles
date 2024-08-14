@@ -63,9 +63,6 @@ vim.opt.tabstop = 4
 vim.opt.termguicolors = true
 vim.opt.undofile = true
 
-vim.opt.background = "dark"
-vim.cmd("colorscheme pax_zero")
-
 vim.diagnostic.config({
 	float = { border = "rounded", severity_sort = true },
 	severity_sort = true,
@@ -86,5 +83,7 @@ function Ruler()
 end
 vim.opt.rulerformat = "%3(%=%{%v:lua.Ruler()%}%)"
 
--- OPEN FZF ON LAUNCH
+-- INITIALISE
+vim.opt.background = "dark"
+vim.cmd("colorscheme pax_zero")
 vim.cmd("au VimEnter * FzfLua files")
