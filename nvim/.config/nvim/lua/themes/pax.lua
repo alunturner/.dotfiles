@@ -14,51 +14,26 @@ local pax_colors = {
 	grey90 = "#e6e6e6",
 }
 
-local pax_theme = {
-	dark = {
-		bg = pax_colors.grey10,
-		bg_plus = pax_colors.grey20,
-		bg_plus_plus = pax_colors.grey30,
-		mg_minus = pax_colors.grey40,
-		mg = pax_colors.grey50,
-		mg_plus = pax_colors.grey60,
-		fg_minus_minus = pax_colors.grey70,
-		fg_minus = pax_colors.grey80,
-		fg = pax_colors.grey90,
-		cursor_bg = pax_colors.hibiscus,
-		error = pax_colors.red,
-		warning = pax_colors.orange,
-		success = pax_colors.green,
-		highlights = {},
-	},
-	light = {
-		bg = "",
-		bg_plus = "",
-		bg_plus_plus = "",
-		mg = "",
-		fg_minus_minus = "",
-		fg_minus = "",
-		fg = "",
-		cursor_bg = "",
-		cursor_fg = "",
-		error = "",
-		warning = "",
-		success = "",
-		highlights = {},
-	},
+local dark_theme = {
+	bg = pax_colors.grey10,
+	bg_plus = pax_colors.grey20,
+	bg_plus_plus = pax_colors.grey30,
+	mg_minus = pax_colors.grey40,
+	mg = pax_colors.grey50,
+	mg_plus = pax_colors.grey60,
+	fg_minus_minus = pax_colors.grey70,
+	fg_minus = pax_colors.grey80,
+	fg = pax_colors.grey90,
+	cursor_bg = pax_colors.hibiscus,
+	error = pax_colors.red,
+	warning = pax_colors.orange,
+	success = pax_colors.green,
+	highlights = {},
 }
 
--- TODO
--- consolidate as much as practicable
--- add fzf groups
--- consolidate tree-sitter groups
--- help topics to check all the highlights:
--- :h group-name
--- :h highlight-groups
--- :h treesitter-highlight-groups
--- :h diagnostic-highlights
--- :h lsp-highlight
--- :h lsp-semantic-highlight
+-- HELP HL GROUP REFERENCES:
+-- group-name highlight-groups treesitter-highlight-groups diagnostic-highlights lsp-highlight lsp-semantic-highlight
+
 local function get_highlight_groups(theme)
 	return {
 		-- NEOVIM
@@ -196,23 +171,12 @@ local function get_highlight_groups(theme)
 	}
 end
 
-local function get_theme_colors()
-	local background = vim.o.background
-
-	if background == "light" then
-		return pax_theme.light
-	end
-
-	return pax_theme.dark
-end
-
 local function load()
 	vim.cmd("highlight clear")
 	vim.cmd("set t_Co=256")
 	vim.cmd("let g:colors_name='pax_zero'")
 
-	local theme_colors = get_theme_colors()
-	local highlight_groups = get_highlight_groups(theme_colors)
+	local highlight_groups = get_highlight_groups(dark_theme)
 
 	for group, attrs in pairs(highlight_groups) do
 		vim.api.nvim_set_hl(0, group, attrs)
