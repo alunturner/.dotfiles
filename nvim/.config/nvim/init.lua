@@ -72,5 +72,5 @@ vim.opt.rulerformat = "%3(%=%{%v:lua.Ruler()%}%)"
 
 -- INITIALISE
 vim.opt.background = "dark"
-vim.cmd("colorscheme pax_zero")
+vim.cmd("colorscheme pax")
 vim.cmd("au VimEnter * FzfLua files")
