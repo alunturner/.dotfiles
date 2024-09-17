@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 local parsers = { "css", "javascript", "lua", "typescript", "tsx", "vim", "vimdoc" }
 
 require("nvim-treesitter.configs").setup({
