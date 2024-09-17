@@ -26,10 +26,10 @@ brew install --cask wezterm
 npm i -g typescript typescript-language-server vscode-langservers-extracted css-variables-language-server cssmodules-language-server nodemon @fsouza/prettierd
 ```
 
-6. Clone .dotfiles at the top level `~/.dotfiles`
+6. Clone .dotfiles at the top level `~/.dotfiles`, recursive because we use submodules
 
 ```bash
-cd && git clone https://github.com/alunturner/.dotfiles.git
+cd && git clone --recurse-submodules https://github.com/alunturner/.dotfiles.git
 ```
 
 7. Stow the config folders:
@@ -46,5 +46,4 @@ cd ~/.dotfiles && stow nvim tmux lazygit wezterm starship
 - Pax: make a light theme, accept a highlight count, look at ts highlight groups
 - Neovim:
   - finder.lua - make diagnostic finder severity toggleable
-  - can nvim.lint go??? test on work system, could remove eslint_d install too
   - move lsp autocmd outside (use this as a pattern for autocmds if possible)
