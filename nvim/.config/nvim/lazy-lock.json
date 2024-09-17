@@ -1,9 +1,0 @@
-{
-  "conform.nvim": { "branch": "master", "commit": "1a99fdc1d3aa9ccdf3021e67982a679a8c5c740c" },
-  "fzf-lua": { "branch": "main", "commit": "f513524561060f2b9e3bd6d36ff046bfa03ca114" },
-  "lazy.nvim": { "branch": "main", "commit": "460e1cd8f24e364d54543a4b0e83f6f4ec1f65fb" },
-  "nvim-lspconfig": { "branch": "master", "commit": "eb36e0185ad4b92b0999fb698428f2966334d2c1" },
-  "nvim-surround": { "branch": "main", "commit": "ec2dc7671067e0086cdf29c2f5df2dd909d5f71f" },
-  "nvim-treesitter": { "branch": "master", "commit": "4d94c24d6cb9985347bdf0692c1fd81088c6c8b2" },
-  "vim-tmux-navigator": { "branch": "master", "commit": "a9b52e7d36114d40350099f254b5f299a35df978" }
-}
