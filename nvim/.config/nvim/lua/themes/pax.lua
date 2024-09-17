@@ -98,7 +98,7 @@ local function get_highlight_groups(theme)
 		WinBarNC = { link = "WinSeparator" },
 		lCursor = { link = "Cursor" },
 		-- NETRW
-		--
+		netrwMarkFile = { link = "PmenuSel" },
 		-- DIAGNOSTIC
 		DiagnosticError = { fg = theme.error },
 		DiagnosticUnderlineError = { fg = theme.error, underline = true },
