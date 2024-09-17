@@ -24,6 +24,11 @@ vim.keymap.set(
 	"<leader>m",
 	"<cmd>compiler tsc | echo 'Building TypeScript...' | silent make! --noEmit | echo 'TypeScript built.' | copen<cr>"
 ) -- TODO turn into a custom command
+vim.api.nvim_create_user_command("Tsc", function()
+	-- TODO figure out making this a watcher type thing using pipes.
+	-- See https://github.com/jellydn/typecheck.nvim/blob/main/lua/typecheck/utils.lua
+	print(vim.bo.filetype)
+end, {})
 
 -- OPTIONS
 vim.o.guicursor = vim.o.guicursor .. ",a:Cursor" -- append hl-Cursor to all modes
