@@ -1,35 +1,23 @@
--- PLUGIN MANAGER
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
-end
-vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.keymap.set({ "n", "v" }, " ", "<nop>", { silent = true })
 
--- PLUGINS
-require("lazy").setup("plugins", { ui = { border = "rounded" } })
+-- PLUGIN CONFIGURATION
+require("plugin_config.fzf-lua")
+require("plugin_config.nvim-lspconfig")
+require("plugin_config.other")
 
 -- KEYBINDS
+local ERROR = { severity = vim.diagnostic.severity.ERROR }
 vim.keymap.set("n", "<Esc><Esc>", "<cmd>noh<cr>", { silent = true })
 vim.keymap.set("n", "<leader>e", "<cmd>Ex<cr>", { silent = true })
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { silent = true })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { silent = true })
 vim.keymap.set("n", "[e", function()
-	vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+	vim.diagnostic.goto_prev(ERROR)
 end, { silent = true })
 vim.keymap.set("n", "]e", function()
-	vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+	vim.diagnostic.goto_next(ERROR)
 end, { silent = true })
-vim.keymap.set("i", "<C-j>", "<C-x><C-o><C-p>", { silent = true }) -- Lsp completion
+vim.keymap.set("i", "<C-j>", "<C-x><C-o>", { silent = true }) -- Lsp completion
 vim.keymap.set("n", "<C-q>", "<cmd>close<cr>", { silent = true }) -- General purpose quit
 vim.keymap.set(
 	"n",

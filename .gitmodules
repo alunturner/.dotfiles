@@ -1,0 +1,18 @@
+[submodule "nvim/.config/nvim/pack/plugins/start/nvim-surround"]
+	path = nvim/.config/nvim/pack/plugins/start/nvim-surround
+	url = https://github.com/kylechui/nvim-surround
+[submodule "nvim/.config/nvim/pack/plugins/start/conform.nvim"]
+	path = nvim/.config/nvim/pack/plugins/start/conform.nvim
+	url = https://github.com/stevearc/conform.nvim
+[submodule "nvim/.config/nvim/pack/plugins/start/fzf-lua"]
+	path = nvim/.config/nvim/pack/plugins/start/fzf-lua
+	url = https://github.com/ibhagwan/fzf-lua
+[submodule "nvim/.config/nvim/pack/plugins/start/nvim-lspconfig"]
+	path = nvim/.config/nvim/pack/plugins/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
+[submodule "nvim/.config/nvim/pack/plugins/start/vim-tmux-navigator"]
+	path = nvim/.config/nvim/pack/plugins/start/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator
+[submodule "nvim/.config/nvim/pack/plugins/start/nvim-treesitter"]
+	path = nvim/.config/nvim/pack/plugins/start/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
