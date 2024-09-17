@@ -8,76 +8,71 @@ local function configure_finder(title, opts)
 	})
 end
 
-local Finder = {
-	"ibhagwan/fzf-lua",
-	opts = {
-		defaults = {
-			file_icons = false,
-			git_icons = false,
-		},
-		keymap = {
-			builtin = {
-				["<C-d>"] = "preview-page-down",
-				["<C-u>"] = "preview-page-up",
-			},
-			fzf = {
-				["ctrl-q"] = "select-all+accept",
-			},
-		},
-		fzf_opts = {
-			["--info"] = "default",
-			["--pointer"] = "",
-			["--marker"] = "",
-		},
-		fzf_colors = {
-			["fg"] = { "fg", { "Comment" } },
-			["hl"] = { "fg", { "Normal" } },
-			["fg+"] = { "fg", { "PmenuSel" } },
-			["bg+"] = { "bg", { "PmenuSel" } },
-			["gutter"] = "-1",
-			["hl+"] = { "fg", { "PmenuSel" }, "italic", "underline" },
-			["query"] = { "fg", { "Cursor" } },
-			["info"] = { "fg", { "Comment" } },
-			["border"] = { "fg", { "Normal" } },
-			["separator"] = { "fg", { "Comment" } },
-			["prompt"] = { "fg", { "Normal" } },
-			["pointer"] = { "fg", { "PmenuSel" } },
-			["marker"] = { "fg", { "Pmenu" } },
-			["header"] = { "fg", { "Normal" } },
-		},
-		files = configure_finder("Finder", { cwd_prompt = false }),
-		buffers = configure_finder("Buffers"),
-		grep = configure_finder(
-			"Ripgrep",
-			{ rg_opts = "--column --line-number --no-heading --color=never --smart-case --max-columns=4096 -e" }
-		),
-		diagnostics = configure_finder("Diagnostics", {
-			severity_limit = "error",
-			actions = {
-				["ctrl-g"] = function()
-					print("TODO hook up severity filter")
-				end,
-			},
-		}),
-		lsp = {
-			jump_to_single_result = true,
-			prompt_postfix = "  ",
-			symbols = configure_finder("Symbol"),
-		},
-		helptags = configure_finder("Help"),
+local fzf = require("fzf-lua")
+
+fzf.setup({
+	defaults = {
+		file_icons = false,
+		git_icons = false,
 	},
-}
+	keymap = {
+		builtin = {
+			["<C-d>"] = "preview-page-down",
+			["<C-u>"] = "preview-page-up",
+		},
+		fzf = {
+			["ctrl-q"] = "select-all+accept",
+		},
+	},
+	fzf_opts = {
+		["--info"] = "default",
+		["--pointer"] = "",
+		["--marker"] = "",
+	},
+	fzf_colors = {
+		["fg"] = { "fg", { "Comment" } },
+		["hl"] = { "fg", { "Normal" } },
+		["fg+"] = { "fg", { "PmenuSel" } },
+		["bg+"] = { "bg", { "PmenuSel" } },
+		["gutter"] = "-1",
+		["hl+"] = { "fg", { "PmenuSel" }, "italic", "underline" },
+		["query"] = { "fg", { "Cursor" } },
+		["info"] = { "fg", { "Comment" } },
+		["border"] = { "fg", { "Normal" } },
+		["separator"] = { "fg", { "Comment" } },
+		["prompt"] = { "fg", { "Normal" } },
+		["pointer"] = { "fg", { "PmenuSel" } },
+		["marker"] = { "fg", { "Pmenu" } },
+		["header"] = { "fg", { "Normal" } },
+	},
+	files = configure_finder("Finder", { cwd_prompt = false }),
+	buffers = configure_finder("Buffers"),
+	grep = configure_finder(
+		"Ripgrep",
+		{ rg_opts = "--column --line-number --no-heading --color=never --smart-case --max-columns=4096 -e" }
+	),
+	diagnostics = configure_finder("Diagnostics", {
+		severity_limit = "error",
+		actions = {
+			["ctrl-g"] = function()
+				print("TODO hook up severity filter")
+			end,
+		},
+	}),
+	lsp = {
+		jump_to_single_result = true,
+		prompt_postfix = "  ",
+		symbols = configure_finder("Symbol"),
+	},
+	helptags = configure_finder("Help"),
+})
 
-local pre = "<cmd>lua require('fzf-lua')."
-local post = "()<cr>"
-vim.keymap.set("n", "<leader>f", pre .. "files" .. post)
-vim.keymap.set("n", "<leader>s", pre .. "grep_project" .. post)
-vim.keymap.set("n", "<leader>d", pre .. "lsp_document_diagnostics" .. post)
-vim.keymap.set("n", "<leader>o", pre .. "lsp_document_symbols" .. post)
-vim.keymap.set("n", "<leader>O", pre .. "lsp_live_workspace_symbols" .. post)
-vim.keymap.set("n", "gr", pre .. "lsp_references" .. post)
-vim.keymap.set("n", "gd", pre .. "lsp_definitions" .. post)
-vim.keymap.set("n", "<leader>h", pre .. "helptags" .. post)
-vim.keymap.set("n", "<leader><leader>", pre .. "resume" .. post)
-
-return { Finder }
+vim.keymap.set("n", "<leader>f", fzf.files)
+vim.keymap.set("n", "<leader>s", fzf.grep_project)
+vim.keymap.set("n", "<leader>d", fzf.lsp_document_diagnostics)
+vim.keymap.set("n", "<leader>o", fzf.lsp_document_symbols)
+vim.keymap.set("n", "<leader>O", fzf.lsp_live_workspace_symbols)
+vim.keymap.set("n", "gr", fzf.lsp_references)
+vim.keymap.set("n", "gd", fzf.lsp_definitions)
+vim.keymap.set("n", "<leader>h", fzf.helptags)
+vim.keymap.set("n", "<leader><leader>", fzf.resume)
