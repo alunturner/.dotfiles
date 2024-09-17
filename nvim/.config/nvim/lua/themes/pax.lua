@@ -97,13 +97,8 @@ local function get_highlight_groups(theme)
 		WildMenu = { link = "PmenuSel" },
 		WinBarNC = { link = "WinSeparator" },
 		lCursor = { link = "Cursor" },
-		-- LSP
-		LspCodeLens = { link = "Normal" },
-		LspCodeLensSeparator = { link = "Normal" },
-		LspReferenceRead = { link = "Normal" },
-		LspReferenceText = { link = "Normal" },
-		LspReferenceWrite = { link = "Normal" },
-		LspSignatureActiveParameter = { link = "IncSearch" },
+		-- NETRW
+		--
 		-- DIAGNOSTIC
 		DiagnosticError = { fg = theme.error },
 		DiagnosticUnderlineError = { fg = theme.error, underline = true },
@@ -128,6 +123,13 @@ local function get_highlight_groups(theme)
 		Ignore = { link = "Normal" },
 		Error = { link = "Normal" },
 		Todo = { fg = theme.bg, bg = theme.fg },
+		-- LSP
+		LspCodeLens = { link = "Normal" },
+		LspCodeLensSeparator = { link = "Normal" },
+		LspReferenceRead = { link = "Normal" },
+		LspReferenceText = { link = "Normal" },
+		LspReferenceWrite = { link = "Normal" },
+		LspSignatureActiveParameter = { link = "IncSearch" },
 		-- TREESITTER/SYNTAX
 		["@lsp.type.comment"] = {}, -- required to prevent below being overridden
 		["@comment.error"] = { link = "Todo" },
