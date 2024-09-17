@@ -26,10 +26,10 @@ brew install --cask wezterm
 npm i -g typescript typescript-language-server vscode-langservers-extracted css-variables-language-server cssmodules-language-server nodemon @fsouza/prettierd
 ```
 
-6. Clone .dotfiles at the top level `~/.dotfiles`
+6. Clone .dotfiles at the top level `~/.dotfiles`, recursive because we use submodules
 
 ```bash
-cd && git clone https://github.com/alunturner/.dotfiles.git
+cd && git clone --recurse-submodules https://github.com/alunturner/.dotfiles.git
 ```
 
 7. Stow the config folders:
