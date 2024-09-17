@@ -71,8 +71,7 @@ vim.diagnostic.config({
 })
 
 function WinBar()
-	local icon_and_path = vim.bo.filetype == "netrw" and " %f" or " %t"
-	local display_icon_and_path = vim.bo.modified and " %t" or icon_and_path
+	local display_icon_and_path = vim.bo.modified and " %t" or " %t"
 	return "%=%#Normal# " .. display_icon_and_path .. " %*%="
 end
 vim.opt.winbar = "%{%v:lua.WinBar()%}"

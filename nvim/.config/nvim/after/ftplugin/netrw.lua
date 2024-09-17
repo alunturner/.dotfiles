@@ -5,10 +5,9 @@ vim.g.netrw_altfile = 1 -- make <C-6> go back to prev file, not netrw
 vim.g.netrw_localcopydircmd = "cp -r" -- allow whole file copying
 vim.opt_local.colorcolumn = ""
 vim.opt_local.cursorcolumn = false
+vim.opt_local.winbar = "hello"
 vim.keymap.set("n", "h", "-", { remap = true, buffer = true })
 vim.keymap.set("n", "l", "<cr>", { remap = true, buffer = true })
 vim.keymap.set("n", "dd", "D", { remap = true, buffer = true })
 vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { remap = true, buffer = true })
 vim.keymap.set("n", "<C-q>", "<cmd>Rex<cr>", { remap = true, buffer = true })
-
--- want to show pwd in the banner for netrw as well as current path
