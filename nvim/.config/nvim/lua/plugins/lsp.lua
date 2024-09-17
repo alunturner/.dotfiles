@@ -2,7 +2,7 @@ require("lspconfig.ui.windows").default_options = { border = "rounded" }
 local lspconfig = require("lspconfig")
 
 -- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#configurations
-lspconfig.tsserver.setup({})
+lspconfig.ts_ls.setup({})
 lspconfig.eslint.setup({
 	on_attach = function(_, bufnr)
 		vim.api.nvim_create_autocmd("BufWritePre", {
