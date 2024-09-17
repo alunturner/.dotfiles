@@ -1,6 +1,5 @@
 local Navigation = {
 	"christoomey/vim-tmux-navigator",
-	pin = true,
 }
 
 vim.g.tmux_navigator_no_wrap = 1

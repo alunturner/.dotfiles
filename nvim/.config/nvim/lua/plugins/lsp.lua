@@ -1,6 +1,5 @@
 local Lsp = {
 	"neovim/nvim-lspconfig",
-	pin = true,
 }
 
 Lsp.config = function()

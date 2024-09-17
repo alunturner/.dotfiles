@@ -10,7 +10,6 @@ end
 
 local Finder = {
 	"ibhagwan/fzf-lua",
-	pin = true,
 	opts = {
 		defaults = {
 			file_icons = false,

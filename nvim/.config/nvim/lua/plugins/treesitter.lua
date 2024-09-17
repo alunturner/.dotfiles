@@ -1,7 +1,6 @@
 local parsers = { "css", "javascript", "lua", "typescript", "tsx", "vim", "vimdoc" }
 local Treesitter = {
 	"nvim-treesitter/nvim-treesitter",
-	pin = true,
 	build = ":TSUpdate",
 	main = "nvim-treesitter.configs",
 	opts = {

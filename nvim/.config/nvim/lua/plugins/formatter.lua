@@ -1,6 +1,5 @@
 local Formatter = {
 	"stevearc/conform.nvim",
-	pin = true,
 	opts = {
 		formatters_by_ft = {
 			javascript = { "prettierd" },
