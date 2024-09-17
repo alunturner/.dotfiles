@@ -46,5 +46,4 @@ cd ~/.dotfiles && stow nvim tmux lazygit wezterm starship
 - Pax: make a light theme, accept a highlight count, look at ts highlight groups
 - Neovim:
   - finder.lua - make diagnostic finder severity toggleable
-  - can nvim.lint go??? test on work system, could remove eslint_d install too
   - move lsp autocmd outside (use this as a pattern for autocmds if possible)
