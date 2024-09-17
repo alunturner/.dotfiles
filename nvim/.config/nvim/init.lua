@@ -7,7 +7,7 @@ require("plugins.finder")
 require("plugins.formatter")
 require("plugins.lsp")
 require("plugins.surround")
-require("plugins.treesitter")
+-- require("plugins.treesitter")
 
 -- KEYBINDS
 vim.keymap.set("n", "<Esc><Esc>", "<cmd>noh<cr>", { silent = true })
