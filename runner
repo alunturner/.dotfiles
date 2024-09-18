@@ -1,0 +1,6 @@
+tmux has-session -t runner
+
+if [ $? != 0 ]; then 
+# create the session in the pwd
+    tmux new-session -s runner -n test -d pwd 'echo "hello there" && bash'
+fi

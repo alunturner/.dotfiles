@@ -32,8 +32,9 @@ vim.api.nvim_create_user_command("Tsc", function()
 	local stdout = vim.uv.new_pipe()
 	local stderr = vim.uv.new_pipe()
 
-	local function on_read(err, _)
+	local function on_read(err, data)
 		assert(not err, err)
+		print(data)
 	end
 	local function on_error(err, data)
 		assert(not err, err)
@@ -44,7 +45,7 @@ vim.api.nvim_create_user_command("Tsc", function()
 	local handle
 	handle, _ = vim.uv.spawn(
 		"echo",
-		{ args = { "hello there" } },
+		{ args = { "hello there" }, stdio = { nil, stdout, stderr }, cwd = "~/" },
 		vim.schedule_wrap(function()
 			stdout:read_stop()
 			stderr:read_stop()
@@ -55,8 +56,11 @@ vim.api.nvim_create_user_command("Tsc", function()
 	)
 
 	vim.uv.read_start(stdout, on_read)
-	vim.uv.read_start(stderr, on_read)
+	vim.uv.read_start(stderr, on_error)
 	vim.uv.run("once")
+
+	-- here try and get a detached tmux session running with something (can be tsc in future)
+	vim.cmd("!tmux list-keys")
 end, {})
 
 -- OPTIONS
