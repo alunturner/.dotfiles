@@ -20,7 +20,7 @@ end, { silent = true })
 vim.keymap.set("i", "<C-j>", "<C-x><C-o>", { silent = true }) -- Lsp completion
 vim.keymap.set("n", "<C-q>", "<cmd>close<cr>", { silent = true }) -- General purpose quit
 vim.api.nvim_create_user_command("Tsc", function()
-	local ts_root = vim.fs.root(0, "tsconfig")
+	local ts_root = vim.fs.root(0, "tsconfig") -- may need updating in a TS proj at work
 	if ts_root == nil then
 		return print("Unable to find tsconfig")
 	end
