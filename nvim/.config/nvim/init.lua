@@ -19,15 +19,44 @@ vim.keymap.set("n", "]e", function()
 end, { silent = true })
 vim.keymap.set("i", "<C-j>", "<C-x><C-o>", { silent = true }) -- Lsp completion
 vim.keymap.set("n", "<C-q>", "<cmd>close<cr>", { silent = true }) -- General purpose quit
-vim.keymap.set(
-	"n",
-	"<leader>m",
-	"<cmd>compiler tsc | echo 'Building TypeScript...' | silent make! --noEmit | echo 'TypeScript built.' | copen<cr>"
-) -- TODO turn into a custom command
 vim.api.nvim_create_user_command("Tsc", function()
 	-- TODO figure out making this a watcher type thing using pipes.
+	-- previous implementation was a bind that called:
+	-- "<cmd>compiler tsc | echo 'Building TypeScript...' | silent make! --noEmit | echo 'TypeScript built.' | copen<cr>"
 	-- See https://github.com/jellydn/typecheck.nvim/blob/main/lua/typecheck/utils.lua
-	print(vim.bo.filetype)
+
+	-- STEPS
+	-- try and use this example: https://www.reddit.com/r/neovim/comments/t9e546/run_external_process_from_neovim_with_lua/
+	-- to run a single command line thing, then output that into the qf list
+	print("WIP - run tsc in watch mode")
+	local stdout = vim.uv.new_pipe()
+	local stderr = vim.uv.new_pipe()
+
+	local function on_read(err, _)
+		assert(not err, err)
+	end
+	local function on_error(err, data)
+		assert(not err, err)
+		if data then
+			print(data)
+		end
+	end
+	local handle
+	handle, _ = vim.uv.spawn(
+		"echo",
+		{ args = { "hello there" } },
+		vim.schedule_wrap(function()
+			stdout:read_stop()
+			stderr:read_stop()
+			stdout:close()
+			stderr:close()
+			handle:close()
+		end)
+	)
+
+	vim.uv.read_start(stdout, on_read)
+	vim.uv.read_start(stderr, on_read)
+	vim.uv.run("once")
 end, {})
 
 -- OPTIONS
