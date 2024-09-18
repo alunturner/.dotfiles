@@ -29,7 +29,7 @@ require("conform").setup({
 })
 
 -- treesitter
-local parsers = { "css", "javascript", "lua", "typescript", "tsx", "vim", "vimdoc" }
+local parsers = { "comment", "css", "javascript", "lua", "typescript", "tsx", "vim", "vimdoc" }
 
 ---@diagnostic disable-next-line: missing-fields
 require("nvim-treesitter.configs").setup({
