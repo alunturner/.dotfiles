@@ -30,6 +30,7 @@ end, {})
 -- OPTIONS
 vim.o.guicursor = vim.o.guicursor .. ",a:Cursor" -- append hl-Cursor to all modes
 vim.opt.breakindent = true
+vim.opt.clipboard = "unnamedplus"
 vim.opt.colorcolumn = "80"
 vim.opt.cursorcolumn = true
 vim.opt.cursorline = true
