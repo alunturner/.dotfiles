@@ -11,6 +11,8 @@ require("plugin_config.other")
 local ERROR = { severity = vim.diagnostic.severity.ERROR }
 vim.keymap.set("n", "<Esc><Esc>", "<cmd>noh<cr>", { silent = true })
 vim.keymap.set("n", "<leader>e", "<cmd>Ex<cr>", { silent = true })
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { silent = true })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { silent = true })
 vim.keymap.set("n", "[e", function()
 	vim.diagnostic.goto_prev(ERROR)
 end, { silent = true })
