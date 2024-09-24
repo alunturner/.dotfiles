@@ -9,7 +9,20 @@ require("plugin_config.other")
 
 -- KEYBINDS
 local ERROR = { severity = vim.diagnostic.severity.ERROR }
-vim.keymap.set("n", "<Esc><Esc>", "<cmd>noh<cr>", { silent = true })
+vim.keymap.set("n", "<Esc>", function()
+	local filetype = vim.bo.filetype
+	local is_netrw = filetype == "netrw"
+	local is_qf_or_help = filetype == "qf" or filetype == "help"
+	local has_highlights = vim.v.hlsearch == 1
+
+	if has_highlights then
+		vim.cmd("nohls")
+	elseif is_qf_or_help then
+		vim.cmd("close")
+	elseif is_netrw then
+		vim.cmd("Rex")
+	end
+end, { silent = true })
 vim.keymap.set("n", "<leader>e", "<cmd>Ex<cr>", { silent = true })
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { silent = true })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { silent = true })
@@ -20,7 +33,6 @@ vim.keymap.set("n", "]e", function()
 	vim.diagnostic.goto_next(ERROR)
 end, { silent = true })
 vim.keymap.set("i", "<C-j>", "<C-x><C-o>", { silent = true }) -- Lsp completion
-vim.keymap.set("n", "<C-q>", "<cmd>close<cr>", { silent = true }) -- General purpose quit
 vim.api.nvim_create_user_command("Tsc", function()
 	local ts_root = vim.fs.root(0, "tsconfig") -- may need updating in a TS proj at work
 	if ts_root == nil then
