@@ -2,7 +2,7 @@
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 30
 vim.g.netrw_altfile = 1 -- make <C-6> go back to prev file, not netrw
-vim.g.netrw_localcopydircmd = "cp -r" -- allow whole file copying
+vim.g.netrw_localcopydircmd = "cp -r" -- allow whole folder copying
 vim.opt_local.colorcolumn = ""
 vim.opt_local.cursorcolumn = false
 function NetrwWinBar()
