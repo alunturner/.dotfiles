@@ -10,9 +10,9 @@ require("plugin_config.other")
 -- KEYBINDS
 local ERROR = { severity = vim.diagnostic.severity.ERROR }
 vim.keymap.set("n", "<Esc>", function()
-	local ft = vim.bo.filetype
-	local is_netrw = ft == "netrw"
-	local is_qf_or_help = ft == "qf" or ft == "help"
+	local filetype = vim.bo.filetype
+	local is_netrw = filetype == "netrw"
+	local is_qf_or_help = filetype == "qf" or filetype == "help"
 	local has_highlights = vim.v.hlsearch == 1
 
 	if has_highlights then
