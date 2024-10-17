@@ -1,6 +1,7 @@
 # THIS WILL BE ARCHIVED
 
-This is going in the direction of nix, please see https://www.github.com/alunturner/nix-darwin-configuration and https://www.github.com/alunturner/home-manager
+As at 17 Oct 24, this will be going in the direction of nix.
+Please see https://www.github.com/alunturner/nix-darwin-configuration and https://www.github.com/alunturner/home-manager for what's going on.
 
 # Tooling configuration steps
 
