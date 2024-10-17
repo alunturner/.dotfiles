@@ -1,3 +1,7 @@
+# THIS WILL BE ARCHIVED
+
+This is going in the direction of nix, please see https://www.github.com/alunturner/nix-darwin-configuration and https://www.github.com/alunturner/home-manager
+
 # Tooling configuration steps
 
 1. Install Homebrew:
