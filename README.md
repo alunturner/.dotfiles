@@ -6,7 +6,7 @@ This repo is designed to be used anywhere by:
 - manually installing any required dependencies
 - symlinking (stowing) the dotfiles to the correct location
 
-This repo _may_ also be used in the nix configurations that are being worked on for [darwin]() and [home-manager]().
+This repo _may_ also be used in the nix configurations that are being worked on for [darwin](https://github.com/alunturner/nix-darwin-config) and [home-manager](https://github.com/alunturner/home-manager).
 
 The idea behind this is that I can maintain a single source of truth for the dotfiles (here) that can be used by other people who aren't on nix, or by me in situations where nix isn't an option. In all honesty I also think this might simplify neovim dependency management too, which I feel is quite fragile and I just want to always be pinned (handled using git submodules).
 
