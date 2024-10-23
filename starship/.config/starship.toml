@@ -1,15 +1,4 @@
-format = "$directory $git_branch\n$character"
+format = "[󰇥](yellow) $directory$git_branch$git_status\n$character";
 
 [directory]
-format = "[ $path]($style)"
 truncate_to_repo = false
-style = "blue"
-
-[git_branch]
-format = "[  $branch]($style)"
-style = "green"
-
-[character]
-format = "[$symbol](foreground) "
-success_symbol = "[󰇥](yellow)"
-error_symbol = "[󰇥](red)"
