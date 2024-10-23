@@ -1,14 +1,241 @@
--- SECTION: HEADER
+-- SECTION: INTRO
 -- This file is intentionally large to make it easier to maintain usability of
 -- the exact same repo between both 'stow' and nix dotfile use cases.
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.keymap.set({ "n", "v" }, " ", "<nop>", { silent = true })
 
--- SECTION: PLUGIN CONFIGURATION
-require("plugin_config.fzf-lua")
-require("plugin_config.nvim-lspconfig")
-require("plugin_config.other")
+-- SECTION: PLUGIN CONFIGURATION AND KEYBINDINGS
+-- PLUGIN: fzf
+local fzf = require("fzf-lua")
+local function configure_finder(title, opts)
+	return vim.tbl_deep_extend("keep", opts or {}, {
+		prompt = title .. "  ",
+		winopts = {
+			title = "┤ " .. title .. " ├",
+			title_pos = "center",
+		},
+	})
+end
+
+fzf.setup({
+	defaults = {
+		file_icons = false,
+		git_icons = false,
+	},
+	keymap = {
+		builtin = {
+			["<C-d>"] = "preview-page-down",
+			["<C-u>"] = "preview-page-up",
+		},
+		fzf = {
+			["ctrl-q"] = "select-all+accept",
+		},
+	},
+	fzf_opts = {
+		["--info"] = "default",
+		["--pointer"] = "",
+		["--marker"] = "",
+	},
+	fzf_colors = {
+		["fg"] = { "fg", { "Comment" } },
+		["hl"] = { "fg", { "Normal" } },
+		["fg+"] = { "fg", { "PmenuSel" } },
+		["bg+"] = { "bg", { "PmenuSel" } },
+		["gutter"] = "-1",
+		["hl+"] = { "fg", { "PmenuSel" }, "italic", "underline" },
+		["query"] = { "fg", { "Cursor" } },
+		["info"] = { "fg", { "Comment" } },
+		["border"] = { "fg", { "Normal" } },
+		["separator"] = { "fg", { "Comment" } },
+		["prompt"] = { "fg", { "Normal" } },
+		["pointer"] = { "fg", { "PmenuSel" } },
+		["marker"] = { "fg", { "Pmenu" } },
+		["header"] = { "fg", { "Normal" } },
+	},
+	files = configure_finder("Finder", { cwd_prompt = false }),
+	buffers = configure_finder("Buffers"),
+	grep = configure_finder(
+		"Ripgrep",
+		{ rg_opts = "--column --line-number --no-heading --color=never --smart-case --max-columns=4096 -e" }
+	),
+	diagnostics = configure_finder("Diagnostics", {
+		severity_limit = "error",
+		actions = {
+			["ctrl-g"] = function()
+				print("TODO hook up severity filter")
+			end,
+		},
+	}),
+	lsp = {
+		jump_to_single_result = true,
+		prompt_postfix = "  ",
+		symbols = configure_finder("Symbol"),
+	},
+	helptags = configure_finder("Help"),
+})
+
+vim.keymap.set("n", "<leader>f", fzf.files)
+vim.keymap.set("n", "<leader>s", fzf.grep_project)
+vim.keymap.set("n", "<leader>d", fzf.lsp_document_diagnostics)
+vim.keymap.set("n", "<leader>o", fzf.lsp_document_symbols)
+vim.keymap.set("n", "<leader>O", fzf.lsp_live_workspace_symbols)
+vim.keymap.set("n", "gr", fzf.lsp_references)
+vim.keymap.set("n", "gd", fzf.lsp_definitions)
+vim.keymap.set("n", "<leader>h", fzf.helptags)
+vim.keymap.set("n", "<leader><leader>", fzf.resume)
+
+-- PLUGIN: nvim-lspconfig
+require("lspconfig.ui.windows").default_options = { border = "rounded" }
+local lspconfig = require("lspconfig")
+
+-- See https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#configurations
+lspconfig.ts_ls.setup({})
+lspconfig.eslint.setup({
+	on_attach = function(_, bufnr)
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			buffer = bufnr,
+			command = "EslintFixAll",
+		})
+	end,
+})
+lspconfig.lua_ls.setup({
+	-- stop the lua lsp complaining about calling `vim`
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+		},
+	},
+})
+lspconfig.cssls.setup({})
+lspconfig.nixd.setup({})
+
+-- Use LspAttach to set mapping after the language server attaches
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		-- these could potentially be guarded, see :h lsp-config
+		local opts = { buffer = args.buf }
+		vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
+		vim.keymap.set("n", "<leader>c", vim.lsp.buf.code_action, opts)
+		vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts)
+	end,
+})
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+	border = "rounded",
+})
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+	border = "rounded",
+})
+
+-- PLUGIN: vim-tmux-navigator
+vim.g.tmux_navigator_no_wrap = 1
+
+-- PLUGIN: nvim-surround
+require("nvim-surround").setup()
+
+-- PLUGIN: conform.nvim
+require("conform").setup({
+	formatters_by_ft = {
+		javascript = { "prettierd" },
+		typescript = { "prettierd" },
+		javascriptreact = { "prettierd" },
+		typescriptreact = { "prettierd" },
+		css = { "prettierd" },
+		html = { "prettierd" },
+		json = { "prettierd" },
+		yaml = { "prettierd" },
+		markdown = { "prettierd" },
+		lua = { "stylua" },
+	},
+	format_on_save = {
+		lsp_fallback = true,
+		timeout_ms = 500,
+	},
+})
+
+-- PLUGIN: nvim-treesitter
+local parsers = { "comment", "css", "javascript", "lua", "typescript", "tsx", "vim", "vimdoc" }
+require("nvim-treesitter.configs").setup({
+	ensure_installed = parsers,
+	sync_install = false,
+	auto_install = false,
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	},
+})
+
+-- SECTION: AUTOCOMMANDS
+-- Start neovim with fzf open if no arguments passed
+vim.api.nvim_create_autocmd("VimEnter", {
+	pattern = "*",
+	callback = function()
+		if next(vim.fn.argv()) == nil then
+			require("fzf-lua").files()
+		end
+	end,
+})
+-- Don't show columns in these filetypes
+vim.api.nvim_create_autocmd("filetype", {
+	pattern = { "netrw", "qf", "help" },
+	callback = function()
+		vim.opt_local.colorcolumn = ""
+		vim.opt_local.cursorcolumn = false
+	end,
+})
+-- add abbreviations to these filetypes
+vim.api.nvim_create_autocmd("filetype", {
+	pattern = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
+	callback = function()
+		vim.cmd("iab <buffer> tbitd toBeInTheDocument()")
+		vim.cmd("iab <buffer> fna () => {}")
+	end,
+})
+-- What was previously in /after/ftplugin/netrw.lua
+vim.api.nvim_create_autocmd("filetype", {
+	pattern = "netrw",
+	callback = function()
+		-- https://vonheikemen.github.io/devlog/tools/using-netrw-vim-builtin-file-explorer/
+		vim.g.netrw_banner = 0
+		vim.g.netrw_winsize = 30
+		vim.g.netrw_altfile = 1 -- make <C-6> go back to prev file, not netrw
+		vim.g.netrw_localcopydircmd = "cp -r" -- allow whole folder copying
+		function NetrwWinBar()
+			return "%#Normal#  %t %*%=%#Normal# 󰋞 " .. vim.fn.getcwd() .. " "
+		end
+		vim.opt_local.winbar = "%{%v:lua.NetrwWinBar()%}"
+		vim.keymap.set("n", "h", "-", { remap = true, buffer = true })
+		vim.keymap.set("n", "l", "<cr>", { remap = true, buffer = true })
+		vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { remap = true, buffer = true })
+	end,
+})
+-- What was previously in /after/ftplugin/qf.lua
+vim.api.nvim_create_autocmd("filetype", {
+	pattern = "qf",
+	callback = function()
+		vim.keymap.set("n", "<C-n>", "<cmd>cnext | wincmd p<cr>", { remap = true, buffer = true })
+		vim.keymap.set("n", "<C-p>", "<cmd>cprev | wincmd p<cr>", { remap = true, buffer = true })
+		vim.keymap.set("n", "x", function()
+			-- use x to filter __highlighted__ entries from the qf list
+			local qf = vim.fn.getqflist({ idx = 0, items = 0 })
+			local current_idx = qf.idx
+
+			local new_qf_list = {}
+
+			for k, v in pairs(qf.items) do
+				if k ~= current_idx then
+					table.insert(new_qf_list, v)
+				end
+			end
+
+			vim.fn.setqflist(new_qf_list)
+		end, { remap = true, buffer = true })
+		vim.cmd("wincmd K")
+	end,
+})
 
 -- SECTION: KEYBINDS
 local ERROR = { severity = vim.diagnostic.severity.ERROR }
@@ -93,4 +320,3 @@ vim.opt.rulerformat = "%3(%=%{%v:lua.Ruler()%}%)"
 -- SECTION: INITIALISE
 vim.opt.background = "dark"
 vim.cmd("colorscheme pax")
-vim.cmd("au VimEnter * FzfLua files")
