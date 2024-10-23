@@ -1,13 +1,16 @@
+-- SECTION: HEADER
+-- This file is intentionally large to make it easier to maintain usability of
+-- the exact same repo between both 'stow' and nix dotfile use cases.
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.keymap.set({ "n", "v" }, " ", "<nop>", { silent = true })
 
--- PLUGIN CONFIGURATION
+-- SECTION: PLUGIN CONFIGURATION
 require("plugin_config.fzf-lua")
 require("plugin_config.nvim-lspconfig")
 require("plugin_config.other")
 
--- KEYBINDS
+-- SECTION: KEYBINDS
 local ERROR = { severity = vim.diagnostic.severity.ERROR }
 vim.keymap.set("n", "<Esc>", function()
 	local filetype = vim.bo.filetype
@@ -41,7 +44,7 @@ vim.api.nvim_create_user_command("Tsc", function()
 	vim.cmd("compiler tsc | echo 'Building TypeScript...' | silent make! --noEmit | echo 'TypeScript built.' | copen")
 end, {})
 
--- OPTIONS
+-- SECTION: OPTIONS
 vim.o.guicursor = vim.o.guicursor .. ",a:Cursor" -- append hl-Cursor to all modes
 vim.opt.breakindent = true
 vim.opt.clipboard = "unnamedplus"
@@ -87,7 +90,7 @@ function Ruler()
 end
 vim.opt.rulerformat = "%3(%=%{%v:lua.Ruler()%}%)"
 
--- INITIALISE
+-- SECTION: INITIALISE
 vim.opt.background = "dark"
 vim.cmd("colorscheme pax")
 vim.cmd("au VimEnter * FzfLua files")
