@@ -50,4 +50,6 @@ config.window_padding = {
 }
 config.send_composed_key_when_left_alt_is_pressed = true -- make opt+3 = # on Mac
 
+config.front_end = "WebGpu" -- required for proper nix rendering
+
 return config
